@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+.background-login{
+    background: #E9ECEF;
+}
+
+/* Style the outer container */
+.container {
+    width: 750px;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the login box */
+.login-box {
+    width: 642px;
+    height: 548px;
+    position: relative;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+/* Style the company name */
+.company-name {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    left: 176px;
+    top: 77px;
+    color: #212B36;
+    font-size: 30px;
+    font-family: Poppins;
+    font-weight: 700;
+}
+
+/* Style the form container */
+.form-container {
+    width: 546px;
+    position: absolute;
+    left: 48px;
+    top: 146px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 48px;
+}
+
+/* Style form elements */
+.form-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: Poppins;
+    gap: 16px;
+}
+
+/* Style input fields */
+input[type="text"],
+input[type="password"] {
+    width: 546px;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1.30px rgba(196, 196, 196, 0.50) solid;
+}
+
+/* Style the sign-in button */
+.sign-in-button {
+    width: 546px;
+    padding: 20px;
+    background: #FF9F43;
+    border-radius: 14px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Style the header */
+.header {
+    width: 100%;
+    height: 60px;
+    background: white;
+    border-bottom: 1px #DEE2E6 solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the logo */
+.logo img {
+        margin-left: 24px;
+        width: 136px;
+        height: 61px;
+}
+
+/* Style the content container */
+.content-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+}
+
+/* Style the user information container */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Style the user name and role */
+.user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+/* Style the user name */
+.user-name {
+    color: #1B2950;
+    font-size: 15px;
+    font-family: poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+/* Style the user role */
+.user-role {
+    color: #67748E;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+/* Style the arrow icon */
+.arrow-icon {
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+}
+
+.isi {
+    display: flex;
+    margin-top: 24px;
+}
+
+.sidebar {
+    width: 250px; /* Sesuaikan lebar sesuai kebutuhan Anda */
+    height: 40px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style the sidebar buttons */
+.sidebar-button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease; /* Efek transisi saat dihover */
+}
+
+/* Define background colors for each button */
+.button-1 {
+    background-color: #FE9F43; /* Warna latar belakang untuk Tombol 1 */
+    color: white;
+}
+
+.button-2 {
+    background-color: #E9ECEF; /* Warna latar belakang untuk Tombol 2 */
+}
+
+.button-3 {
+    background-color: #E9ECEF; /* Warna latar belakang untuk Tombol 3 */
+}
+
+.button-4 {
+    background-color: #E9ECEF; /* Warna latar belakang untuk Tombol 4 */
+}
+
+/* Hover effect on buttons */
+.sidebar-button:hover {
+    color: white;
+    background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
+}
+
+.content {
+    width: 80%;
+    display: flex;
+    margin-left: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content h2 {
+    color: #212B36;
+    font-family: poppins;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+}
+
+.content p {
+    color: #555;
+    font-family: poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.button-table {
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+
+.button-table img {
+    margin-right: 12px;
+}
+
+.button-barang {
+    display: flex;
+    width: 250px; /* Sesuaikan lebar sesuai kebutuhan Anda */
+    height: 40px;
+    padding: 12px;
+    background-color: #FE9F43; /* Warna latar belakang untuk Tombol 1 */
+    color: white;
+    margin-left: 200px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+
+}
+
+.tabel {
+    /*width: 1600px;*/
+    width: 100%;
+    margin-top: 24px;
+}
+
+.isi-deskripsi {
+    display: flex;
+    flex-direction: column;
+}
+
+.isi-kembali {
+    width: 230px;
+    margin-top: 24px;
+    margin-left: 24px;
+    padding: 8px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FE9F43;
+    color: white;
+    transition: background-color 0.3s ease; /* Efek transisi saat dihover */
+
+}
+
+.isi-judul{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* Container */
+.container-up {
+    width: 1519px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-up-akun {
+    width: 1519px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Form Container */
+.form-container-up {
+    display: flex;
+    width: 649px;
+    height: 846px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 24px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+}
+
+/* Form Sections */
+.form-section {
+    display: flex;
+    width: 552px;
+    height: 86px;
+    margin-bottom: 20px;
+}
+
+/* Form Fields */
+.form-field {
+    width: 552px;
+    height: 86px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.form-field label {
+    color: #212B36;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.form-field input {
+    width: 264px;
+    height: 48px;
+    background: white;
+    border-radius: 14px;
+    border: 1px rgba(196, 196, 196, 0.50) solid;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.form-container-akun {
+    display: flex;
+    width: 648px;
+    height: 500px;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-top: 20px;
+}
+
+.form-field-akun {
+    width: 552px;
+    height: 86px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.form-container-cetak {
+    display: flex;
+    width: 648px;
+    height: 400px;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-top: 20px;
+}
+
+.form-field-akun label{
+    color: #212B36;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.form-field-akun input{
+    width: 552px;
+    height: 48px;
+    background: white;
+    border-radius: 14px;
+    border: 1px rgba(196, 196, 196, 0.50) solid;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+/* Upload Section */
+.upload-section {
+    width: 552px;
+    height: 137px;
+    position: relative;
+    top: 490px;
+}
+
+.upload {
+    color: #212B36;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.upload label {
+    margin-bottom: 8px;
+}
+.upload input {
+    height: 100px;
+
+}
+
+/* Save Button */
+.save-button {
+    width: 552px;
+    height: 48px;
+    background: #FF9F43;
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 700;
+    margin-top: 68px;
+    border: none;
+}
+
+.buttonText{
+    text-align: center;
+    margin-top: 12px;
+}
+
+.validate-message{
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert{
+    width: 649px;
+}
+
+
