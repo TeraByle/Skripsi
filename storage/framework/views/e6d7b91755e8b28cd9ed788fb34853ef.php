@@ -13,6 +13,7 @@
                 <div class="login-box">
                     <div class="company-name">PT. CENTRAL UTAMA</div>
                     <div class="form-container">
+                        <form action="/admin/login" method="POST">
                         <?php echo csrf_field(); ?>
                         <div class="form-element">
                             <label for="username" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Username</label>
@@ -25,6 +26,7 @@
                         <div class="sign-in-button">
                             <a href="/produk">Sign in</a>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

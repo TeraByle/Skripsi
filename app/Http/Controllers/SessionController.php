@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
-    function index(){
-        return view("login/index");
+    public function index(){
+        return view("/barang/login");
     }
-    function login(Request $request){
+    public function login(Request $request){
         //proses validasi
         $request->validate([
             'username' => 'required',
@@ -24,5 +25,13 @@ class SessionController extends Controller
             'username' => $request->username,
             'password' => $request->password,
         ];
+
+        if(Auth::attempt($infologin)){
+            //jika otentikasi sukses
+            return 'sukses';
+        }else{
+            //jika otentikasi gagal
+            return 'gagal';
+        }
     }
 }

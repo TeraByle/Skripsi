@@ -58,6 +58,7 @@
     align-items: flex-start;
     font-family: Poppins;
     gap: 16px;
+    margin-bottom: 16px;
 }
 
 /* Style input fields */
@@ -81,6 +82,7 @@ input[type="password"] {
     font-family: Poppins;
     font-weight: 600;
     cursor: pointer;
+    margin-top: 48px;
 }
 
 /* Style the header */
@@ -522,7 +524,6 @@ input[type="password"] {
     display: flex;
     margin-top: 24px;
     margin-left: 14px;
-
     justify-content: center;
 }
 
