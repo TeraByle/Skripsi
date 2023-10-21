@@ -12,9 +12,18 @@ class produkController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('produk');
+        $search = $request->search;
+        $jumlahbaris = 4;
+        if(strlen($search)){
+            $data = Barang::where('KodeBarang', 'like', "%$search%")
+                        ->orWhere('NamaBarang', 'like', "%$search%")
+                        ->paginate($jumlahbaris);
+        }else{
+            $data = Barang::orderBy('KodeBarang', 'desc')->paginate($jumlahbaris);
+        }
+        return view('produk')->with('data', $data);
     }
 
     /**
@@ -85,7 +94,7 @@ class produkController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return 'HI' . $id;
     }
 
     /**
@@ -93,7 +102,8 @@ class produkController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Barang::where('BarangId',$id)->first();
+        return view('updateBarang')->with('data',$data);
     }
 
     /**
@@ -101,7 +111,44 @@ class produkController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'KodeBarang' => 'required',
+            'NamaBarang' => 'required',
+            'JenisBarang' => 'required',
+            'SatuanBarang' => 'required',
+            'KategoriBarang' => 'required',
+            'BrandBarang' => 'required',
+            'StokBarang' => 'required | numeric',
+            'TanggalBeli' => 'required',
+            'HargaBeli' => 'required | numeric',
+            'HargaJual' => 'required | numeric',
+
+        ],[
+            'KodeBarang.required'=>'Kode Barang wajib diisi',
+            'NamaBarang.required'=>'Nama Barang wajib diisi',
+            'JenisBarang.required'=>'Jenis Barang wajib diisi',
+            'SatuanBarang.required'=>'Satuan Barang wajib diisi',
+            'KategoriBarang.required'=>'Kategori Barang wajib diisi',
+            'BrandBarang.required'=>'Brand Barang wajib diisi',
+            'StokBarang.required'=>'Stok Barang wajib diisi',
+            'TanggalBeli.required'=>'Tanggal Beli wajib diisi',
+            'HargaBeli.required'=>'Harga Beli wajib diisi',
+            'HargaJual.required'=>'Harga Jual wajib diisi',
+        ]);
+        $data = [
+            'KodeBarang'=>$request->KodeBarang,
+            'NamaBarang'=>$request->NamaBarang,
+            'JenisBarang'=>$request->JenisBarang,
+            'SatuanBarang'=>$request->SatuanBarang,
+            'KategoriBarang'=>$request->KategoriBarang,
+            'BrandBarang'=>$request->BrandBarang,
+            'StokBarang'=>$request->StokBarang,
+            'TanggalBeli'=>$request->TanggalBeli,
+            'HargaBeli'=>$request->HargaBeli,
+            'HargaJual'=>$request->HargaJual,
+        ];
+        Barang::where('BarangId', $id)->update($data);
+        return redirect()->to('produk')->with('success', 'Data berhasil di ubah');
     }
 
     /**
@@ -109,6 +156,7 @@ class produkController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Barang::where('BarangId', $id)->delete();
+        return redirect()->to('produk')->with('success', 'Data berhasil di hapus');
     }
 }

@@ -37,8 +37,11 @@
                 <div class="button-table">
                     <img src="assets/images/Filter.png" alt="">
                     <div class="input-group">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary">Search</button>
+                        <form class="d-flex" action="{{url('/produk')}}" method="get">
+                            <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
+                            placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+                            <button type="submit" class="btn btn-outline-primary">Search</button>
+                        </form>
                     </div>
                     <button class="button-barang">
                         <a href="/create">+ Tambah Barang</a>
@@ -71,53 +74,37 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = $data->firstItem() ?>
+                            @foreach($data as $item)
+
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">{{$i}}</th>
                                 <td><img src="assets/images/PaluKambing.png" alt=""></td>
-                                <td>PP001</td>
-                                <td>Palu Kambing Hitam NASA Hammer Martil Gagang Besi 16 oz</td>
-                                <td>Palu Kambing Hitam</td>
-                                <td>Pcs</td>
-                                <td>Palu</td>
-                                <td>NASA</td>
-                                <td>30</td>
-                                <td>19 September 2023</td>
-                                <td>Rp 34.650</td>
-                                <td>Rp 40.000</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
+                                <td>{{$item->KodeBarang}}</td>
+                                <td>{{$item->NamaBarang}}</td>
+                                <td>{{$item->JenisBarang}}</td>
+                                <td>{{$item->SatuanBarang}}</td>
+                                <td>{{$item->KategoriBarang}}</td>
+                                <td>{{$item->BrandBarang}}</td>
+                                <td>{{$item->StokBarang}}</td>
+                                <td>{{$item->TanggalBeli}}</td>
+                                <td>{{$item->HargaBeli}}</td>
+                                <td>{{$item->HargaJual}}</td>
+                                <td><a href="{{url('updateBarang/'.$item->BarangId.'/edit')}}"><img src="assets/images/Edit.png" alt="edit"></a>
+                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('produk/'.$item->BarangId)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" name="submit">
+                                    <a href=""><img src="assets/images/Remove.png" alt="remove"></a>
+                                    </button>
+                                </form>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td><img src="assets/images/LakbanBening.png" alt=""></td>
-                                <td>BL001</td>
-                                <td>Lakban Bening BODHI 2 inch</td>
-                                <td>Lakban Bening</td>
-                                <td>Pcs</td>
-                                <td>Lakban</td>
-                                <td>Bodhi Tape</td>
-                                <td>235</td>
-                                <td>21 September 2023</td>
-                                <td>Rp 9.400</td>
-                                <td>Rp 15.000</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td><img src="assets/images/KainKanebo.png" alt=""></td>
-                                <td>OK001</td>
-                                <td>Kain Kanebo KENMASTER Synthetic cloth(Super Quality)</td>
-                                <td>Kanebo Synthetic</td>
-                                <td>Pcs</td>
-                                <td>Kanebo</td>
-                                <td>KENMASTER High Quality</td>
-                                <td>189</td>
-                                <td>23 September 2023</td>
-                                <td>Rp 20.000</td>
-                                <td>Rp 25.000</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
-                            </tr>
+                            <?php $i++?>
+                            @endforeach
                         </tbody>
                     </table>
+                    {{ $data-> withQueryString()->links()}}
                 </div>
             </div>
         </div>

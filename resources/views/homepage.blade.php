@@ -23,86 +23,112 @@
                 </div>
             </div>
         </div>
-        <div class="isi">
-            <div class="content">
-                <h2>List Nama Produk</h2>
-                <p>Cari produk yang Anda inginkan</p>
-                <div class="button-table">
-                    <div class="input-group">
+        <div class="isihome">
+        <div class="deskripsi">
+            <div class="contentkiri">
+                <h2>Tentang Central Utama</h2>
+                <p>Central Utama merupakan salah satu Toko Agen Material terlengkap di daerah Pademangan. Central Utama sudah berdiri sejak tahun 2005 dan sudah memiliki 3 cabang di daerah Pademangan. Tunggu apalagi, jangan ragu untuk beli kebutuhan Barang mu di Central Utama.</p>
+            </div>
+        </div>
+        <div class="searchhome">
+                    <div class="search">
                         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                         <button type="button" class="btn btn-outline-primary">Search</button>
                     </div>
                 </div>
-                <div class="tabel">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Gambar</th>
-                                <th scope="col">Kode</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Jenis</th>
-                                <th scope="col">Satuan</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Brand</th>
-                                <th scope="col">Stok</th>
-                                <th scope="col">Tanggal Beli</th>
-                                <th scope="col">Harga Beli</th>
-                                <th scope="col">Harga Jual</th>
-                                <th scope="col">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td><img src="assets/images/PaluKambing.png" alt=""></td>
-                                <td>PP001</td>
-                                <td>Palu Kambing Hitam NASA Hammer Martil Gagang Besi 16 oz</td>
-                                <td>Palu Kambing Hitam</td>
-                                <td>Pcs</td>
-                                <td>Palu</td>
-                                <td>NASA</td>
-                                <td>30</td>
-                                <td>19 September 2023</td>
-                                <td>Rp 34.650</td>
-                                <td>Rp 40.000</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td><img src="assets/images/LakbanBening.png" alt=""></td>
-                                <td>BL001</td>
-                                <td>Lakban Bening BODHI 2 inch</td>
-                                <td>Lakban Bening</td>
-                                <td>Pcs</td>
-                                <td>Lakban</td>
-                                <td>Bodhi Tape</td>
-                                <td>235</td>
-                                <td>21 September 2023</td>
-                                <td>Rp 9.400</td>
-                                <td>Rp 15.000</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td><img src="assets/images/KainKanebo.png" alt=""></td>
-                                <td>OK001</td>
-                                <td>Kain Kanebo KENMASTER Synthetic cloth(Super Quality)</td>
-                                <td>Kanebo Synthetic</td>
-                                <td>Pcs</td>
-                                <td>Kanebo</td>
-                                <td>KENMASTER High Quality</td>
-                                <td>189</td>
-                                <td>23 September 2023</td>
-                                <td>Rp 20.000</td>
-                                <td>Rp 25.000</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="contenthome">
+            <div class="row">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Palu Kambing Hitam NASA Hammer Martil Gagang Besi</h5>
+                            <p class="card-text">Category = Perlenglapan rumah</p>
+                            <p class="card-text">Brand = NASA</p>
+                            <p class="card-text">Harga = Rp 34.650</p>
+                            <p class="card-text">Jumlah Stok = 30 pcs</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Lakban Bening / Coklat BODHI 2 inch</h5>
+                            <p class="card-text">Category = Buku dan Alat Tulis</p>
+                            <p class="card-text">Brand = Bodhi Tape</p>
+                            <p class="card-text">Harga = Rp 9.400</p>
+                            <p class="card-text">Jumlah Stok = 235 pcs</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Kain Kanebo KENMASTER Synthetic cloth(Super Quality)</h5>
+                            <p class="card-text">Category = Perlenglapan rumah</p>
+                            <p class="card-text">Brand = NASA</p>
+                            <p class="card-text">Harga = Rp 34.650</p>
+                            <p class="card-text">Jumlah Stok = 30pcs</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Terpal Tenda Pelastik Biru Serbaguna A2 3x4 Meter Terpal</h5>
+                            <p class="card-text">Category = Otomotif</p>
+                            <p class="card-text">Brand = Kenmaster High Quality</p>
+                            <p class="card-text">Harga = Rp 20.000</p>
+                            <p class="card-text">Jumlah Stok = 189 pcs</p>
+                        </div>
+                    </div>
             </div>
         </div>
+        <div class="contenthome">
+            <div class="row">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Alat Tembak Lem Botol FREED Tebal Tembakan Sealent Kaca Orange</h5>
+                            <p class="card-text">Category = Perlengkapan rumah</p>
+                            <p class="card-text">Brand = Freed</p>
+                            <p class="card-text">Harga = Rp 32.670</p>
+                            <p class="card-text">Jumlah Stok = 372 pcs</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Refill Cutter KENKO A100 isi Ulang pisau kecil A 100 5 pcs</h5>
+                            <p class="card-text">Category = Buku dan Alat Tulis</p>
+                            <p class="card-text">Brand = Kenko A-100</p>
+                            <p class="card-text">Harga = Rp 5.500</p>
+                            <p class="card-text">Jumlah Stok = 87 pcs</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">BODY PELOR RAVELLI</h5>
+                            <p class="card-text">Category = Otomotif</p>
+                            <p class="card-text">Brand = Ravelli</p>
+                            <p class="card-text">Harga = Rp 49.000</p>
+                            <p class="card-text">Jumlah Stok = 96 pcs</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">POMPA SEPEDA CAMEL</h5>
+                            <p class="card-text">Category = Olahraga dan Outdoor</p>
+                            <p class="card-text">Brand = Camel</p>
+                            <p class="card-text">Harga = Rp 76.800</p>
+                            <p class="card-text">Jumlah Stok = 99 pcs</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+                <i class="fa fa-whatsapp my-float"></i>
+            </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>

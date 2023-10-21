@@ -61,7 +61,8 @@
                                 <td>jopar</td>
                                 <td>masbro</td>
                                 <td>Super Admin</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
+                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
@@ -69,7 +70,8 @@
                                 <td>hudai</td>
                                 <td>masako</td>
                                 <td>Admin</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
+                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
@@ -77,7 +79,8 @@
                                 <td>leomord</td>
                                 <td>masalah</td>
                                 <td>Admin</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
+                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                         </tbody>
                     </table>

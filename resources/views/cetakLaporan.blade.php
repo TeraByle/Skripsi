@@ -24,8 +24,12 @@
                 </div>
             </div>
         </div>
-        <div class="isi-deskripsi">
-            <button class="isi-kembali">Kembali</button>
+        <div class="sidebar">
+                <button class="sidebar-button button-1">Data Barang</button>
+                <button class="sidebar-button button-2">Transaksi Penjualan</button>
+                <button class="sidebar-button button-3">Laporan Keuangan</button>
+                <button class="sidebar-button button-4">Manajemen Akun</button>
+            </div>
             <div class="isi-judul">
                 <h2>Cetak Laporan</h2>
             </div>
@@ -49,7 +53,6 @@
                     </div>
                 </div>
             </div>
-        </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>

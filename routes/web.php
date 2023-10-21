@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\produkController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+route::get('/login', [SessiionController::class, 'index']);
 
 Route::get('/login', function () {
     return view('login');
@@ -21,11 +23,12 @@ Route::get('/login', function () {
 Route::get('/homepage', function () {
     return view('homepage');
 });
-
-Route::get('/produk', function () {
-    return view('produk');
-});
+//Route::resource('barang', produkController::class);
+Route::get('/produk', [produkController::class, 'index']);
 Route::post('/produk',[produkController::class,'store']);
+Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);
+Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
+Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
 
 Route::get('/create', function () {
     return view('inputBarang');
@@ -39,8 +42,8 @@ Route::get('/transaksi', function () {
     return view('transaksi');
 });
 
-Route::get('/laporan', function () {
-    return view('laporan');
+Route::get('/tambahTransaksi', function () {
+    return view('tambahTransaksi');
 });
 
 Route::get('/cetakLaporan', function () {
@@ -57,4 +60,8 @@ Route::get('/tambahAkun', function () {
 
 Route::get('/updateakun', function () {
     return view('updateAkun');
+});
+
+Route::get('/produkAdmin', function () {
+    return view('produkAdmin');
 });

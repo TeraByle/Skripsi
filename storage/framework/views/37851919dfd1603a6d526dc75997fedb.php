@@ -10,7 +10,7 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/Logo.png" alt="Logo">
+                <img src="assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">

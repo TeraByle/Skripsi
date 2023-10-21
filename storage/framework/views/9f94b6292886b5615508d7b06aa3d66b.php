@@ -40,19 +40,21 @@
                         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                         <button type="button" class="btn btn-outline-primary">Search</button>
                     </div>
+                    <button class="button-barang">
+                        <a href="/create">+ Tambah Transaksi</a>
+                    </button>
                 </div>
                 <div class="tabel">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Kode</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Jumlah</th>
-                                <th scope="col">Satuan</th>
-                                <th scope="col">Tanggal Beli</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Sisa Stok</th>
+                                <th scope="col">Kode Barang</th>
+                                <th scope="col">Nama Barang</th>
+                                <th scope="col">Kategori Barang</th>
+                                <th scope="col">Satuan Barang</th>
+                                <th scope="col">Jumlah Barang</th>
+                                <th scope="col">Harga Barang</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -61,34 +63,34 @@
                                 <th scope="row">1</th>
                                 <td>PP001</td>
                                 <td>Palu Kambing Hitam NASA Hammer Martil Gagang Besi 16 oz</td>
-                                <td>5</td>
+                                <td>Perlengkapan Rumah</td>
                                 <td>Pcs</td>
-                                <td>24 September 2023</td>
-                                <td>Rp 40.000</td>
-                                <td>15</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
+                                <td>20</td>
+                                <td>Rp 500.000</td>
+                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td>BL001</td>
-                                <td>Lakban Bening BODHI 2 inch</td>
-                                <td>10</td>
+                                <td>PP002</td>
+                                <td>Lakban Bening / Coklat BODHI 2 inch</td>
+                                <td>Buku dan Alat Tulis</td>
                                 <td>Pcs</td>
-                                <td>25 September 2023</td>
-                                <td>Rp 15.000</td>
-                                <td>225</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
+                                <td>15</td>
+                                <td>Rp 400.000</td>
+                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>OK001</td>
+                            <th scope="row">3</th>
+                                <td>PP003</td>
                                 <td>Kain Kanebo KENMASTER Synthetic cloth(Super Quality)</td>
-                                <td>15</td>
+                                <td>Otomotif</td>
                                 <td>Pcs</td>
-                                <td>28 September 2023</td>
-                                <td>Rp 25.000</td>
-                                <td>174</td>
-                                <td><img src="assets/images/LogOut.png" alt="logout"></td>
+                                <td>10</td>
+                                <td>Rp 300.000</td>
+                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                         </tbody>
                     </table>

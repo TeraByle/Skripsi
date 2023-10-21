@@ -48,9 +48,9 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Role</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Password</th>
+                                <th scope="col">Role</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -58,25 +58,25 @@
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Zhofar Putra</td>
-                                <td>zhofar.putra@gmail.com</td>
-                                <td>Admin</td>
-                                <td>putrazho</td>
+                                <td>jopar</td>
+                                <td>masbro</td>
+                                <td>Super Admin</td>
                                 <td><img src="assets/images/LogOut.png" alt="logout"></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
                                 <td>Ilham Huda</td>
-                                <td>ilham.huda@gmail.com</td>
+                                <td>hudai</td>
+                                <td>masako</td>
                                 <td>Admin</td>
-                                <td>hudailham</td>
                                 <td><img src="assets/images/LogOut.png" alt="logout"></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td>Suryo Pro</td>
-                                <td>suryo.pro@gmail.com</td>
-                                <td>Admin Gudang</td>
-                                <td>suryopro</td>
+                                <td>Leonardo</td>
+                                <td>leomord</td>
+                                <td>masalah</td>
+                                <td>Admin</td>
                                 <td><img src="assets/images/LogOut.png" alt="logout"></td>
                             </tr>
                         </tbody>
