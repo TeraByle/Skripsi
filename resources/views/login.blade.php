@@ -11,9 +11,9 @@
         <div class="background-login">
             <div class="container">
                 <div class="login-box">
-                    <div class="rotated-bg"></div>
-                    <div class="company-name">PT. CENTRA UTAMA</div>
+                    <div class="company-name">PT. CENTRAL UTAMA</div>
                     <div class="form-container">
+                        @csrf
                         <div class="form-element">
                             <label for="username" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Username</label>
                             <input type="text" id="username">

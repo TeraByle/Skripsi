@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-route::get('/login', [SessiionController::class, 'index']);
+route::get('/login', [SessionController::class, 'index']);
+route::post('/login', [SessionController::class, 'login']);
 
 Route::get('/login', function () {
     return view('login');
