@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-route::get('/sesi', [SessionController::class, 'index']);
-route::post('/sesi/login', [SessionController::class, 'login']);
+Route::get('/sesi', [SessionController::class, 'index']);
+Route::post('/sesi/login', [SessionController::class, 'login']);
 
 
 Route::get('/homepage', function () {
@@ -49,7 +49,7 @@ Route::get('/cetakLaporan', function () {
 });
 
 Route::get('/akun', function () {
-    return view('akun');
+    return view('admin/akun');
 });
 
 Route::get('/tambahAkun', function () {
