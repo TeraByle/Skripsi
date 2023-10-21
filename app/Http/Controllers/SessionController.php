@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class SessionController extends Controller
 {
     public function index(){
-        return view("/barang/login");
+        return view("/sesi/login");
     }
     public function login(Request $request){
         //proses validasi
