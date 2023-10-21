@@ -2,106 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 
-.background-login{
-    background: #E9ECEF;
-}
-
-/* Style the outer container */
-.container {
-    width: 750px;
-    height: 750px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Style the login box */
-.login-box {
-    width: 642px;
-    height: 548px;
-    position: relative;
-    background: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 16px;
-}
-
-/* Style the company name */
-.company-name {
-    font-family: 'Poppins', sans-serif;
-    position: absolute;
-    left: 176px;
-    top: 77px;
-    color: #212B36;
-    font-size: 30px;
-    font-family: Poppins;
-    font-weight: 700;
-}
-
-/* Style the form container */
-.form-container {
-    width: 546px;
-    position: absolute;
-    left: 48px;
-    top: 146px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 48px;
-}
-
-/* Style form elements */
-.form-element {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    font-family: Poppins;
-    gap: 16px;
-    margin-bottom: 16px;
-}
-
-/* Style input fields */
-input[type="text"],
-input[type="password"] {
-    width: 546px;
-    padding: 22px;
-    border-radius: 12px;
-    border: 1.30px rgba(196, 196, 196, 0.50) solid;
-}
-
-/* Style the sign-in button */
-.sign-in-button {
-    width: 546px;
-    padding: 20px;
-    background: #FF9F43;
-    border-radius: 14px;
-    text-align: center;
-    color: white;
-    font-size: 16px;
-    font-family: Poppins;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 48px;
-}
-
-/* Style the header */
-.header {
-    width: 100%;
-    height: 60px;
-    background: white;
-    border-bottom: 1px #DEE2E6 solid;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 /* Style the logo */
 .logo img {
         margin-left: 24px;
         width: 136px;
         height: 61px;
 }
+
+/* Style the content container */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15px;
+    }
 
 /* Style the content container */
 .content-header {
@@ -162,8 +76,8 @@ input[type="password"] {
 
 .sidebar {
     width: 250px; /* Sesuaikan lebar sesuai kebutuhan Anda */
-    height: 40px;
     padding: 12px;
+    margin-left: 12px;
     display: flex;
     flex-direction: column;
 }
@@ -249,7 +163,6 @@ input[type="password"] {
     align-items: center;
     justify-content: center;
     border: none;
-
 }
 
 .tabel {
@@ -295,9 +208,10 @@ input[type="password"] {
 }
 
 .container-up-akun {
-    width: 1519px;
+    height: 500px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 /* Form Container */
@@ -371,19 +285,6 @@ input[type="password"] {
     margin-right: 24px;
     margin-bottom: 24px;
     position: relative;
-}
-
-.form-container-cetak {
-    display: flex;
-    width: 648px;
-    height: 400px;
-    position: absolute;
-    align-items: center;
-    flex-direction: column;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 20px;
 }
 
 .form-field-akun label{
@@ -479,89 +380,4 @@ input[type="password"] {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding-top: 20px;
 }
-
-.isihome{
-    display: flex;
-    margin-top: 24px;
-    flex-direction: column;
-}
-
-.contentkiri{
-    display: flex;
-    flex-direction: column;
-    width: 616px;
-    text-align: center;
-    font-size: 14px;
-
-}
-
-.contentkiri h2{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-}
-
-.deskripsi{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 24px;
-}
-
-.searchhome{
-    display: flex;
-    height: 40px;
-    justify-content: center;
-}
-
-.search {
-    display: flex;
-    width: 750px;
-    height: 40px;
-    justify-content: center;
-}
-
-.contenthome {
-    display: flex;
-    margin-top: 24px;
-    margin-left: 14px;
-    justify-content: center;
-}
-
-.row {
-    display: flex;
-    height: 470px;
-    flex-wrap: nowrap;
-}
-
-.card{
-    display: flex;
-    width: 360px;
-    margin-right: 12px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.card img{
-    margin-top: 12px;
-}
-
-.float{
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:#25d366;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-    font-size:30px;
-	box-shadow: 2px 2px 3px #999;
-    z-index:100;
-}
-
-.my-float{
-	margin-top:16px;
-}
-
 

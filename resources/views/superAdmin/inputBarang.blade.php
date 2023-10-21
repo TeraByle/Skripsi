@@ -44,7 +44,6 @@
                 </div>
             <div class="container-up">
                 <div class="form-container-up">
-
                     <form action="{{url('/produk')}}" method="post">
                         @csrf
                         <!-- Section 1: Kode dan Nama Barang -->
