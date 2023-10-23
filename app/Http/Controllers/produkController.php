@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
-use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -13,6 +12,7 @@ class produkController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
+    //menampilkan semua data
     {
         $search = $request->search;
         $jumlahbaris = 4;
@@ -21,24 +21,27 @@ class produkController extends Controller
                         ->orWhere('NamaBarang', 'like', "%$search%")
                         ->paginate($jumlahbaris);
         }else{
-            $data = Barang::orderBy('KodeBarang', 'desc')->paginate($jumlahbaris);
+            $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
         }
-        return view('produk')->with('data', $data);
+        return view('superAdmin/produk')->with('data', $data);
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
+    //menampilkan form data baru
     {
-        return view('inputBarang');
+        return view('superAdmin/inputBarang');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
+    //memasukkan data baru ke database
     {
+    //mengeluarkan isian yang sudah dimasukkan
         Session::flash('KodeBarang',$request->KodeBarang);
         Session::flash('NamaBarang',$request->NamaBarang);
         Session::flash('JenisBarang',$request->JenisBarang);
@@ -50,6 +53,7 @@ class produkController extends Controller
         Session::flash('HargaJual',$request->HargaJual);
 
         $request->validate([
+        //validasi data yang harus dimasukkan
             'KodeBarang' => 'required',
             'NamaBarang' => 'required',
             'JenisBarang' => 'required',
@@ -62,6 +66,7 @@ class produkController extends Controller
             'HargaJual' => 'required | numeric',
 
         ],[
+        //notif jika ada kolom yang tidak diisi
             'KodeBarang.required'=>'Kode Barang wajib diisi',
             'NamaBarang.required'=>'Nama Barang wajib diisi',
             'JenisBarang.required'=>'Jenis Barang wajib diisi',
@@ -85,14 +90,16 @@ class produkController extends Controller
             'HargaBeli'=>$request->HargaBeli,
             'HargaJual'=>$request->HargaJual,
         ];
+        //jika barang sudah berhasil diinput maka akan balik ke halaman produk dan ada notif berhasil
         Barang::create($data);
-        return redirect()->to('produk')->with('success', 'Data berhasil ditambah');
+        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil ditambah');
     }
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
+    //menampilkan detail data
     {
         return 'HI' . $id;
     }
@@ -101,15 +108,17 @@ class produkController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
+    //menampilkan form untuk proses edit
     {
         $data = Barang::where('BarangId',$id)->first();
-        return view('updateBarang')->with('data',$data);
+        return view('superAdmin/updateBarang')->with('data',$data);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
+    //menyimpan update data
     {
         $request->validate([
             'KodeBarang' => 'required',
@@ -148,15 +157,16 @@ class produkController extends Controller
             'HargaJual'=>$request->HargaJual,
         ];
         Barang::where('BarangId', $id)->update($data);
-        return redirect()->to('produk')->with('success', 'Data berhasil di ubah');
+        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di ubah');
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
+    //penghapusan data
     {
         Barang::where('BarangId', $id)->delete();
-        return redirect()->to('produk')->with('success', 'Data berhasil di hapus');
+        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di hapus');
     }
 }

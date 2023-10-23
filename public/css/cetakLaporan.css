@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+/* Style the logo */
+.logo img {
+    margin-left: 24px;
+    width: 136px;
+    height: 61px;
+}
+
+/* Style the content container */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15px;
+}
+
+/* Style the user information container */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Style the user name and role */
+.user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+/* Style the user name */
+.user-name {
+    color: #1B2950;
+    font-size: 15px;
+    font-family: poppins;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+/* Style the user role */
+.user-role {
+    color: #67748E;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+/* Style the arrow icon */
+.arrow-icon {
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+}
+
+.isi {
+    display: flex;
+    margin-top: 12px;
+    margin-left: 12px;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 230px;
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style the sidebar buttons */
+.sidebar-button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease; /* Efek transisi saat dihover */
+}
+
+/* Define background colors for each button */
+.button-1 {
+    background-color: #E9ECEF; /* Warna latar belakang untuk Tombol 1 */
+}
+
+.button-2 {
+    background-color: #E9ECEF; /* Warna latar belakang untuk Tombol 2 */
+}
+
+.button-3 {
+    background-color: #FE9F43; /* Warna latar belakang untuk Tombol 3 */
+    color: white;
+}
+
+.button-4 {
+    background-color: #E9ECEF; /* Warna latar belakang untuk Tombol 4 */
+}
+
+/* Hover effect on buttons */
+.sidebar-button:hover {
+    color: white;
+    background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
+}
+
+.content {
+    width: 80%;
+    display: flex;
+    margin-left: 24px;
+    flex-direction: column;
+}
+
+.isi-judul{
+    display: flex;
+    width: 600px;
+    margin-left: 200px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.isi-judul h2{
+    display: flex;
+    color: #212B36;
+    font-family: poppins;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.container-cetak {
+    display: flex;
+    justify-content: center;
+}
+
+/* Container */
+.container-up-cetak {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-section {
+    display: flex;
+    width: 552px;
+    height: 86px;
+    margin-bottom: 20px;
+}
+
+.form-container-cetak {
+    display: flex;
+    width: 648px;
+    height: 400px;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-top: 20px;
+}
+
+.form-field-akun {
+    width: 552px;
+    height: 86px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.form-field-akun label{
+    color: #212B36;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.form-field-akun input{
+    width: 552px;
+    height: 48px;
+    background: white;
+    border-radius: 14px;
+    border: 1px rgba(196, 196, 196, 0.50) solid;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+/* Save Button */
+.save-button {
+    width: 552px;
+    height: 48px;
+    background: #FF9F43;
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 700;
+    margin-top: 68px;
+    border: none;
+}
+
+.buttonText{
+    text-align: center;
+    margin-top: 12px;
+}
