@@ -10,7 +10,7 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <img src="/assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">
@@ -19,7 +19,7 @@
                         <div class="user-role">Admin</div>
                     </div>
                     <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
+                        <img src="/assets/images/LogOut.png" alt="logout">
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                 <h2>Transaksi Barang</h2>
                 <p>Kelola Transaksi Barang Anda</p>
                 <div class="button-table">
-                    <img src="assets/images/Filter.png" alt="">
+                    <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
                         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                         <button type="button" class="btn btn-outline-primary">Search</button>

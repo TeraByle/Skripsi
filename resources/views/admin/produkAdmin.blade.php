@@ -42,7 +42,7 @@
                         </form>
                     </div>
                     <button class="button-barang">
-                        <a href="/create">+ Tambah Barang</a>
+                        <a href="{url('inputBarang/')}">+ Tambah Barang</a>
                     </button>
                 </div>
                 @if(Session::has('success'))
