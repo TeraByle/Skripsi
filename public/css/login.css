@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.background-login{
+    background: #E9ECEF;
+}
+
+/* Style the outer container */
+.container {
+    width: 750px;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the login box */
+.login-box {
+    width: 642px;
+    height: 548px;
+    position: relative;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+/* Style the company name */
+.company-name {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    left: 176px;
+    top: 77px;
+    color: #212B36;
+    font-size: 30px;
+    font-family: Poppins;
+    font-weight: 700;
+}
+
+/* Style the form container */
+.form-container {
+    width: 546px;
+    position: absolute;
+    left: 48px;
+    top: 146px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 48px;
+}
+
+/* Style form elements */
+.form-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: Poppins;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+/* Style input fields */
+input[type="text"],
+input[type="password"] {
+    width: 546px;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1.30px rgba(196, 196, 196, 0.50) solid;
+}
+
+/* Style the sign-in button */
+.sign-in-button {
+    width: 546px;
+    padding: 20px;
+    background: #FF9F43;
+    border-radius: 14px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 48px;
+}

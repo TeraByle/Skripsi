@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/sesi', [SessionController::class, 'index']);
 
 Route::get('/homepage', function () {
-    return view('homepage');
+    return view('/user/homepage');
 });
 //Route::resource('barang', produkController::class);
 Route::get('/produk', [produkController::class, 'index']);
@@ -35,7 +35,7 @@ Route::get('/updateBarang', function () {
 });
 
 Route::get('/transaksi', function () {
-    return view('transaksi');
+    return view('/superAdmin/transaksi');
 });
 
 Route::get('/tambahTransaksi', function () {
@@ -43,11 +43,11 @@ Route::get('/tambahTransaksi', function () {
 });
 
 Route::get('/cetakLaporan', function () {
-    return view('cetakLaporan');
+    return view('superAdmin/cetakLaporan');
 });
 
 Route::get('/akun', function () {
-    return view('admin/akun');
+    return view('superAdmin/akun');
 });
 
 Route::get('/tambahAkun', function () {
@@ -55,11 +55,11 @@ Route::get('/tambahAkun', function () {
 });
 
 Route::get('/updateakun', function () {
-    return view('updateAkun');
+    return view('/superAdmin/updateAkun');
 });
 
 Route::get('/produkAdmin', function () {
-    return view('produkAdmin');
+    return view('/admin/produkAdmin');
 });
 
 // Backend API
