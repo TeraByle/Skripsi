@@ -81,8 +81,6 @@ Route::prefix('admin')->group(function(){
 
 
 
-<<<<<<< HEAD
-=======
 Route::get('/cetakLaporan', function () {
     return view('superAdmin/cetakLaporan');
 });
@@ -112,4 +110,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request){
 Route::post('/login', [SessionController::class, 'login']);
 
 Route::get('/listBarang',[SessionController::class,'listBarang']);
->>>>>>> 77fb79102c84f98bf1a1f7212387824ae21d0bbf
