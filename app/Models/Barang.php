@@ -8,14 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     use HasFactory;
+
+    public function followers(){
+        return $this -> belongsToMany(Barang::class, 'BarangId');
+    }
+
     protected $fillable = [
+        'BarangId',
         'KodeBarang',
         'NamaBarang',
         'JenisBarang',
         'SatuanBarang',
         'KategoriBarang',
         'BrandBarang',
-        'HargaBarang',
         'StokBarang',
         'TanggalBeli',
         'HargaBeli',
