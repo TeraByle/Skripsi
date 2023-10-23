@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/sesi', [SessionController::class, 'index']);
-Route::post('/sesi/login', [SessionController::class, 'login']);
-
 
 Route::get('/homepage', function () {
     return view('/user/homepage');
@@ -83,3 +81,35 @@ Route::prefix('admin')->group(function(){
 
 
 
+<<<<<<< HEAD
+=======
+Route::get('/cetakLaporan', function () {
+    return view('superAdmin/cetakLaporan');
+});
+
+Route::get('/akun', function () {
+    return view('superAdmin/akun');
+});
+
+Route::get('/tambahAkun', function () {
+    return view('tambahAkun');
+});
+
+Route::get('/updateakun', function () {
+    return view('/superAdmin/updateAkun');
+});
+
+Route::get('/produkAdmin', function () {
+    return view('/admin/produkAdmin');
+});
+
+// Backend API
+
+Route::middleware('auth:api')->get('/user', function (Request $request){
+    return $request->user();
+});
+
+Route::post('/login', [SessionController::class, 'login']);
+
+Route::get('/listBarang',[SessionController::class,'listBarang']);
+>>>>>>> 77fb79102c84f98bf1a1f7212387824ae21d0bbf

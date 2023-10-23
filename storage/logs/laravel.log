@@ -5390,6 +5390,7 @@ Did you mean this?
 #47 C:\\xampp\\htdocs\\Skripsi\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 C:\\xampp\\htdocs\\Skripsi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\xampp\\\\htdocs...')
 #49 {main}
+<<<<<<< HEAD
 "} 
 [2023-10-21 09:17:24] local.ERROR: View [produk] not found. {"exception":"[object] (InvalidArgumentException(code: 0): View [produk] not found. at C:\\xampp\\htdocs\\Skripsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php:137)
 [stacktrace]
@@ -7554,3 +7555,6 @@ Did you mean this?
 #47 C:\\xampp\\htdocs\\Skripsi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\xampp\\\\htdocs...')
 #48 {main}
 "} 
+=======
+"} 
+>>>>>>> 77fb79102c84f98bf1a1f7212387824ae21d0bbf

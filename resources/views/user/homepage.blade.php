@@ -10,12 +10,12 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <img src="/assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">
                     <div class="user-details">
-                        <div class="user-name">Login</div>
+                        <div class="user-name"><a href="/user/login" style="text-decoration: none;color: black;">Login</a></div>
                     </div>
                     <div class="arrow-icon">
                         <img src="assets/images/LogOut.png" alt="logout">
