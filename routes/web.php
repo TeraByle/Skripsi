@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/sesi', [SessionController::class, 'index']);
-Route::post('/sesi/login', [SessionController::class, 'login']);
-
 
 Route::get('/homepage', function () {
     return view('homepage');
@@ -63,3 +61,13 @@ Route::get('/updateakun', function () {
 Route::get('/produkAdmin', function () {
     return view('produkAdmin');
 });
+
+// Backend API
+
+Route::middleware('auth:api')->get('/user', function (Request $request){
+    return $request->user();
+});
+
+Route::post('/login', [SessionController::class, 'login']);
+
+Route::get('/listBarang',[SessionController::class,'listBarang']);
