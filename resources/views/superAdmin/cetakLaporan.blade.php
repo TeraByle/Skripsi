@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cetak Laporan</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/css/cetakLaporan.css">
     </head>
     <body>
         <div class="header">
@@ -24,6 +24,7 @@
                 </div>
             </div>
         </div>
+    <div class="isi">
         <div class="sidebar">
                 <button class="sidebar-button button-1">Data Barang</button>
                 <button class="sidebar-button button-2">Transaksi Penjualan</button>
@@ -32,9 +33,8 @@
             </div>
             <div class="isi-judul">
                 <h2>Cetak Laporan</h2>
-            </div>
-            <div class="container-up-akun">
-                <div class="form-container-cetak">
+            <div class="container-cetak">
+            <div class="form-container-cetak">
                     <!-- Section 1: Kode dan Nama Barang -->
                     <div class="form-section">
                         <div class="form-field-akun">
@@ -53,6 +53,8 @@
                     </div>
                 </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        </div>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>
