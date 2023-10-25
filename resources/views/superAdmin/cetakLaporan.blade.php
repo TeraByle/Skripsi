@@ -10,7 +10,7 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <img src="/assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">
@@ -19,17 +19,17 @@
                         <div class="user-role">Admin</div>
                     </div>
                     <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
+                        <img src="/assets/images/LogOut.png" alt="logout">
                     </div>
                 </div>
             </div>
         </div>
     <div class="isi">
         <div class="sidebar">
-                <button class="sidebar-button button-1">Data Barang</button>
-                <button class="sidebar-button button-2">Transaksi Penjualan</button>
-                <button class="sidebar-button button-3">Laporan Keuangan</button>
-                <button class="sidebar-button button-4">Manajemen Akun</button>
+            <button class="sidebar-button button-1"><a href="/superAdmin/produk" style="text-decoration: none;color: black;">Data Barang</a></button>
+            <button class="sidebar-button button-2"><a href="/superAdmin/transaksi" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
+            <button class="sidebar-button button-3"><a href="/superAdmin/cetakLaporan" style="text-decoration: none;color: white;">Laporan Keuangan</a></button>
+            <button class="sidebar-button button-4"><a href="/superAdmin/akun" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
             </div>
             <div class="isi-judul">
                 <h2>Cetak Laporan</h2>

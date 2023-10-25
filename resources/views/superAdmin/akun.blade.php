@@ -10,7 +10,7 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <img src="/assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">
@@ -19,23 +19,23 @@
                         <div class="user-role">Admin</div>
                     </div>
                     <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
+                        <img src="/assets/images/LogOut.png" alt="logout">
                     </div>
                 </div>
             </div>
         </div>
         <div class="isi">
             <div class="sidebar">
-                <button class="sidebar-button button-1">Data Barang</button>
-                <button class="sidebar-button button-2">Transaksi Penjualan</button>
-                <button class="sidebar-button button-3">Laporan Keuangan</button>
-                <button class="sidebar-button button-4">Manajemen Akun</button>
+                <button class="sidebar-button button-1"><a href="/superAdmin/produk" style="text-decoration: none;color: black;">Data Barang</button>
+                <button class="sidebar-button button-2"><a href="/superAdmin/transaksi" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
+                <button class="sidebar-button button-3"><a href="/superAdmin/cetakLaporan" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
+                <button class="sidebar-button button-4"><a href="/superAdmin/akun" style="text-decoration: none;color: white;">Manajemen Akun</a></button>
             </div>
             <div class="content">
                 <h2>Manajemen Akun</h2>
                 <p>Kelola Manajemen Akun Anda</p>
                 <div class="button-table">
-                    <img src="assets/images/Filter.png" alt="">
+                    <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
                         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                         <button type="button" class="btn btn-outline-primary">Search</button>
@@ -61,8 +61,8 @@
                                 <td>jopar</td>
                                 <td>masbro</td>
                                 <td>Super Admin</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
+                                <td><img src="/assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="/assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
@@ -70,8 +70,8 @@
                                 <td>hudai</td>
                                 <td>masako</td>
                                 <td>Admin</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
+                                <td><img src="/assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="/assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
@@ -79,8 +79,8 @@
                                 <td>leomord</td>
                                 <td>masalah</td>
                                 <td>Admin</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
+                                <td><img src="/assets/images/Edit.png" alt="Edit"></td>
+                                <td><img src="/assets/images/Remove.png" alt="Remove"></td>
                             </tr>
                         </tbody>
                     </table>

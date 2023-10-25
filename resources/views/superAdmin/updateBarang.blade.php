@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Update Barang</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/transaksi.css">
     </head>
     <body>
         <div class="header">
@@ -26,9 +26,7 @@
         </div>
         <div class="isi-deskripsi">
             <button class="isi-kembali">
-                <a href="/superAdmin/produk">
-                    Kembali</button>
-                </a>
+                <a href="/superAdmin/produk"style="text-decoration: none;color: white;">Kembali</button></a>
             <div class="isi-judul">
                 <h2>Update Data Barang</h2>
             </div>

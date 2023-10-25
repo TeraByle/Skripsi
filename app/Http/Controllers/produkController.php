@@ -17,8 +17,10 @@ class produkController extends Controller
         $search = $request->search;
         $jumlahbaris = 4;
         if(strlen($search)){
-            $data = Barang::where('KodeBarang', 'like', "%$search%")
-                        ->orWhere('NamaBarang', 'like', "%$search%")
+            $data = Barang::where('NamaBarang', 'like', "%$search%")
+                        ->orWhere('JenisBarang', 'like', "%$search%")
+                        ->orWhere('KategoriBarang', 'like', "%$search%")
+                        ->orWhere('BrandBarang', 'like', "%$search%")
                         ->paginate($jumlahbaris);
         }else{
             $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);

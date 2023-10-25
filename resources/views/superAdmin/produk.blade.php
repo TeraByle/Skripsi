@@ -37,7 +37,7 @@
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                        <form class="d-flex" action="{{url('/produk')}}" method="get">
+                        <form class="d-flex" action="{{url('superAdmin/produk')}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
                             placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <button type="submit" class="btn btn-outline-primary">Search</button>
@@ -90,7 +90,7 @@
                                 <td>{{$item->HargaBeli}}</td>
                                 <td>{{$item->HargaJual}}</td>
                                 <td><a href="{{url('superAdmin/updateBarang/'.$item->BarangId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
-                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('produk/'.$item->BarangId)}}" method="POST">
+                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->BarangId)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" name="submit">

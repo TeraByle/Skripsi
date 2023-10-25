@@ -26,10 +26,10 @@
         </div>
         <div class="isi">
             <div class="sidebar">
-                <button class="sidebar-button button-1">Data Barang</button>
-                <button class="sidebar-button button-2">Transaksi Penjualan</button>
-                <button class="sidebar-button button-3">Laporan Keuangan</button>
-                <button class="sidebar-button button-4">Manajemen Akun</button>
+                <button class="sidebar-button button-1"><a href="/superAdmin/produk" style="text-decoration: none;color: black;">Data Barang</a></button>
+                <button class="sidebar-button button-2"><a href="/superAdmin/transaksi" style="text-decoration: none;color: white;">Transaksi Penjualan</a></button>
+                <button class="sidebar-button button-3"><a href="/superAdmin/cetakLaporan" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
+                <button class="sidebar-button button-4"><a href="/superAdmin/akun" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
             </div>
             <div class="content">
                 <h2>Transaksi Barang</h2>
@@ -37,13 +37,23 @@
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary">Search</button>
+                    <form class="d-flex" action="{{url('superAdmin/transaksi')}}" method="get">
+                            <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
+                            placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+                            <button type="submit" class="btn btn-outline-primary">Search</button>
+                        </form>
                     </div>
                     <button class="button-barang">
-                        <a href="/create">+ Tambah Transaksi</a>
+                        <a href="tambahTransaksi/" style="text-decoration: none;color: white;">+ Tambah Transaksi</a>
                     </button>
                 </div>
+                @if(Session::has('success'))
+                    <div class="pt-3">
+                        <div class="alert alert-success" style="width: 1230px;">
+                            {{Session::get('success')}}
+                        </div>
+                    </div>
+                @endif
                 <div class="tabel">
                     <table class="table">
                         <thead>
@@ -59,41 +69,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = $data->firstItem() ?>
+                            @foreach($data as $item)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>PP001</td>
-                                <td>Palu Kambing Hitam NASA Hammer Martil Gagang Besi 16 oz</td>
-                                <td>Perlengkapan Rumah</td>
-                                <td>Pcs</td>
-                                <td>20</td>
-                                <td>Rp 500.000</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$item->KodeBarang}}</td>
+                                <td>{{$item->NamaBarang}}</td>
+                                <td>{{$item->KategoriBarang}}</td>
+                                <td>{{$item->SatuanBarang}}</td>
+                                <td>{{$item->JumlahBarang}}</td>
+                                <td>{{$item->HargaBarang}}</td>
+                                <td><a href="{{url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
+                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->TransaksiId)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" name="submit">
+                                    <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                                    </button>
+                                </form>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>PP002</td>
-                                <td>Lakban Bening / Coklat BODHI 2 inch</td>
-                                <td>Buku dan Alat Tulis</td>
-                                <td>Pcs</td>
-                                <td>15</td>
-                                <td>Rp 400.000</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                                <td>PP003</td>
-                                <td>Kain Kanebo KENMASTER Synthetic cloth(Super Quality)</td>
-                                <td>Otomotif</td>
-                                <td>Pcs</td>
-                                <td>10</td>
-                                <td>Rp 300.000</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
-                            </tr>
+                        <?php $i++?>
+                        @endforeach
                         </tbody>
                     </table>
+                    {{ $data-> withQueryString()->links()}}
                 </div>
             </div>
         </div>

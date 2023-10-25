@@ -25,64 +25,55 @@
             </div>
         </div>
         <div class="isi-deskripsi">
-            <button class="isi-kembali">
-                <a href="/transaksi" style="text-decoration: none;color: white;">Kembali</a></button>
-            @if($errors->any())
-            <div class="validate-message">
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $item)
-                            <li>{{$item}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            @endif
+            <button class="isi-kembali"><a href="/superAdmin/produk" style="text-decoration: none;color: white;">Kembali</button></a>
             <div class="isi-judul">
-                <h2>Tambah Transaksi Baru</h2>
+                <h2>Edit Transaksi Barang</h2>
             </div>
             <div class="container-transaksi1">
                 <div class="form-container-transaksi2">
-                    <form action="{{url('superAdmin/transaksi')}}" method="post">
-                    @csrf
+                <form action="{{url('superAdmin/updateTransaksi/'.$data->TransaksiId)}}" method="post">
+                        @csrf
+                        @method('PUT')
                         <!-- Section 1: Kode dan Nama Barang -->
                         <div class="form-section">
                             <div class="form-field">
-                                <label for="brand">Kode Barang</label>
-                                <input type="text" id="kode" name="KodeBarang" value="{{Session::get('KodeBarang')}}">
+                                <label for="brand">Update Kode Barang</label>
+                                <input type="text" id="kode" name="KodeBarang" value="{{$data->KodeBarang}}">
                             </div>
                             <div class="form-field">
-                                <label for="category">Nama Barang</label>
-                                <input type="text" id="nama" name="NamaBarang" value="{{Session::get('NamaBarang')}}">
+                                <label for="category">Update Nama Barang</label>
+                                <input type="text" id="nama" name="NamaBarang" value="{{$data->NamaBarang}}">
                             </div>
                         </div>
+
                         <!-- Section 2: Jenis dan Satuan Barang -->
                         <div class="form-section">
                             <div class="form-field">
-                                <label for="name">kategori Barang</label>
-                                <input type="text" id="kategori" name="KategoriBarang" value="{{Session::get('KategoriBarang')}}">
+                                <label for="name">Update kategori Barang</label>
+                                <input type="text" id="kategori" name="KategoriBarang" value="{{$data->KategoriBarang}}">
                             </div>
                             <div class="form-field">
-                                <label for="code">Satuan Barang</label>
+                                <label for="code">Update Satuan Barang</label>
                                 <input type="text" id="satuan" name="SatuanBarang" value="{{Session::get('SatuanBarang')}}">
                             </div>
                         </div>
+
                         <!-- Section 3: Kategori dan Brand Barang -->
                         <div class="form-section">
                             <div class="form-field">
-                                <label for="type">Jumlah Barang</label>
-                                <input type="text" id="jumlah" name="JumlahBarang" value="{{Session::get('JumlahBarang')}}">
+                                <label for="type">Update Jumlah Barang</label>
+                                <input type="text" id="jumlah" name="JumlahBarang" value="{{$data->JumlahBarang}}">
                             </div>
                             <div class="form-field">
-                                <label for="unit">Harga Barang</label>
-                                <input type="text" id="harga" name="HargaBarang" value="{{Session::get('HargaBarang')}}">
+                                <label for="unit">Update Harga Barang</label>
+                                <input type="text" id="harga" name="HargaBarang" value="{{$data->HargaBarang}}">
                             </div>
                         </div>
+
                         <!-- Section 4: Simpan Button -->
                         <div class="form-section">
                             <button type="submit" name="submit" class="save-button">Simpan</button>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <img src="/assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">
@@ -19,14 +19,14 @@
                         <div class="user-role">Admin</div>
                     </div>
                     <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
+                        <img src="/assets/images/LogOut.png" alt="logout">
                     </div>
                 </div>
             </div>
         </div>
         <div class="isi-deskripsi">
             <button class="isi-kembali">
-                <a href="/produk">Kembali</a>
+                <a href="/produk" style="text-decoration: none;color: white;">Kembali</a>
             </button>
             @if($errors->any())
             <div class="validate-message">

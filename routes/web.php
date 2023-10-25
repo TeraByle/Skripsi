@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\produkController;
+use App\Http\Controllers\transaksiController;
+use App\Models\transaksi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +21,7 @@ Route::get('/sesi', [SessionController::class, 'index']);
 Route::get('/homepage', function () {
     return view('/user/homepage');
 });
+
 //Route::resource('barang', produkController::class);
 Route::prefix('superAdmin')->group(function(){
 
@@ -29,13 +32,12 @@ Route::prefix('superAdmin')->group(function(){
     Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
     Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
 
-    Route::get('/transaksi', function () {
-        return view('/superAdmin/transaksi');
-    });
-
-    Route::get('/tambahTransaksi', function () {
-        return view('tambahTransaksi');
-    });
+    Route::get('/transaksi', [transaksiController::class, 'index']);
+    Route::post('/transaksi',[transaksiController::class,'store']);
+    Route::get('/tambahTransaksi', [transaksiController::class, 'create']);
+    Route::get('/updateTransaksi/{TransaksiId}/edit', [transaksiController::class, 'edit']);
+    Route::put('/updateTransaksi/{TransaksiId}', [transaksiController::class, 'update']);
+    Route::delete('/transaksi/{TransaksiId}',[transaksiController::class,'destroy']);
 
     Route::get('/cetakLaporan', function () {
         return view('superAdmin/cetakLaporan');
@@ -81,35 +83,3 @@ Route::prefix('admin')->group(function(){
 
 
 
-<<<<<<< HEAD
-=======
-Route::get('/cetakLaporan', function () {
-    return view('superAdmin/cetakLaporan');
-});
-
-Route::get('/akun', function () {
-    return view('superAdmin/akun');
-});
-
-Route::get('/tambahAkun', function () {
-    return view('tambahAkun');
-});
-
-Route::get('/updateakun', function () {
-    return view('/superAdmin/updateAkun');
-});
-
-Route::get('/produkAdmin', function () {
-    return view('/admin/produkAdmin');
-});
-
-// Backend API
-
-Route::middleware('auth:api')->get('/user', function (Request $request){
-    return $request->user();
-});
-
-Route::post('/login', [SessionController::class, 'login']);
-
-Route::get('/listBarang',[SessionController::class,'listBarang']);
->>>>>>> 77fb79102c84f98bf1a1f7212387824ae21d0bbf

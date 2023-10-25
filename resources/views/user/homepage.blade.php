@@ -15,7 +15,7 @@
             <div class="content-header">
                 <div class="user-info">
                     <div class="user-details">
-                        <div class="user-name"><a href="/user/login" style="text-decoration: none;color: black;">Login</a></div>
+                        <div class="user-name"><a href="/sesi/login" style="text-decoration: none;color: black;">Login</a></div>
                     </div>
                     <div class="arrow-icon">
                         <img src="assets/images/LogOut.png" alt="logout">
@@ -126,7 +126,7 @@
         </div>
     </div>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-            <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+            <a href="https://api.whatsapp.com/send?phone=6281298587769" class="float" target="_blank">
                 <i class="fa fa-whatsapp my-float"></i>
             </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
