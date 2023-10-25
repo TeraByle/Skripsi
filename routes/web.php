@@ -81,28 +81,6 @@ Route::prefix('admin')->group(function(){
     });
 });
 
-
-
-Route::get('/cetakLaporan', function () {
-    return view('superAdmin/cetakLaporan');
-});
-
-Route::get('/akun', function () {
-    return view('superAdmin/akun');
-});
-
-Route::get('/tambahAkun', function () {
-    return view('tambahAkun');
-});
-
-Route::get('/updateakun', function () {
-    return view('/superAdmin/updateAkun');
-});
-
-Route::get('/produkAdmin', function () {
-    return view('/admin/produkAdmin');
-});
-
 // Backend API
 
 Route::middleware('auth:api')->get('/user', function (Request $request){
