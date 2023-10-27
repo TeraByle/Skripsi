@@ -54,6 +54,13 @@
                         </div>
                     </div>
                 @endif
+                @if(Session::has('failed'))
+                    <div class="pt-3">
+                        <div class="alert alert-danger">
+                            {{Session::get('failed')}}
+                        </div>
+                    </div>
+                    @endif
                 <div class="tabel">
                     <table class="table">
                         <thead>
@@ -78,7 +85,7 @@
                                 <td>{{$item->KategoriBarang}}</td>
                                 <td>{{$item->SatuanBarang}}</td>
                                 <td>{{$item->JumlahBarang}}</td>
-                                <td>{{$item->HargaBarang}}</td>
+                                <td>Rp {{$item->HargaBarang}}</td>
                                 <td><a href="{{url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
                                 <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->TransaksiId)}}" method="POST">
                                     @csrf

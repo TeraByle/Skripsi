@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Session;
 
 class produkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     //menampilkan semua data
     {
@@ -26,6 +23,22 @@ class produkController extends Controller
             $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
         }
         return view('superAdmin/produk')->with('data', $data);
+    }
+
+    public function home_search(Request $request)
+    //menampilkan semua data
+    {
+        $search = $request->search;
+        $jumlahbaris = 4;
+        if(strlen($search)){
+            $data = Barang::where('NamaBarang', 'like', "%$search%")
+                        ->orWhere('KategoriBarang', 'like', "%$search%")
+                        ->orWhere('BrandBarang', 'like', "%$search%")
+                        ->paginate($jumlahbaris);
+        }else{
+            $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
+        }
+        return view('user/homepage')->with('data', $data);
     }
 
     /**

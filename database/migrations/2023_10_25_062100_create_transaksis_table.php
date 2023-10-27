@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->bigIncrements('TransaksiId');
-            $table->string('KodeBarang');
-            $table->string('NamaBarang');
-            $table->string('KategoriBarang');
-            $table->string('SatuanBarang');
+            $table->unsignedBigInteger('BarangId');
+            $table->unsignedBigInteger('UserId');
+//          $table->string('KodeBarang');
+//          $table->string('NamaBarang');
+//          $table->string('KategoriBarang');
+//          $table->string('SatuanBarang');
             $table->integer('JumlahBarang');
             $table->integer('HargaBarang');
         });

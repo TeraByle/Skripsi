@@ -31,51 +31,59 @@
             </div>
         </div>
         <div class="searchhome">
-                    <div class="search">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary">Search</button>
-                    </div>
+            <form class="search" action="/" method="GET">
+                <input type="search" name="search" class="form-control rounded"
+                    placeholder="Barang apa yang ingin anda cari?" aria-label="Search" aria-describedby="search-addon"/>
+                    <button type="submit" class="btn btn-outline-primary">Search</button>
+            </form>
                 </div>
+                @if(Session::has('no-results'))
+                    <div class="pt-3">
+                        <div class="alert alert-danger">
+                            {{Session::get('no-results')}}
+                        </div>
+                    </div>
+                @endif
         <div class="contenthome">
             <div class="row">
                     <div class="card">
-                        <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+                        <img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">Palu Kambing Hitam NASA Hammer Martil Gagang Besi</h5>
-                            <p class="card-text">Category = Perlenglapan rumah</p>
-                            <p class="card-text">Brand = NASA</p>
-                            <p class="card-text">Harga = Rp 34.650</p>
-                            <p class="card-text">Jumlah Stok = 30 pcs</p>
+                            <h5 class="card-title">Lakban Bening / Coklat BODHI 2 inch</h5>
+                            <p class="card-text">Category : Buku dan Alat Tulis</p>
+                            <p class="card-text">Brand : Bodhi Tape</p>
+                            <p class="card-text">Harga : Rp 9.400</p>
+                            <p class="card-text">Jumlah Stok : 235 pcs</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Lakban Bening / Coklat BODHI 2 inch</h5>
-                            <p class="card-text">Category = Buku dan Alat Tulis</p>
-                            <p class="card-text">Brand = Bodhi Tape</p>
-                            <p class="card-text">Harga = Rp 9.400</p>
-                            <p class="card-text">Jumlah Stok = 235 pcs</p>
+                            <p class="card-text">Category : Buku dan Alat Tulis</p>
+                            <p class="card-text">Brand : Bodhi Tape</p>
+                            <p class="card-text">Harga : Rp 9.400</p>
+                            <p class="card-text">Jumlah Stok : 235 pcs</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Kain Kanebo KENMASTER Synthetic cloth(Super Quality)</h5>
-                            <p class="card-text">Category = Perlenglapan rumah</p>
-                            <p class="card-text">Brand = NASA</p>
-                            <p class="card-text">Harga = Rp 34.650</p>
-                            <p class="card-text">Jumlah Stok = 30pcs</p>
+                            <p class="card-text">Category : Perlenglapan rumah</p>
+                            <p class="card-text">Brand : NASA</p>
+                            <p class="card-text">Harga : Rp 34.650</p>
+                            <p class="card-text">Jumlah Stok : 30pcs</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Terpal Tenda Pelastik Biru Serbaguna A2 3x4 Meter Terpal</h5>
-                            <p class="card-text">Category = Otomotif</p>
-                            <p class="card-text">Brand = Kenmaster High Quality</p>
-                            <p class="card-text">Harga = Rp 20.000</p>
-                            <p class="card-text">Jumlah Stok = 189 pcs</p>
+                            <p class="card-text">Category : Otomotif</p>
+                            <p class="card-text">Brand : Kenmaster High Quality</p>
+                            <p class="card-text">Harga : Rp 20.000</p>
+                            <p class="card-text">Jumlah Stok : 189 pcs</p>
                         </div>
                     </div>
             </div>
@@ -85,41 +93,41 @@
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">Alat Tembak Lem Botol FREED Tebal Tembakan Sealent Kaca Orange</h5>
-                            <p class="card-text">Category = Perlengkapan rumah</p>
-                            <p class="card-text">Brand = Freed</p>
-                            <p class="card-text">Harga = Rp 32.670</p>
-                            <p class="card-text">Jumlah Stok = 372 pcs</p>
+                            <h5 class="card-title">Alat Tembak Lem Botol FREED Tebal Tembakan Sealent Kaca</h5>
+                            <p class="card-text">Category : Perlengkapan rumah</p>
+                            <p class="card-text">Brand : Freed</p>
+                            <p class="card-text">Harga : Rp 32.670</p>
+                            <p class="card-text">Jumlah Stok : 372 pcs</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Refill Cutter KENKO A100 isi Ulang pisau kecil A 100 5 pcs</h5>
-                            <p class="card-text">Category = Buku dan Alat Tulis</p>
-                            <p class="card-text">Brand = Kenko A-100</p>
-                            <p class="card-text">Harga = Rp 5.500</p>
-                            <p class="card-text">Jumlah Stok = 87 pcs</p>
+                            <p class="card-text">Category : Buku dan Alat Tulis</p>
+                            <p class="card-text">Brand : Kenko A-100</p>
+                            <p class="card-text">Harga : Rp 5.500</p>
+                            <p class="card-text">Jumlah Stok : 87 pcs</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">BODY PELOR RAVELLI</h5>
-                            <p class="card-text">Category = Otomotif</p>
-                            <p class="card-text">Brand = Ravelli</p>
-                            <p class="card-text">Harga = Rp 49.000</p>
-                            <p class="card-text">Jumlah Stok = 96 pcs</p>
+                            <p class="card-text">Category : Otomotif</p>
+                            <p class="card-text">Brand : Ravelli</p>
+                            <p class="card-text">Harga : Rp 49.000</p>
+                            <p class="card-text">Jumlah Stok : 96 pcs</p>
                         </div>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">POMPA SEPEDA CAMEL</h5>
-                            <p class="card-text">Category = Olahraga dan Outdoor</p>
-                            <p class="card-text">Brand = Camel</p>
-                            <p class="card-text">Harga = Rp 76.800</p>
-                            <p class="card-text">Jumlah Stok = 99 pcs</p>
+                            <p class="card-text">Category : Olahraga dan Outdoor</p>
+                            <p class="card-text">Brand : Camel</p>
+                            <p class="card-text">Harga : Rp 76.800</p>
+                            <p class="card-text">Jumlah Stok : 99 pcs</p>
                         </div>
                     </div>
             </div>

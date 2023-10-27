@@ -12,9 +12,9 @@ class Barang extends Model
     public function followers(){
         return $this -> belongsToMany(Barang::class, 'BarangId');
     }
-
+    protected $primaryKey = 'barangId';
+    protected $table = 'barang';
     protected $fillable = [
-        'BarangId',
         'KodeBarang',
         'NamaBarang',
         'JenisBarang',
@@ -26,6 +26,6 @@ class Barang extends Model
         'HargaBeli',
         'HargaJual',
     ];
-    protected $table = 'barang';
+
     public $timestamps = false;
 }

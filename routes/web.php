@@ -22,6 +22,8 @@ Route::get('/homepage', function () {
     return view('/user/homepage');
 });
 
+Route::get('/',[produkController::class, 'home_search']);
+
 //Route::resource('barang', produkController::class);
 Route::prefix('superAdmin')->group(function(){
 
