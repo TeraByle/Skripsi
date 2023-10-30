@@ -25,34 +25,12 @@ class produkController extends Controller
         return view('superAdmin/produk')->with('data', $data);
     }
 
-    public function home_search(Request $request)
-    //menampilkan semua data
-    {
-        $search = $request->search;
-        $jumlahbaris = 4;
-        if(strlen($search)){
-            $data = Barang::where('NamaBarang', 'like', "%$search%")
-                        ->orWhere('KategoriBarang', 'like', "%$search%")
-                        ->orWhere('BrandBarang', 'like', "%$search%")
-                        ->paginate($jumlahbaris);
-        }else{
-            $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
-        }
-        return view('user/homepage')->with('data', $data);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     //menampilkan form data baru
     {
         return view('superAdmin/inputBarang');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     //memasukkan data baru ke database
     {
@@ -110,18 +88,12 @@ class produkController extends Controller
         return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil ditambah');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     //menampilkan detail data
     {
         return 'HI' . $id;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     //menampilkan form untuk proses edit
     {
@@ -129,9 +101,6 @@ class produkController extends Controller
         return view('superAdmin/updateBarang')->with('data',$data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     //menyimpan update data
     {
@@ -175,9 +144,6 @@ class produkController extends Controller
         return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di ubah');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     //penghapusan data
     {

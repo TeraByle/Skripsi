@@ -37,11 +37,30 @@
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary">Search</button>
+                    <form class="d-flex" action="{{url('superAdmin/akun')}}" method="get">
+                            <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
+                            placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+                            <button type="submit" class="btn btn-outline-primary">Search</button>
+                        </form>
                     </div>
-                    <button class="button-barang">+ Tambah Akun</button>
+                    <button class="button-barang">
+                    <a href="tambahTransaksi/" style="text-decoration: none;color: white;">+ Tambah Akun</a>
+                    </button>
                 </div>
+                @if(Session::has('success'))
+                    <div class="pt-3">
+                        <div class="alert alert-success" style="width: 1230px;">
+                            {{Session::get('success')}}
+                        </div>
+                    </div>
+                @endif
+                @if(Session::has('failed'))
+                    <div class="pt-3">
+                        <div class="alert alert-danger">
+                            {{Session::get('failed')}}
+                        </div>
+                    </div>
+                    @endif
                 <div class="tabel">
                     <table class="table">
                         <thead>
@@ -61,8 +80,14 @@
                                 <td>jopar</td>
                                 <td>masbro</td>
                                 <td>Super Admin</td>
-                                <td><img src="/assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="/assets/images/Remove.png" alt="Remove"></td>
+                                <td><a href="{{url('superAdmin/updateAkun')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
+                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/akun/')}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" name="submit">
+                                    <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                                    </button>
+                                </form>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>

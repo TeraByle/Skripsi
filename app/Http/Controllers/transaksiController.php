@@ -70,7 +70,7 @@ class transaksiController extends Controller
 
     public function show(string $id)
     {
-        //
+        return 'HI' . $id;
     }
 
     public function edit(string $id)

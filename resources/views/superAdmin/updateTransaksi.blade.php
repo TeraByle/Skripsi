@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="isi-deskripsi">
-            <button class="isi-kembali"><a href="/superAdmin/produk" style="text-decoration: none;color: white;">Kembali</button></a>
+            <button class="isi-kembali"><a href="/superAdmin/transaksi" style="text-decoration: none;color: white;">Kembali</button></a>
             <div class="isi-judul">
                 <h2>Edit Transaksi Barang</h2>
             </div>
