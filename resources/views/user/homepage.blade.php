@@ -17,16 +17,14 @@
                     <div class="user-details">
                         <div class="user-name"><a href="/sesi/login" style="text-decoration: none;color: black;">Login</a></div>
                     </div>
-                    <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
-                    </div>
+
                 </div>
             </div>
         </div>
         <div class="isihome">
         <div class="deskripsi">
             <div class="contentkiri">
-                <h2>Tentang Central Utama</h2>
+                <h2>TENTANG CENTRAL UTAMA</h2>
                 <p>Central Utama merupakan salah satu Toko Agen Material terlengkap di daerah Pademangan. Central Utama sudah berdiri sejak tahun 2005 dan sudah memiliki 3 cabang di daerah Pademangan. Tunggu apalagi, jangan ragu untuk beli kebutuhan Barang mu di Central Utama.</p>
             </div>
         </div>
