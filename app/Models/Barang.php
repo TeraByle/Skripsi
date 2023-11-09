@@ -25,6 +25,7 @@ class Barang extends Model
         'TanggalBeli',
         'HargaBeli',
         'HargaJual',
+        'gambar'
     ];
 
     public $timestamps = false;

@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('barang', function (Blueprint $table) {
-            $table->bigIncrements('BarangId');
+            $table->id('BarangId');
             $table->string('KodeBarang');
             $table->string('NamaBarang');
             $table->string('JenisBarang');
@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('TanggalBeli');
             $table->integer('HargaBeli');
             $table->integer('HargaJual');
+            $table->text('gambar');
+
         });
     }
 

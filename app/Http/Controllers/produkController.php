@@ -34,7 +34,7 @@ class produkController extends Controller
     public function store(Request $request)
     //memasukkan data baru ke database
     {
-    //mengeluarkan isian yang sudah dimasukkan
+
         Session::flash('KodeBarang',$request->KodeBarang);
         Session::flash('NamaBarang',$request->NamaBarang);
         Session::flash('JenisBarang',$request->JenisBarang);
@@ -46,7 +46,7 @@ class produkController extends Controller
         Session::flash('HargaJual',$request->HargaJual);
 
         $request->validate([
-        //validasi data yang harus dimasukkan
+
             'KodeBarang' => 'required',
             'NamaBarang' => 'required',
             'JenisBarang' => 'required',
@@ -57,9 +57,10 @@ class produkController extends Controller
             'TanggalBeli' => 'required',
             'HargaBeli' => 'required | numeric',
             'HargaJual' => 'required | numeric',
+            'gambar' => 'nullable',
 
         ],[
-        //notif jika ada kolom yang tidak diisi
+
             'KodeBarang.required'=>'Kode Barang wajib diisi',
             'NamaBarang.required'=>'Nama Barang wajib diisi',
             'JenisBarang.required'=>'Jenis Barang wajib diisi',
@@ -82,9 +83,19 @@ class produkController extends Controller
             'TanggalBeli'=>$request->TanggalBeli,
             'HargaBeli'=>$request->HargaBeli,
             'HargaJual'=>$request->HargaJual,
+
+
         ];
-        //jika barang sudah berhasil diinput maka akan balik ke halaman produk dan ada notif berhasil
+        $gambar = $request->file('gambar');
+        if ($gambar) {
+            $destinationPath = 'assets/fileproduk';
+            $originalFile = $gambar->getClientOriginalName();
+            $file_upload = strtotime(date('Y-m-d-H:i:s')) . $originalFile;
+            $gambar->move($destinationPath, $file_upload);
+            $data['gambar'] = $file_upload;
+        }
         Barang::create($data);
+        dd($data);
         return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil ditambah');
     }
 

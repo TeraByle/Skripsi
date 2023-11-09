@@ -44,7 +44,7 @@
                 </div>
             <div class="container-up">
                 <div class="form-container-up">
-                    <form action="{{url('superAdmin/produk')}}" method="post">
+                    <form action="{{url('superAdmin/produk')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <!-- Section 1: Kode dan Nama Barang -->
                         <div class="form-section">
@@ -113,7 +113,7 @@
                                 </div>
                         </div>
 
-                        <!-- Section 6: Simpan Button -->
+                    <!-- Section 6: Simpan Button -->
                         <div class="form-section">
                             <button type="submit" name="submit" class="save-button">Simpan</button>
                         </div>

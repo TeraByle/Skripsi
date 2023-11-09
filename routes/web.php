@@ -4,6 +4,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\transaksiController;
 use App\Models\transaksi;
+use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,9 +86,9 @@ Route::prefix('admin')->group(function(){
 
 // Backend API
 
-Route::middleware('auth:api')->get('/user', function (Request $request){
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request){
+//     return $request->user();
+// });
 
 Route::post('/login', [SessionController::class, 'login']);
 

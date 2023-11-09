@@ -78,7 +78,11 @@
                             @foreach($data as $item)
                             <tr>
                                 <th scope="row">{{$i}}</th>
-                                <td><img src="/assets/images/PaluKambing.png" alt=""></td>
+                                <td>
+                                    @if ($item->gambar)
+                                    <img src="{{ asset('assets/fileproduk/' . $item->gambar) }}" height="40" width="46">
+                                    @endif
+                                 </td>
                                 <td>{{$item->KodeBarang}}</td>
                                 <td>{{$item->NamaBarang}}</td>
                                 <td>{{$item->JenisBarang}}</td>
