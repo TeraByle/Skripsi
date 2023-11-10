@@ -15,6 +15,7 @@ class Barang extends Model
     protected $primaryKey = 'barangId';
     protected $table = 'barang';
     protected $fillable = [
+        'TransaksiId',
         'KodeBarang',
         'NamaBarang',
         'JenisBarang',
@@ -29,4 +30,17 @@ class Barang extends Model
     ];
 
     public $timestamps = false;
+
+    public static function getTransactionId()
+    {
+
+        $datePart = date("dmY");
+        $lastBarang = Barang::orderBy('BarangId', 'desc')->first();
+        $transaksiId = ($lastBarang) ? $lastBarang->TransaksiId : '01';
+        $numberPart = str_pad(($lastBarang ? $lastBarang->BarangId : 0) % 10 + 1, 2, '0', STR_PAD_LEFT);
+        $autoNumber = 'TRSCTSN ' . $datePart . '00' . $numberPart;
+
+        return $autoNumber;
+
+    }
 }

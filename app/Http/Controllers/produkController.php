@@ -73,6 +73,7 @@ class produkController extends Controller
             'HargaJual.required'=>'Harga Jual wajib diisi',
         ]);
         $data = [
+            'TransaksiId'=>Barang::getTransactionId(),
             'KodeBarang'=>$request->KodeBarang,
             'NamaBarang'=>$request->NamaBarang,
             'JenisBarang'=>$request->JenisBarang,
@@ -95,7 +96,7 @@ class produkController extends Controller
             $data['gambar'] = $file_upload;
         }
         Barang::create($data);
-        dd($data);
+        // dd($data);
         return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil ditambah');
     }
 
