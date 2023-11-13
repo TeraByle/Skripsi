@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transaksi', function (Blueprint $table) {
-            $table->bigIncrements('TransaksiId');
-            $table->unsignedBigInteger('BarangId');
-            $table->unsignedBigInteger('UserId');
-//          $table->string('KodeBarang');
-//          $table->string('NamaBarang');
-//          $table->string('KategoriBarang');
-//          $table->string('SatuanBarang');
-            $table->integer('JumlahBarang');
-            $table->integer('HargaBarang');
+            $table->id('TransaksiId');
+            $table->string('NamaBarang'); // Kolom untuk NamaBarang
+            $table->string('KodeBarang'); // Kolom untuk KodeBarang
+            $table->string('SatuanBarang'); // Kolom untuk SatuanBarang
+            $table->integer('StokBarang'); // Kolom untuk StokBarang
+            $table->string('KategoriBarang'); // Kolom untuk KategoriBarang
+            $table->integer('HargaJual');
+
+
         });
     }
 

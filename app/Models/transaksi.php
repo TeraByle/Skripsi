@@ -14,15 +14,26 @@ class transaksi extends Model
 
     protected $fillable = [
         'TransaksiId',
-        'UserId',
-        'BarangId',
-        'KodeBarang',
-        'NamaBarang',
-        'KategoriBarang',
-        'SatuanBarang',
-        'JumlahBarang',
-        'HargaBarang',
+        'KodeBarang' ,
+        'NamaBarang' ,
+        'SatuanBarang' ,
+        'KategoriBarang' ,
+        'StokBarang' ,
+        'HargaJual' ,
     ];
+
+    public static function getTransactionId()
+    {
+
+  
+        $transaction2 = date("dmy");
+        $lastBarang = Barang::orderBy('BarangId', 'desc')->first();
+        $nextId = ($lastBarang) ? $lastBarang->BarangId + 1 : 1;
+        $paddedId = str_pad($nextId, 3, '0', STR_PAD_LEFT);
+        return $transaction2 . '' . $paddedId;
+
+    }
+
     protected $table = 'transaksi';
     public $timestamps = false;
 }

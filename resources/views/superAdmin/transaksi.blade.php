@@ -66,26 +66,53 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Kode Transaksi</th>
                                 <th scope="col">Kode Barang</th>
                                 <th scope="col">Nama Barang</th>
-                                <th scope="col">Kategori Barang</th>
                                 <th scope="col">Satuan Barang</th>
+                                <th scope="col">Kategori Barang</th>
                                 <th scope="col">Jumlah Barang</th>
                                 <th scope="col">Harga Barang</th>
                                 <th scope="col">Aksi</th>
                             </tr>
+
                         </thead>
                         <tbody>
-                            <?php $i = $data->firstItem() ?>
-                            @foreach($data as $item)
+                            @foreach ($data as $item)
                             <tr>
-                                <th scope="row">{{$i}}</th>
-                                <td>{{$item->KodeBarang}}</td>
-                                <td>{{$item->NamaBarang}}</td>
-                                <td>{{$item->KategoriBarang}}</td>
-                                <td>{{$item->SatuanBarang}}</td>
-                                <td>{{$item->JumlahBarang}}</td>
-                                <td>Rp {{$item->HargaBarang}}</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->TransaksiId }}</td>
+                                <td>{{ $item->KodeBarang }}</td>
+                                <td>{{ $item->NamaBarang }}</td>
+                                <td>{{ $item->SatuanBarang }}</td>
+                                <td>{{ $item->KategoriBarang }}</td>
+                                <td>{{ $item->StokBarang }}</td>
+                                <td>{{ $item->HargaJual }}</td>
+                                <td><a href="{{url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
+                                    <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->TransaksiId)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" name="submit">
+                                        <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                                        </button>
+                                    </form>
+                                    </td>
+                            </tr>
+
+                             @endforeach
+
+                            @foreach($barang as $item)
+                            <tr>
+                                {{-- <th scope="row">{{$i}}</th> --}}
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->TransaksiId }}</td>
+                                <td>{{ $item->KodeBarang }}</td>
+                                <td>{{ $item->NamaBarang}}</td>
+                                <td>{{ $item->SatuanBarang }}</td>
+                                <td>{{ $item->KategoriBarang }}</td>
+                                <td>{{ $item->StokBarang }}</td>
+                                <td>Rp{{ $item->HargaJual }}</td>
+
                                 <td><a href="{{url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
                                 <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->TransaksiId)}}" method="POST">
                                     @csrf
@@ -96,11 +123,11 @@
                                 </form>
                                 </td>
                             </tr>
-                        <?php $i++?>
+
                         @endforeach
                         </tbody>
                     </table>
-                    {{ $data-> withQueryString()->links()}}
+                    {{-- {{ $data-> withQueryString()->links()}} --}}
                 </div>
             </div>
         </div>

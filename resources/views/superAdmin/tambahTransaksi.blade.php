@@ -71,11 +71,11 @@
                         <div class="form-section">
                             <div class="form-field">
                                 <label for="type">Jumlah Barang</label>
-                                <input type="text" id="jumlah" name="JumlahBarang" value="{{Session::get('JumlahBarang')}}">
+                                <input type="text" id="jumlah" name="StokBarang" value="{{Session::get('StokBarang')}}">
                             </div>
                             <div class="form-field">
                                 <label for="unit">Harga Barang</label>
-                                <input type="text" id="harga" name="HargaBarang" value="{{Session::get('HargaBarang')}}">
+                                <input type="text" id="harga" name="HargaJual" value="{{Session::get('HargaJual')}}">
                             </div>
                         </div>
                         <!-- Section 4: Simpan Button -->

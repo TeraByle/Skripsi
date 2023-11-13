@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('barang', function (Blueprint $table) {
             $table->id('BarangId');
+            $table->string('TransaksiId');
             $table->string('KodeBarang');
             $table->string('NamaBarang');
             $table->string('JenisBarang');
@@ -18,8 +19,8 @@ return new class extends Migration
             $table->string('BrandBarang');
             $table->integer('StokBarang');
             $table->date('TanggalBeli');
-            $table->integer('HargaBeli');
-            $table->integer('HargaJual');
+            $table->string('HargaBeli');
+            $table->string('HargaJual');
             $table->text('gambar');
 
         });
