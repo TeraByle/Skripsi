@@ -37,7 +37,7 @@
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                        <form class="d-flex" action="{{url('superAdmin/produk')}}" method="get">
+                        <form class="d-flex" action="{{route('produk')}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
                             placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <button type="submit" class="btn btn-outline-primary">Search</button>

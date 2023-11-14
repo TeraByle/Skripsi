@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Barang;
 
 use App\Models\Barang;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -12,18 +13,33 @@ class produkController extends Controller
     //menampilkan semua data
     {
         $search = $request->search;
-        $jumlahbaris = 4;
-        if(strlen($search)){
-            $data = Barang::where('NamaBarang', 'like', "%$search%")
-                        ->orWhere('JenisBarang', 'like', "%$search%")
-                        ->orWhere('KategoriBarang', 'like', "%$search%")
-                        ->orWhere('BrandBarang', 'like', "%$search%")
-                        ->paginate($jumlahbaris);
-        }else{
-            $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
-        }
-        return view('superAdmin/produk')->with('data', $data);
+    $jumlahbaris = 4;
+
+    // Mengambil data dari database
+    $data = Barang::orderBy('BarangId', 'asc');
+
+    // Menerapkan filter jika ada pencarian
+    if (strlen($search)) {
+        $data = $data->where('NamaBarang', 'like', "%$search%")
+                     ->orWhere('JenisBarang', 'like', "%$search%")
+                     ->orWhere('KategoriBarang', 'like', "%$search%")
+                     ->orWhere('BrandBarang', 'like', "%$search%");
     }
+
+    // Mengambil data dengan jumlah baris per halaman
+    $data = $data->paginate($jumlahbaris);
+
+    return view('superAdmin.produk')->with('data', $data);
+    }
+
+    public function home()
+
+    {
+        // $data=Barang::all();
+        // return view('superAdmin/produk',compact('data'));
+    }
+
+
 
     public function create()
     //menampilkan form data baru
