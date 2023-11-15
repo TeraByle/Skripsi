@@ -9,11 +9,6 @@ class Barang extends Model
 {
     use HasFactory;
 
-    public function followers(){
-        return $this -> belongsToMany(Barang::class, 'BarangId');
-    }
-    protected $primaryKey = 'barangId';
-    protected $table = 'barang';
     protected $fillable = [
         'TransaksiId',
         'KodeBarang',
@@ -29,7 +24,9 @@ class Barang extends Model
         'gambar'
     ];
 
+    protected $table = 'barang';
     public $timestamps = false;
+    protected $primaryKey = 'KodeBarang';
 
     public static function getTransactionId()
     {
@@ -38,9 +35,14 @@ class Barang extends Model
         $lastBarang = Barang::orderBy('BarangId', 'desc')->first();
         $transaksiId = ($lastBarang) ? $lastBarang->TransaksiId : '01';
         $numberPart = str_pad(($lastBarang ? $lastBarang->BarangId : 0) % 10 + 1, 2, '0', STR_PAD_LEFT);
-        $autoNumber = 'TRSCTSN ' . $datePart . '00' . $numberPart;
+        $autoNumber = 'TRSCTSN ' . $datePart . '101' . $numberPart;
 
         return $autoNumber;
 
+    }
+
+    public function transaksi()
+    {
+        return $this->hasOne(Transaksi::class, 'BarangId');
     }
 }

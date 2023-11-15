@@ -26,7 +26,7 @@
         </div>
         <div class="isi-deskripsi">
             <button class="isi-kembali">
-                <a href="/produk" style="text-decoration: none;color: white;">Kembali</a>
+                <a href="{{ route('home') }}" style="text-decoration: none;color: white;">Kembali</a>
             </button>
             @if($errors->any())
             <div class="validate-message">
@@ -44,7 +44,7 @@
                 </div>
             <div class="container-up">
                 <div class="form-container-up">
-                    <form action="{{url('superAdmin/produk')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('store_produk')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <!-- Section 1: Kode dan Nama Barang -->
                         <div class="form-section">

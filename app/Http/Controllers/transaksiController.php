@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaksi;
+use App\Models\transaksi;
 use Illuminate\Http\Request;
 use App\Models\Barang;
 use Illuminate\Support\Facades\Redirect;
@@ -13,7 +13,9 @@ class transaksiController extends Controller
 {
     public function index(Request $request)
     {
-        $barang = Barang::select('KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual')->get();
+        $barang = Barang::select('TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual')->get();
+        // $barang = Barang::where('BarangId',$request->KodeBarang)->first();
+        // dd($barang);
 
         // $data= Barang::max('BarangId');
         // DB::table('barang')->select('BarangId')->get();
@@ -28,7 +30,9 @@ class transaksiController extends Controller
         }else{
             $data = Transaksi::orderBy('transaksiId', 'asc')->paginate($jumlahbaris);
         }
-        return view('superAdmin/transaksi',compact('barang'))
+        return view('superAdmin/transaksi'
+        ,compact('barang')
+        )
         ->with('data', $data)
         ;
     }
@@ -41,7 +45,8 @@ class transaksiController extends Controller
 
     public function store(Request $request)
     {
-
+        //  $barang =DB::table('barang')->where('BarangId',$request->KodeBarang)->first();
+        // dd($barang);
 
         //mengeluarkan isian yang sudah dimasukkan
         Session::flash('KodeBarang',$request->KodeBarang);
@@ -71,7 +76,7 @@ class transaksiController extends Controller
             'HargaJual.required'=>'Harga Barang wajib diisi',
         ]);
         $data = [
-            'TransaksiId'=>Transaksi::getTransactionId(),
+            'TransaksiId'=>transaksi::getTransactionId(),
             'KodeBarang'=>$request->KodeBarang,
             'NamaBarang'=>$request->NamaBarang,
             'KategoriBarang'=>$request->KategoriBarang,

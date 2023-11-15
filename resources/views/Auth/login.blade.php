@@ -13,19 +13,19 @@
                 <div class="login-box">
                     <div class="company-name">PT. CENTRAL UTAMA</div>
                     <div class="form-container">
-                        <form action="/sesi/login" method="POST">
+                        <form action="{{ route('login_store') }}" method="POST">
                         @csrf
                         <div class="form-element">
                             <label for="username" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Username</label>
-                            <input type="text" id="username">
+                            <input type="text" name="username" id="username">
                         </div>
                         <div class="form-element">
                             <label for="password" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Password</label>
-                            <input type="password" id="password">
+                            <input type="password" name="password" id="password">
                         </div>
-                        <div class="sign-in-button">
-                            <a href="/produk">Sign in</a>
-                        </div>
+                        <button class="sign-in-button" type="submit">
+                            Sign in
+                        </button>
                         </form>
                     </div>
                 </div>

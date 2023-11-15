@@ -26,7 +26,7 @@
         </div>
         <div class="isi-deskripsi">
             <button class="isi-kembali">
-                <a href="/transaksi" style="text-decoration: none;color: white;">Kembali</a></button>
+                <a href="{{ route('transaksi') }}" style="text-decoration: none;color: white;">Kembali</a></button>
             @if($errors->any())
             <div class="validate-message">
                 <div class="alert alert-danger">

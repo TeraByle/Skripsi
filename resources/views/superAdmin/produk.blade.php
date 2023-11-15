@@ -27,9 +27,9 @@
         <div class="isi">
             <div class="sidebar">
                 <button class="sidebar-button button-1">Data Barang</button>
-                <button class="sidebar-button button-2"><a href="/superAdmin/transaksi" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
+                <button class="sidebar-button button-2"><a href="{{ route('transaksi') }}" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
                 <button class="sidebar-button button-3"><a href="/superAdmin/cetakLaporan" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
-                <button class="sidebar-button button-4"><a href="/superAdmin/akun" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
+                <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
             </div>
             <div class="content">
                 <h2>List Produk</h2>
@@ -37,14 +37,14 @@
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                        <form class="d-flex" action="{{url('superAdmin/produk')}}" method="get">
+                        <form class="d-flex" action="{{route('home')}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
                             placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <button type="submit" class="btn btn-outline-primary">Search</button>
                         </form>
                     </div>
                     <button class="button-barang">
-                        <a href="inputBarang/" style="text-decoration: none;color: white;">+ Tambah Barang</a>
+                        <a href="{{ route('input_barang') }}" style="text-decoration: none;color: white;">+ Tambah Barang</a>
                     </button>
                 </div>
                 @if(Session::has('success'))

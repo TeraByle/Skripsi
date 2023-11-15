@@ -1,29 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Akun;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class AkunController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-//        $search = $request->search;
-        $jumlahbaris = 4;
-//        if(strlen($search)){
-//            $data = Akun::where('NamaBarang', 'like', "%$search%")
-//                        ->orWhere('KategoriBarang', 'like', "%$search%")
-//                        ->paginate($jumlahbaris);
-//        }else{
-//            $data = Akun::orderBy('TransaksiId', 'asc')->paginate($jumlahbaris);
-        }
-//        return view('superAdmin/transaksi')->with('data', $data);
-//    }
+        return view('Auth.login');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +33,21 @@ class AkunController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $credentials = $request->validate([
+            'username' => 'required', 'username',
+            'password' => 'required',
+        ]);
+
+        // dd($credentials);
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->route('home');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email','password');
     }
 
     /**

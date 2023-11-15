@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
-use App\Exports\PenjualanExport;
-use Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -163,16 +161,5 @@ class produkController extends Controller
     {
         Barang::where('BarangId', $id)->delete();
         return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di hapus');
-    }
-
-
-    public function cetakLaporan($tglawal, $tglakhir)
-    {
-        // //dd($tglawal,$tglakhir);
-        // //dd(["Tanggal Awal: ".$tglawal, "Tanggal Akhir: ".$tglakhir]);
-        // $data = Obat::whereBetween('tanggalBeli',[$tglawal,$tglakhir])->get();
-        // //$data = PenjualanDetail::with('penjualan')->whereBetween('tanggalPenjualan',[$tglawal,$tglakhir])->get();
-
-        return Excel::download(new PenjualanExport($tglawal, $tglakhir), 'penjualan.xlsx');
     }
 }

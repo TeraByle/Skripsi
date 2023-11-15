@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class transaksi extends Model
 {
     use HasFactory;
-    public function followers(){
-        return $this -> belongsToMany(Barang::class, 'TransaksiId');
-    }
 
     protected $fillable = [
         'TransaksiId',
@@ -24,15 +21,20 @@ class transaksi extends Model
 
     public static function getTransactionId()
     {
-
-  
-        $transaction2 = date("dmy");
+        $date = date("dmy");
         $lastBarang = Barang::orderBy('BarangId', 'desc')->first();
-        $nextId = ($lastBarang) ? $lastBarang->BarangId + 1 : 1;
-        $paddedId = str_pad($nextId, 3, '0', STR_PAD_LEFT);
-        return $transaction2 . '' . $paddedId;
-
+        $transaksiId = ($lastBarang) ? $lastBarang->TransaksiId : '01';
+        $numberPart = str_pad(($lastBarang ? $lastBarang->BarangId : 0) % 10 + 1, 2, '0', STR_PAD_LEFT);
+        $autoNumber = 'TRSCTSN ' . $date . '0' . $numberPart;
+        return $autoNumber;
+        // dd($autoNumber,$datePart,$numberPart);
     }
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class, 'BarangId');
+    }
+
 
     protected $table = 'transaksi';
     public $timestamps = false;
