@@ -57,7 +57,7 @@ Route::prefix('superAdmin')->group(function(){
     // });
 
     Route::get('/tambahAkun', function () {
-        return view('tambahAkun');
+        return view('superAdmin/tambahAkun');
     });
 
     Route::get('/updateakun', function () {
