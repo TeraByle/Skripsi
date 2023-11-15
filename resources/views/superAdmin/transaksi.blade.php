@@ -37,7 +37,7 @@
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                    <form class="d-flex" action="{{url('superAdmin/transaksi')}}" method="get">
+                    <form class="d-flex" action="{{route(('transaksi'))}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
                             placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <button type="submit" class="btn btn-outline-primary">Search</button>
@@ -77,57 +77,64 @@
                             </tr>
 
                         </thead>
-                        <tbody>
-                            @foreach ($data as $item)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->TransaksiId }}</td>
-                                <td>{{ $item->KodeBarang }}</td>
-                                <td>{{ $item->NamaBarang }}</td>
-                                <td>{{ $item->SatuanBarang }}</td>
-                                <td>{{ $item->KategoriBarang }}</td>
-                                <td>{{ $item->StokBarang }}</td>
-                                <td>{{ $item->HargaJual }}</td>
-                                <td><a href="{{url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
-                                    <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->TransaksiId)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" name="submit">
-                                        <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
-                                        </button>
-                                    </form>
-                                    </td>
-                            </tr>
+                        tbody>
+    @php
+        $totalItems = count($data) + count($barang);
+        $counter = 1;
+    @endphp
 
-                             @endforeach
+    @foreach ($data as $item)
+        <tr>
+            <td>{{ $counter++ }}</td>
+            <td>{{ $item->TransaksiId }}</td>
+            <td>{{ $item->KodeBarang }}</td>
+            <td>{{ $item->NamaBarang }}</td>
+            <td>{{ $item->SatuanBarang }}</td>
+            <td>{{ $item->KategoriBarang }}</td>
+            <td>{{ $item->StokBarang }}</td>
+            <td>{{ $item->HargaJual }}</td>
+            <td>
+                <a href="{{ url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit') }}">
+                    <img src="/assets/images/Edit.png" alt="edit">
+                </a>
+                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ url('superAdmin/transaksi/'.$item->TransaksiId) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" name="submit">
+                        <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
 
-                            @foreach($barang as $item)
-                            <tr>
-                                {{-- <th scope="row">{{$i}}</th> --}}
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->TransaksiId }}</td>
-                                <td>{{ $item->KodeBarang }}</td>
-                                <td>{{ $item->NamaBarang}}</td>
-                                <td>{{ $item->SatuanBarang }}</td>
-                                <td>{{ $item->KategoriBarang }}</td>
-                                <td>{{ $item->StokBarang }}</td>
-                                <td>Rp{{ $item->HargaJual }}</td>
-
-                                <td><a href="{{url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
-                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->TransaksiId)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" name="submit">
-                                    <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
-                                    </button>
-                                </form>
-                                </td>
-                            </tr>
-
-                        @endforeach
-                        </tbody>
+    @foreach ($barang as $item)
+        <tr>
+            <td>{{ $counter++ }}</td>
+            <td>{{ $item->TransaksiId }}</td>
+            <td>{{ $item->KodeBarang }}</td>
+            <td>{{ $item->NamaBarang}}</td>
+            <td>{{ $item->SatuanBarang }}</td>
+            <td>{{ $item->KategoriBarang }}</td>
+            <td>{{ $item->StokBarang }}</td>
+            <td>Rp{{ $item->HargaJual }}</td>
+            <td>
+                <a href="{{ url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit') }}">
+                    <img src="/assets/images/Edit.png" alt="edit">
+                </a>
+                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ url('superAdmin/transaksi/'.$item->TransaksiId) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" name="submit">
+                        <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
+</tbody>
                     </table>
-                    {{-- {{ $data-> withQueryString()->links()}} --}}
+
                 </div>
             </div>
         </div>

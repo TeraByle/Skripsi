@@ -27,13 +27,13 @@ Route::get('/', [produkController::class, 'index'])->name('home');
 
 Route::prefix('superAdmin')->group(function(){
     Route::get('/produk', [produkController::class, 'index'])->name('produk');
+    Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
     Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
-    Route::get('/inputBarang', [produkController::class, 'create']);
     Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);
     Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
     Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
 
-    Route::get('/transaksi', [transaksiController::class, 'index']);
+    Route::get('/transaksi', [transaksiController::class, 'index'])->name('transaksi');
     Route::post('/transaksi',[transaksiController::class,'store']);
     Route::get('/tambahTransaksi', [transaksiController::class, 'create']);
     Route::get('/updateTransaksi/{TransaksiId}/edit', [transaksiController::class, 'edit']);
