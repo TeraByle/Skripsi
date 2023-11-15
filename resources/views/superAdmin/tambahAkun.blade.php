@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tambah Akun</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/css/akun.css">
     </head>
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <img src="/assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">
@@ -19,13 +19,14 @@
                         <div class="user-role">Admin</div>
                     </div>
                     <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
+                        <img src="/assets/images/LogOut.png" alt="logout">
                     </div>
                 </div>
             </div>
         </div>
         <div class="isi-deskripsi">
-            <button class="isi-kembali">Kembali</button>
+            <button class="isi-kembali">
+                <a href="/superAdmin/akun" style="text-decoration: none;color: white;">Kembali</a></button>
             <div class="isi-judul">
                 <h2>Tambahkan AKun</h2>
             </div>
