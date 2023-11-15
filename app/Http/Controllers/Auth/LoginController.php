@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class AkunController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.

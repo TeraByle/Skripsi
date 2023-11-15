@@ -26,10 +26,10 @@
         </div>
         <div class="isi">
             <div class="sidebar">
-                <button class="sidebar-button button-1"><a href="/superAdmin/produk" style="text-decoration: none;color: black;">Data Barang</button>
-                <button class="sidebar-button button-2"><a href="/superAdmin/transaksi" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
+                <button class="sidebar-button button-1"><a href="{{ route('home') }}" style="text-decoration: none;color: black;">Data Barang</button>
+                <button class="sidebar-button button-2"><a href="{{route('transaksi')}}" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
                 <button class="sidebar-button button-3"><a href="/superAdmin/cetakLaporan" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
-                <button class="sidebar-button button-4"><a href="/superAdmin/akun" style="text-decoration: none;color: white;">Manajemen Akun</a></button>
+                <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: white;">Manajemen Akun</a></button>
             </div>
             <div class="content">
                 <h2>Manajemen Akun</h2>
@@ -44,7 +44,7 @@
                         </form>
                     </div>
                     <button class="button-barang">
-                    <a href="tambahTransaksi/" style="text-decoration: none;color: white;">+ Tambah Akun</a>
+                    <a href="{{ route('create_account') }}" style="text-decoration: none;color: white;">+ Tambah Akun</a>
                     </button>
                 </div>
                 @if(Session::has('success'))

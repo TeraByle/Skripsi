@@ -26,10 +26,10 @@
         </div>
         <div class="isi">
             <div class="sidebar">
-                <button class="sidebar-button button-1"><a href="/superAdmin/produk" style="text-decoration: none;color: black;">Data Barang</a></button>
-                <button class="sidebar-button button-2"><a href="/superAdmin/transaksi" style="text-decoration: none;color: white;">Transaksi Penjualan</a></button>
+                <button class="sidebar-button button-1"><a href="{{ route('home') }}" style="text-decoration: none;color: black;">Data Barang</a></button>
+                <button class="sidebar-button button-2"><a href="{{ route('transaksi') }}" style="text-decoration: none;color: white;">Transaksi Penjualan</a></button>
                 <button class="sidebar-button button-3"><a href="/superAdmin/cetakLaporan" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
-                <button class="sidebar-button button-4"><a href="/superAdmin/akun" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
+                <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
             </div>
             <div class="content">
                 <h2>Transaksi Barang</h2>

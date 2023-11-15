@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\AkunController;
+use App\Http\Controllers\Auth\AdminsController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\Barang\produkController;
 use App\Http\Controllers\transaksiController;
@@ -19,14 +20,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //  Auth
-Route::get('/login', [AkunController::class, 'index'])->name('login');
-Route::post('/loging_in', [AkunController::class, 'store'])->name('login_store');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/loging_in', [LoginController::class, 'store'])->name('login_store');
+// home
 Route::get('/', [produkController::class, 'index'])->name('home');
 
 
 
 Route::prefix('superAdmin')->group(function(){
-    Route::get('/produk', [produkController::class, 'index'])->name('produk');
+    // Route::get('/produk', [produkController::class, 'index'])->name('produk');
     Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
     Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
     Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);
@@ -40,17 +42,23 @@ Route::prefix('superAdmin')->group(function(){
     Route::put('/updateTransaksi/{TransaksiId}', [transaksiController::class, 'update']);
     Route::delete('/transaksi/{TransaksiId}',[transaksiController::class,'destroy']);
 
+
+    Route::get('/akun', [AdminsController::class, 'index'])->name('account_manangement');
+    Route::get('/tambah-akun', [AdminsController::class, 'create'])->name('create_account');
+
+
+
     Route::get('/cetakLaporan', function () {
         return view('superAdmin/cetakLaporan');
     });
 
-    Route::get('/akun', function () {
-        return view('superAdmin/akun');
-    });
+    // Route::get('/akun', function () {
+    //     return view('superAdmin/akun');
+    // });
 
-    Route::get('/tambahAkun', function () {
-        return view('tambahAkun');
-    });
+    // Route::get('/tambahAkun', function () {
+    //     return view('tambahAkun');
+    // });
 
     Route::get('/updateakun', function () {
         return view('/superAdmin/updateAkun');

@@ -26,7 +26,7 @@
         </div>
         <div class="isi-deskripsi">
             <button class="isi-kembali">
-                <a href="/superAdmin/produk"style="text-decoration: none;color: white;">Kembali</button></a>
+                <a href="{{ route('home') }}"style="text-decoration: none;color: white;">Kembali</button></a>
             <div class="isi-judul">
                 <h2>Update Data Barang</h2>
             </div>

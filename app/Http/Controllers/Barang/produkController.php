@@ -32,19 +32,12 @@ class produkController extends Controller
     return view('superAdmin.produk')->with('data', $data);
     }
 
-    public function home()
-
-    {
-        // $data=Barang::all();
-        // return view('superAdmin/produk',compact('data'));
-    }
-
 
 
     public function create()
     //menampilkan form data baru
     {
-        return view('superAdmin/inputBarang');
+        return view('superAdmin.inputBarang');
     }
 
     public function store(Request $request)
@@ -113,7 +106,7 @@ class produkController extends Controller
         }
         Barang::create($data);
         // dd($data);
-        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil ditambah');
+        return redirect()->to('superAdmin.produk')->with('success', 'Data berhasil ditambah');
     }
 
     public function show(string $id)
@@ -126,7 +119,7 @@ class produkController extends Controller
     //menampilkan form untuk proses edit
     {
         $data = Barang::where('BarangId',$id)->first();
-        return view('superAdmin/updateBarang')->with('data',$data);
+        return view('superAdmin.updateBarang')->with('data',$data);
     }
 
     public function update(Request $request, string $id)
@@ -169,13 +162,13 @@ class produkController extends Controller
             'HargaJual'=>$request->HargaJual,
         ];
         Barang::where('BarangId', $id)->update($data);
-        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di ubah');
+        return redirect()->to('superAdmin.produk')->with('success', 'Data berhasil di ubah');
     }
 
     public function destroy(string $id)
     //penghapusan data
     {
         Barang::where('BarangId', $id)->delete();
-        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di hapus');
+        return redirect()->to('superAdmin.produk')->with('success', 'Data berhasil di hapus');
     }
 }
