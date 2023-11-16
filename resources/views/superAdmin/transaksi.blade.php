@@ -77,7 +77,7 @@
                             </tr>
 
                         </thead>
-                        tbody>
+                        
     @php
         $totalItems = count($data) + count($barang);
         $counter = 1;
