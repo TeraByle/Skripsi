@@ -32,7 +32,7 @@
                 <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: white;">Manajemen Akun</a></button>
             </div>
             <div class="content">
-                <h2>Manajemen Akun1</h2>
+                <h2>Manajemen Akun</h2>
                 <p>Kelola Manajemen Akun Anda</p>
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
