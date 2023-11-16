@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tambah Akun</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/akun.css">
+        <link rel="stylesheet" href="/css/tambahakun.css">
     </head>
     <body>
         <div class="header">
@@ -37,7 +37,7 @@
                         <div class="form-section">
                             <div class="form-field-akun">
                                 <label for="brand">Nama</label>
-                                <input type="nama" id="nama" name="nama">
+                                <input type="nama" id="nama" name="name">
                             </div>
                         </div>
 
@@ -68,7 +68,7 @@
                         <div class="form-section">
                             <div class="form-field-akun">
                                 <label for="rolesid">Roles</label>
-                                <select name="choice">
+                                <select name="roles">
                                     <option value="first">First Value</option>
                                     <option value="second" selected>Second Value</option>
                                     <option value="third">Third Value</option>

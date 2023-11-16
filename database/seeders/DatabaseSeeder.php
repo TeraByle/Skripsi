@@ -40,6 +40,11 @@ class DatabaseSeeder extends Seeder
                 ],
         ]);
 
+        DB::table('roles')->insert([
+            ['role' => 'Super Admin'],
+            ['role' => 'Admin'],
+        ]);
+
 
 
     }
