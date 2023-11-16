@@ -26,40 +26,61 @@
         </div>
         <div class="isi-deskripsi">
             <button class="isi-kembali">
-                <a href="/superAdmin/akun" style="text-decoration: none;color: white;">Kembali</a></button>
+                <a href="{{ route('account_manangement') }}" style="text-decoration: none;color: white;">Kembali</a></button>
             <div class="isi-judul">
                 <h2>Tambahkan AKun</h2>
             </div>
-            <div class="container-up-akun">
-                <div class="form-container-akun">
-                    <!-- Section 1: Kode dan Nama Barang -->
-                    <div class="form-section">
-                        <div class="form-field-akun">
-                            <label for="brand">Nama</label>
-                            <input type="nama" id="nama" name="namax">
-                        </div>
-                    </div>
+            <form action="">
+                <div class="container-up-akun">
+                    <div class="form-container-akun">
 
-                    <!-- Section 2: Jenis dan Satuan Barang -->
-                    <div class="form-section">
-                        <div class="form-field-akun">
-                            <label for="name">Kata Sandi</label>
-                            <input type="katasandi" id="katasandi" name="katasandi">
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="brand">Nama</label>
+                                <input type="nama" id="nama" name="nama">
+                            </div>
                         </div>
-                    </div>
-                    <!-- Section 3: Kategori dan Brand Barang -->
-                    <div class="form-section">
-                        <div class="form-field-akun">
-                            <label for="type">Email</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                    </div>
 
-                    <!-- Section 6: Simpan Button -->
-                    <div class="form-section">
-                        <button class="save-button">Simpan</button>
-                    </div>
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="brand">Username</label>
+                                <input type="username" id="username" name="username">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="type">Email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                        </div>
+
+
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="name">Kata Sandi</label>
+                                <input type="password" id="password" name="password">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="rolesid">Roles</label>
+                                <select name="choice">
+                                    <option value="first">First Value</option>
+                                    <option value="second" selected>Second Value</option>
+                                    <option value="third">Third Value</option>
+                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <button class="save-button">Simpan</button>
+                        </div>
                 </div>
+            </form>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

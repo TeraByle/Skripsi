@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Barang;
 
+use App\Http\Controllers\Controller; // Fix this line
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
