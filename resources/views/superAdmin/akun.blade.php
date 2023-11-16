@@ -32,20 +32,20 @@
                 <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: white;">Manajemen Akun</a></button>
             </div>
             <div class="content">
-                <h2>Manajemen Akun</h2>
+                <h2>Manajemen Akun1</h2>
                 <p>Kelola Manajemen Akun Anda</p>
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
                     <form class="d-flex" action="{{url('superAdmin/akun')}}" method="get">
-                            <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
+                        <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
                             placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
-                            <button type="submit" class="btn btn-outline-primary">Search</button>
-                        </form>
-                    </div>
-                    <button class="button-barang">
+                        <button type="submit" class="btn btn-outline-primary">Search</button>
+                    </form>
+                </div>
+                <button class="button-barang">
                     <a href="tambahAkun/" style="text-decoration: none;color: white;">+ Tambah Akun</a>
-                    </button>
+                </button>
                 </div>
                 @if(Session::has('success'))
                     <div class="pt-3">
