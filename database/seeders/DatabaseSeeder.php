@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
                     'username' => 'jopar',
                     'email' =>  'superadmin@yes.com',
                     'password' => Hash::make('masbro'),
-                    'roles' => 'Super Admin'
+                    'role' => 'Super Admin'
                 ],
                 [
                     'name' => 'Ilham Huda',
@@ -41,8 +41,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            ['role' => 'Super Admin'],
-            ['role' => 'Admin'],
+            ['name' => 'Super Admin'],
+            ['name' => 'Admin'],
         ]);
 
 

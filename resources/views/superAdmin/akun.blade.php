@@ -44,7 +44,7 @@
                     </form>
                 </div>
                 <button class="button-barang">
-                    <a href="tambahAkun/" style="text-decoration: none;color: white;">+ Tambah Akun</a>
+                    <a href="{{ route('create_account') }}" style="text-decoration: none;color: white;">+ Tambah Akun</a>
                 </button>
                 </div>
                 @if(Session::has('success'))

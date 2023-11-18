@@ -45,6 +45,8 @@ Route::prefix('superAdmin')->group(function(){
 
     Route::get('/akun', [AdminsController::class, 'index'])->name('account_manangement');
     Route::get('/tambah-akun', [AdminsController::class, 'create'])->name('create_account');
+    Route::post('/store-akun', [AdminsController::class, 'store'])->name('store_akun');
+
 
 
 
@@ -56,9 +58,9 @@ Route::prefix('superAdmin')->group(function(){
     //     return view('superAdmin/akun');
     // });
 
-    Route::get('/tambahAkun', function () {
-        return view('superAdmin/tambahAkun');
-    });
+    // Route::get('/tambahAkun', function () {
+    //     return view('superAdmin/tambahAkun');
+    // });
 
     Route::get('/updateakun', function () {
         return view('/superAdmin/updateAkun');

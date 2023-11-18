@@ -30,7 +30,7 @@
             <div class="isi-judul">
                 <h2>Tambahkan AKun</h2>
             </div>
-            <form action="">
+            <form action="{{ route('store_akun') }}" method="POST">
                 <div class="container-up-akun">
                     <div class="form-container-akun">
 
@@ -69,10 +69,11 @@
                             <div class="form-field-akun">
                                 <label for="rolesid">Roles</label>
                                 <select name="roles">
-                                    <option value="first">First Value</option>
-                                    <option value="second" selected>Second Value</option>
-                                    <option value="third">Third Value</option>
-                                  </select>
+                                    <option value="option_select" disabled selected> Pilih role untuk akun </option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
