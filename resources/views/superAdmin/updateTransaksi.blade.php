@@ -18,9 +18,12 @@
                         <div class="user-name">Zhofar Putra</div>
                         <div class="user-role">Admin</div>
                     </div>
-                    <div class="arrow-icon">
-                        <img src="/assets/images/LogOut.png" alt="logout">
-                    </div>
+                      <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" style="border: none; background: none; padding: 0;">
+                            <img src="/assets/images/LogOut.png" alt="logout" style="width: 30px; height: 30px;">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
