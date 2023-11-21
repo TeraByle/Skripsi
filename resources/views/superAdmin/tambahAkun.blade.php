@@ -30,14 +30,15 @@
             <div class="isi-judul">
                 <h2>Tambahkan AKun</h2>
             </div>
-            <form action="">
+            <form action="{{ route('store_akun') }}" method="POST">
+                @csrf
                 <div class="container-up-akun">
                     <div class="form-container-akun">
 
                         <div class="form-section">
                             <div class="form-field-akun">
                                 <label for="brand">Nama</label>
-                                <input type="nama" id="nama" name="nama">
+                                <input type="nama" id="nama" name="name">
                             </div>
                         </div>
 
@@ -68,16 +69,17 @@
                         <div class="form-section">
                             <div class="form-field-akun">
                                 <label for="rolesid">Roles</label>
-                                <select name="choice">
-                                    <option value="first">First Value</option>
-                                    <option value="second" selected>Second Value</option>
-                                    <option value="third">Third Value</option>
-                                  </select>
+                                <select name="role">
+                                    <option value="option_select" disabled selected> Pilih role untuk akun </option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <button class="save-button">Simpan</button>
+                            <button type="submit" class="save-button">Simpan</button>
                         </div>
                 </div>
             </form>

@@ -10,7 +10,9 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="/assets/images/LogoNew.png" alt="Logo">
+                <a href="{{ route('home') }}">
+                    <img src="/assets/images/LogoNew.png" alt="Logo">
+                </a>
             </div>
             <div class="content-header">
                 <div class="user-info">
@@ -44,7 +46,7 @@
                     </form>
                 </div>
                 <button class="button-barang">
-                    <a href="tambahAkun/" style="text-decoration: none;color: white;">+ Tambah Akun</a>
+                    <a href="{{ route('create_account') }}" style="text-decoration: none;color: white;">+ Tambah Akun</a>
                 </button>
                 </div>
                 @if(Session::has('success'))
@@ -67,6 +69,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Password</th>
                                 <th scope="col">Role</th>
@@ -74,39 +77,28 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 1; // Mulai dari angka 1 ?>
+                            @foreach ($new_account as $akun) {{-- Pastikan Anda memiliki $accounts dari kontroler --}}
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Zhofar Putra</td>
-                                <td>jopar</td>
-                                <td>masbro</td>
-                                <td>Super Admin</td>
-                                <td><a href="{{url('superAdmin/updateAkun')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
-                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/akun/')}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" name="submit">
-                                    <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
-                                    </button>
-                                </form>
+                                <th scope="row">{{ $i }}</th>
+                                <td>{{ $akun->name }}</td>
+                                <td>{{ $akun->username }}</td>
+                                <td>{{ $akun->email }}</td>
+                                <td>{{ $akun->password}}</td>
+                                <td>{{ $akun->role }}</td>
+                                <td>
+                                    <a href="{{url('superAdmin/updateAkun/'.$akun->id)}}"><img src="/assets/images/Edit.png" alt="edit"></a>
+                                    <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/akun/'.$akun->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" name="submit">
+                                            <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Ilham Huda</td>
-                                <td>hudai</td>
-                                <td>masako</td>
-                                <td>Admin</td>
-                                <td><img src="/assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="/assets/images/Remove.png" alt="Remove"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Leonardo</td>
-                                <td>leomord</td>
-                                <td>masalah</td>
-                                <td>Admin</td>
-                                <td><img src="/assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="/assets/images/Remove.png" alt="Remove"></td>
-                            </tr>
+                            <?php $i++; ?>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
