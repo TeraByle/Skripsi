@@ -10,7 +10,9 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="/assets/images/LogoNew.png" alt="Logo">
+                <a href="{{ route('home') }}">
+                    <img src="/assets/images/LogoNew.png" alt="Logo">
+                </a>
             </div>
             <div class="content-header">
                 <div class="user-info">
