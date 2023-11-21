@@ -25,10 +25,12 @@ Route::post('/loging_in', [LoginController::class, 'store'])->name('login_store'
 // home
 Route::get('/', [produkController::class, 'index'])->name('home');
 
-
+Route::get('/homepage', function () {
+    return view('/user/homepage');
+});
 
 Route::prefix('superAdmin')->group(function(){
-    // Route::get('/produk', [produkController::class, 'index'])->name('produk');
+    //Route::get('/produk', [produkController::class, 'index'])->name('produk');
     Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
     Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
     Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);

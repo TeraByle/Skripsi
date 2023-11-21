@@ -23,7 +23,7 @@
                             <label for="password" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Password</label>
                             <input type="password" name="password" id="password">
                         </div>
-                        <button class="sign-in-button" type="submit">
+                        <button class="sign-in-button" type="submit" style="border:none">
                             Sign in
                         </button>
                         </form>
