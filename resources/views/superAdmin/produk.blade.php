@@ -31,7 +31,7 @@
             <div class="sidebar">
                 <button class="sidebar-button button-1">Data Barang</button>
                 <button class="sidebar-button button-2"><a href="{{ route('transaksi') }}" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
-                <button class="sidebar-button button-3"><a href="/superAdmin/cetakLaporan" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
+                <button class="sidebar-button button-3"><a href="{{route('cetakdata')}}" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
                 <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
             </div>
             <div class="content">
@@ -58,10 +58,10 @@
                     </div>
                 @endif
                 <div class="tabel">
-                    <table class="table">
+                    <table class="table table-bordered table-striped table-condensed">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
+                                <th  scope="col">No</th>
                                 <th scope="col">Gambar</th>
                                 <th scope="col">Kode</th>
                                 <th scope="col">Nama</th>

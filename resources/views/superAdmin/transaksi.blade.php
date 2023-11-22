@@ -33,7 +33,7 @@
             <div class="sidebar">
                 <button class="sidebar-button button-1"><a href="{{ route('home') }}" style="text-decoration: none;color: black;">Data Barang</a></button>
                 <button class="sidebar-button button-2"><a href="{{ route('transaksi') }}" style="text-decoration: none;color: white;">Transaksi Penjualan</a></button>
-                <button class="sidebar-button button-3"><a href="/superAdmin/cetakLaporan" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
+                <button class="sidebar-button button-3"><a href="{{route('cetakdata')}}" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
                 <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
             </div>
             <div class="content">
@@ -67,17 +67,19 @@
                     </div>
                     @endif
                 <div class="tabel">
-                    <table class="table">
+                    <table class="table table-bordered table-striped table-condensed">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Kode Transaksi</th>
-                                <th scope="col">Kode Barang</th>
-                                <th scope="col">Nama Barang</th>
-                                <th scope="col">Satuan Barang</th>
-                                <th scope="col">Kategori Barang</th>
-                                <th scope="col">Jumlah Barang</th>
-                                <th scope="col">Harga Barang</th>
+                                <th class="text-center" scope="col">No</th>
+                                <th class="text-center" scope="col">Kode Transaksi</th>
+                                <th class="text-center" scope="col">Kode Barang</th>
+                                <th class="text-center" scope="col">Nama Barang</th>
+                                <th class="text-center" scope="col">Satuan Barang</th>
+                                <th class="text-center" scope="col">Kategori Barang</th>
+                                <th class="text-center" scope="col">Jumlah Barang</th>
+                                <th class="text-center" scope="col">Harga Barang</th>
+                                <th class="text-center" scope="col">Tanggal Transaksi</th>
+
                                 <th scope="col">Aksi</th>
                             </tr>
 
@@ -93,11 +95,12 @@
             <td>{{ $counter++ }}</td>
             <td>{{ $item->TransaksiId }}</td>
             <td>{{ $item->KodeBarang }}</td>
-            <td>{{ $item->NamaBarang }}</td>
-            <td>{{ $item->SatuanBarang }}</td>
-            <td>{{ $item->KategoriBarang }}</td>
-            <td>{{ $item->StokBarang }}</td>
-            <td>{{ $item->HargaJual }}</td>
+            <td class="text-center">{{ $item->NamaBarang }}</td>
+            <td class="text-center">{{ $item->SatuanBarang }}</td>
+            <td class="text-center">{{ $item->KategoriBarang }}</td>
+            <td class="text-center">{{ $item->StokBarang }}</td>
+            <td>Rp {{ $item->HargaJual }}</td>
+            <td class="text-center">{{ $item->tanggal }}</td>
             <td>
                 <a href="{{ url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit') }}">
                     <img src="/assets/images/Edit.png" alt="edit">
@@ -118,11 +121,12 @@
             <td>{{ $counter++ }}</td>
             <td>{{ $item->TransaksiId }}</td>
             <td>{{ $item->KodeBarang }}</td>
-            <td>{{ $item->NamaBarang}}</td>
-            <td>{{ $item->SatuanBarang }}</td>
-            <td>{{ $item->KategoriBarang }}</td>
-            <td>{{ $item->StokBarang }}</td>
-            <td>Rp{{ $item->HargaJual }}</td>
+            <td class="text-center">{{ $item->NamaBarang}}</td>
+            <td class="text-center">{{ $item->SatuanBarang }}</td>
+            <td class="text-center">{{ $item->KategoriBarang }}</td>
+            <td class="text-center">{{ $item->StokBarang }}</td>
+            <td>Rp {{ $item->HargaJual }}</td>
+            <td class="text-center">{{ $item->TanggalBeli }}</td>
             <td>
                 <a href="{{ url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit') }}">
                     <img src="/assets/images/Edit.png" alt="edit">

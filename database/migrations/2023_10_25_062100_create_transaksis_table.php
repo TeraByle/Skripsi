@@ -20,7 +20,8 @@ return new class extends Migration
             $table->integer('StokBarang');
             $table->string('KategoriBarang');
             $table->integer('HargaJual');
-
+            $table->date('tanggal');
+            $table->timestamps();
 
         });
     }

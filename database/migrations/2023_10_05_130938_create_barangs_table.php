@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('HargaBeli');
             $table->string('HargaJual');
             $table->text('gambar');
+            $table->timestamps();
 
         });
     }

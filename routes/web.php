@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AdminsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\Barang\produkController;
+use App\Http\Controllers\Laporan\CetakLaporanController;
 use App\Http\Controllers\transaksiController;
 use App\Models\transaksi;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,21 +24,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/loging_in', [LoginController::class, 'store'])->name('login_store');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-// home
+
+// home Admin
 Route::get('/', [produkController::class, 'index'])->name('home');
 
-Route::get('/homepage', function () {
-    return view('/user/homepage');
-});
 
 Route::prefix('superAdmin')->group(function(){
-    //Route::get('/produk', [produkController::class, 'index'])->name('produk');
+    // produk
     Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
     Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
     Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);
     Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
     Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
 
+    // transaksi
     Route::get('/transaksi', [transaksiController::class, 'index'])->name('transaksi');
     Route::post('/transaksi',[transaksiController::class,'store']);
     Route::get('/tambahTransaksi', [transaksiController::class, 'create']);
@@ -45,7 +45,11 @@ Route::prefix('superAdmin')->group(function(){
     Route::put('/updateTransaksi/{TransaksiId}', [transaksiController::class, 'update']);
     Route::delete('/transaksi/{TransaksiId}',[transaksiController::class,'destroy']);
 
+    // cetak laporan
+    Route::get('/cetak-laporan', [CetakLaporanController::class, 'index'])->name('cetakdata');
 
+
+    // akun manajemen
     Route::get('/akun', [AdminsController::class, 'index'])->name('account_manangement');
     Route::get('/tambah-akun', [AdminsController::class, 'create'])->name('create_account');
     Route::post('/store-akun', [AdminsController::class, 'store'])->name('store_akun');
@@ -53,17 +57,10 @@ Route::prefix('superAdmin')->group(function(){
 
 
 
-    Route::get('/cetakLaporan', function () {
-        return view('superAdmin/cetakLaporan');
-    });
-
-    // Route::get('/akun', function () {
-    //     return view('superAdmin/akun');
+    // Route::get('/cetakLaporan', function () {
+    //     return view('superAdmin/cetakLaporan');
     // });
 
-    // Route::get('/tambahAkun', function () {
-    //     return view('superAdmin/tambahAkun');
-    // });
 
     Route::get('/updateakun', function () {
         return view('/superAdmin/updateAkun');
@@ -82,6 +79,7 @@ Route::prefix('admin')->group(function(){
     Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
     Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
 
+
     Route::get('/transaksi', function () {
         return view('/admin/transaksi');
     });
@@ -96,5 +94,8 @@ Route::prefix('admin')->group(function(){
 });
 
 
+Route::get('/homepage', function () {
+    return view('/user/homepage');
+});
 
 Route::get('/listBarang',[SessionController::class,'listBarang']);
