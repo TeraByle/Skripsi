@@ -52,7 +52,7 @@ class transaksiController extends Controller
             'SatuanBarang' => 'required',
             'StokBarang' => 'required|numeric',
             'HargaJual' => 'required|numeric',
-            'tanggal'=>'required'
+            // 'tanggal'=>'required'
         ],
         [
             'KodeBarang.required' => 'Kode Barang wajib diisi',
