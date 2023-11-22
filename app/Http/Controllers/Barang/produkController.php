@@ -98,7 +98,7 @@ class produkController extends Controller
         }
         Barang::create($data);
         // dd($data);
-        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil ditambah');
+        return redirect()->route('home')->with('success', 'Data berhasil ditambah');
     }
 
     public function show(string $id)

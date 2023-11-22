@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Barang;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 
 class transaksiController extends Controller
 {
     public function index(Request $request)
     {
-        $barang = Barang::select('TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual')->get();
+        $barang = Barang::select('TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual','TanggalBeli')->get();
         // $barang = Barang::where('BarangId',$request->KodeBarang)->first();
         // dd($barang);
 
@@ -42,51 +43,40 @@ class transaksiController extends Controller
 
         return view('superAdmin/tambahTransaksi');
     }
-
     public function store(Request $request)
     {
-        //  $barang =DB::table('barang')->where('BarangId',$request->KodeBarang)->first();
-        // dd($barang);
-
-        //mengeluarkan isian yang sudah dimasukkan
-        Session::flash('KodeBarang',$request->KodeBarang);
-        Session::flash('NamaBarang',$request->NamaBarang);
-        Session::flash('SatuanBarang',$request->SatuanBarang);
-        Session::flash('KategoriBarang',$request->KategoriBarang);
-        Session::flash('StokBarang',$request->StokBarang);
-        Session::flash('HargaJual',$request->HargaJual);
-
         $request->validate([
-        //validasi data yang harus dimasukkan
-
-            'KodeBarang' => 'required',
+            'KodeBarang' => 'required|unique:transaksi,KodeBarang',
             'NamaBarang' => 'required',
             'KategoriBarang' => 'required',
             'SatuanBarang' => 'required',
-            'StokBarang' => 'required | numeric',
-            'HargaJual' => 'required | numeric',
-
-        ],[
-        //notif jika ada kolom yang tidak diisi
-            'KodeBarang.required'=>'Kode Barang wajib diisi',
-            'NamaBarang.required'=>'Nama Barang wajib diisi',
-            'KategoriBarang.required'=>'Kategori Barang wajib diisi',
-            'SatuanBarang.required'=>'Satuan Barang wajib diisi',
-            'StokBarang.required'=>'Jumlah Barang wajib diisi',
-            'HargaJual.required'=>'Harga Barang wajib diisi',
+            'StokBarang' => 'required|numeric',
+            'HargaJual' => 'required|numeric',
+            'tanggal'=>'required'
+        ],
+        [
+            'KodeBarang.required' => 'Kode Barang wajib diisi',
+            'KodeBarang.unique' => 'Kode Barang sudah digunakan',
+            'NamaBarang.required' => 'Nama Barang wajib diisi',
+            'KategoriBarang.required' => 'Kategori Barang wajib diisi',
+            'SatuanBarang.required' => 'Satuan Barang wajib diisi',
+            'StokBarang.required' => 'Jumlah Barang wajib diisi',
+            'HargaJual.required' => 'Harga Barang wajib diisi',
         ]);
+
         $data = [
-            'TransaksiId'=>transaksi::getTransactionId(),
-            'KodeBarang'=>$request->KodeBarang,
-            'NamaBarang'=>$request->NamaBarang,
-            'KategoriBarang'=>$request->KategoriBarang,
-            'SatuanBarang'=>$request->SatuanBarang,
-            'StokBarang'=>$request->StokBarang,
-            'HargaJual'=>$request->HargaJual,
+            'TransaksiId' => Transaksi::getTransactionId(),
+            'KodeBarang' => $request->KodeBarang,
+            'NamaBarang' => $request->NamaBarang,
+            'KategoriBarang' => $request->KategoriBarang,
+            'SatuanBarang' => $request->SatuanBarang,
+            'StokBarang' => $request->StokBarang,
+            'HargaJual' => $request->HargaJual,
+            'tanggal' => Carbon::now()->toDateString(),
         ];
 
         Transaksi::create($data);
-        // dd($data);
+
         return redirect()->to('superAdmin/transaksi')->with('success', 'Data berhasil ditambah');
     }
 

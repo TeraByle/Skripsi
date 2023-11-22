@@ -17,6 +17,7 @@ class transaksi extends Model
         'KategoriBarang' ,
         'StokBarang' ,
         'HargaJual' ,
+        'tanggal'
     ];
 
     public static function getTransactionId()
