@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>List Produk</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/css/produk.css">
     </head>
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <img src="/assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">
@@ -18,31 +18,34 @@
                         <div class="user-name">Zhofar Putra</div>
                         <div class="user-role">Admin</div>
                     </div>
-                    <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
-                    </div>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" style="border: none; background: none; padding: 0;">
+                            <img src="/assets/images/LogOut.png" alt="logout" style="width: 30px; height: 30px;">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="isi">
             <div class="sidebar">
                 <button class="sidebar-button button-1">Data Barang</button>
-                <button class="sidebar-button button-2">Transaksi Penjualan</button>
+                <button class="sidebar-button button-2"><a href="/admin/transaksiAdmin" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
             </div>
             <div class="content">
                 <h2>List Produk</h2>
                 <p>Kelola List Produk Anda</p>
                 <div class="button-table">
-                    <img src="assets/images/Filter.png" alt="">
+                    <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                        <form class="d-flex" action="{{url('/produk')}}" method="get">
+                        <form class="d-flex" action="{{route('home')}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
                             placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <button type="submit" class="btn btn-outline-primary">Search</button>
                         </form>
                     </div>
                     <button class="button-barang">
-                        <a href="{url('inputBarang/')}">+ Tambah Barang</a>
+                        <a href="{{ route('input_barang') }}" style="text-decoration: none;color: white;">+ Tambah Barang</a>
                     </button>
                 </div>
                 @if(Session::has('success'))
@@ -53,7 +56,7 @@
                     </div>
                 @endif
                 <div class="tabel">
-                    <table class="table">
+                    <table class="table table-bordered table-striped table-condensed">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -74,10 +77,13 @@
                         <tbody>
                             <?php $i = $data->firstItem() ?>
                             @foreach($data as $item)
-
                             <tr>
                                 <th scope="row">{{$i}}</th>
-                                <td><img src="assets/images/PaluKambing.png" alt=""></td>
+                                <td>
+                                    @if ($item->gambar)
+                                    <img src="{{ asset('assets/fileproduk/' . $item->gambar) }}" height="40" width="46">
+                                    @endif
+                                </td>
                                 <td>{{$item->KodeBarang}}</td>
                                 <td>{{$item->NamaBarang}}</td>
                                 <td>{{$item->JenisBarang}}</td>
@@ -88,12 +94,12 @@
                                 <td>{{$item->TanggalBeli}}</td>
                                 <td>{{$item->HargaBeli}}</td>
                                 <td>{{$item->HargaJual}}</td>
-                                <td><a href="{{url('updateBarang/'.$item->BarangId.'/edit')}}"><img src="assets/images/Edit.png" alt="edit"></a>
-                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('produk/'.$item->BarangId)}}" method="POST">
+                                <td><a href="{{url('superAdmin/updateBarang/'.$item->BarangId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
+                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->BarangId)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" name="submit">
-                                    <a href=""><img src="assets/images/Remove.png" alt="remove"></a>
+                                    <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
                                     </button>
                                 </form>
                                 </td>

@@ -47,7 +47,6 @@ class produkController extends Controller
         Session::flash('HargaJual',$request->HargaJual);
 
         $request->validate([
-
             'KodeBarang' => 'required',
             'NamaBarang' => 'required',
             'JenisBarang' => 'required',
@@ -59,7 +58,6 @@ class produkController extends Controller
             'HargaBeli' => 'required | numeric',
             'HargaJual' => 'required | numeric',
             'gambar' => 'nullable',
-
         ],[
 
             'KodeBarang.required'=>'Kode Barang wajib diisi',
@@ -85,9 +83,8 @@ class produkController extends Controller
             'TanggalBeli'=>$request->TanggalBeli,
             'HargaBeli'=>$request->HargaBeli,
             'HargaJual'=>$request->HargaJual,
-
-
         ];
+
         $gambar = $request->file('gambar');
         if ($gambar) {
             $destinationPath = 'assets/fileproduk';
@@ -128,8 +125,8 @@ class produkController extends Controller
             'TanggalBeli' => 'required',
             'HargaBeli' => 'required | numeric',
             'HargaJual' => 'required | numeric',
-
         ],[
+
             'KodeBarang.required'=>'Kode Barang wajib diisi',
             'NamaBarang.required'=>'Nama Barang wajib diisi',
             'JenisBarang.required'=>'Jenis Barang wajib diisi',
@@ -141,6 +138,7 @@ class produkController extends Controller
             'HargaBeli.required'=>'Harga Beli wajib diisi',
             'HargaJual.required'=>'Harga Jual wajib diisi',
         ]);
+        
         $data = [
             'KodeBarang'=>$request->KodeBarang,
             'NamaBarang'=>$request->NamaBarang,
@@ -154,7 +152,7 @@ class produkController extends Controller
             'HargaJual'=>$request->HargaJual,
         ];
         Barang::where('BarangId', $id)->update($data);
-        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di ubah');
+        return redirect()->to('route')->with('success', 'Data berhasil di ubah');
     }
 
     public function destroy(string $id)

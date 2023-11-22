@@ -48,51 +48,33 @@ Route::prefix('superAdmin')->group(function(){
     // cetak laporan
     Route::get('/cetak-laporan', [CetakLaporanController::class, 'index'])->name('cetakdata');
 
-
     // akun manajemen
     Route::get('/akun', [AdminsController::class, 'index'])->name('account_manangement');
     Route::get('/tambah-akun', [AdminsController::class, 'create'])->name('create_account');
     Route::post('/store-akun', [AdminsController::class, 'store'])->name('store_akun');
 
-
-
-
-    // Route::get('/cetakLaporan', function () {
-    //     return view('superAdmin/cetakLaporan');
-    // });
-
-
     Route::get('/updateakun', function () {
         return view('/superAdmin/updateAkun');
-    });
-
-    Route::get('/produkAdmin', function () {
-        return view('/admin/produkAdmin');
     });
 });
 
 Route::prefix('admin')->group(function(){
-    Route::get('/produk', [produkController::class, 'index']);
-    Route::post('/produk',[produkController::class,'store']);
-    Route::get('/inputBarang', [produkController::class, 'create']);
-    Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);
-    Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
-    Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
+    // produk
+    Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
+    Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
+    Route::get('/uProdukAdmin/{BarangId}/edit', [produkController::class, 'edit']);
+    Route::put('/uProdukAdmin/{BarangId}', [produkController::class, 'update']);
+    Route::delete('/produkAdmin/{BarangId}',[produkController::class,'destroy']);
 
+    // transaksi
+    Route::get('/transaksiAdmin', [transaksiController::class, 'index'])->name('transaksi');
+    Route::post('/transaksiAdmin',[transaksiController::class,'store']);
+    Route::get('/tTransaksiAdmin', [transaksiController::class, 'create']);
+    Route::get('/uTransaksiAdmin/{TransaksiId}/edit', [transaksiController::class, 'edit']);
+    Route::put('/uTransaksiAdmin/{TransaksiId}', [transaksiController::class, 'update']);
+    Route::delete('/transaksiAdmin/{TransaksiId}',[transaksiController::class,'destroy']);
 
-    Route::get('/transaksi', function () {
-        return view('/admin/transaksi');
-    });
-
-    Route::get('/tambahTransaksi', function () {
-        return view('/admin/Transaksi');
-    });
-
-    Route::get('/produkAdmin', function () {
-        return view('/admin/produkAdmin');
-    });
 });
-
 
 Route::get('/homepage', function () {
     return view('/user/homepage');
