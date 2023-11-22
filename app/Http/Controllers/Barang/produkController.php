@@ -138,7 +138,7 @@ class produkController extends Controller
             'HargaBeli.required'=>'Harga Beli wajib diisi',
             'HargaJual.required'=>'Harga Jual wajib diisi',
         ]);
-        
+
         $data = [
             'KodeBarang'=>$request->KodeBarang,
             'NamaBarang'=>$request->NamaBarang,
@@ -152,13 +152,13 @@ class produkController extends Controller
             'HargaJual'=>$request->HargaJual,
         ];
         Barang::where('BarangId', $id)->update($data);
-        return redirect()->to('route')->with('success', 'Data berhasil di ubah');
+        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di ubah');
     }
 
     public function destroy(string $id)
     //penghapusan data
     {
         Barang::where('BarangId', $id)->delete();
-        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di hapus');
+        return redirect()->route('home')->with('success', 'Data berhasil di hapus');
     }
 }
