@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use App\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,34 +17,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(RolesAndPermissionsSeeder::class);
+
             DB::table('users')->insert([
                 [
                     'name' => 'Zhofar Putra',
                     'username' => 'jopar',
                     'email' =>  'superadmin@yes.com',
                     'password' => Hash::make('masbro'),
-                    'role' => 'Super Admin'
+
+
                 ],
                 [
                     'name' => 'Ilham Huda',
                     'username' => 'hudai',
                     'email' => 'admin1@yes.com',
                     'password' => Hash::make('masako'),
-                    'role' => 'admin',
+
                 ],
                 [
                     'name' => 'Leonardo',
                     'username' => 'leomord',
                     'email' => 'superadmin2@yes.com',
                     'password' => Hash::make('masalah'),
-                    'role' => 'admin',
+
                 ],
         ]);
 
-        DB::table('roles')->insert([
-            ['name' => 'Super Admin'],
-            ['name' => 'Admin'],
-        ]);
+
 
 
 
