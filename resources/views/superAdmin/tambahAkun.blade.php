@@ -29,7 +29,7 @@
         </div>
         <div class="isi-deskripsi">
             <button class="isi-kembali">
-                <a href="{{ route('account_manangement') }}" style="text-decoration: none;color: white;">Kembali</a></button>
+                <a href="{{ route('account_management') }}" style="text-decoration: none;color: white;">Kembali</a></button>
             <div class="isi-judul">
                 <h2>Tambahkan AKun</h2>
             </div>

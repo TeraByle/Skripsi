@@ -26,6 +26,10 @@ class produkController extends Controller
         return view('superAdmin/produk')->with('data', $data);
     }
 
+    public function index2(){
+        return view('user.homepage');
+    }
+
     public function create()
     //menampilkan form data baru
     {

@@ -18,10 +18,16 @@
                         <div class="form-element">
                             <label for="username" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Username</label>
                             <input type="text" name="username" id="username">
+                            @error('username')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-element">
                             <label for="password" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Password</label>
                             <input type="password" name="password" id="password">
+                            @error('password')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                             @enderror
                         </div>
                         <button class="sign-in-button" type="submit" style="border:none">
                             Sign in

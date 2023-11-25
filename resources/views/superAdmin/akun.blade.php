@@ -34,7 +34,7 @@
                 <button class="sidebar-button button-1"><a href="{{ route('home') }}" style="text-decoration: none;color: black;">Data Barang</button>
                 <button class="sidebar-button button-2"><a href="{{route('transaksi')}}" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
                 <button class="sidebar-button button-3"><a href="{{route('cetakdata')}}" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
-                <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: white;">Manajemen Akun</a></button>
+                <button class="sidebar-button button-4"><a href="{{route('account_management')}}" style="text-decoration: none;color: white;">Manajemen Akun</a></button>
             </div>
             <div class="content">
                 <h2>Manajemen Akun</h2>
@@ -88,7 +88,11 @@
                                 <td>{{ $akun->username }}</td>
                                 <td>{{ $akun->email }}</td>
                                 <td>{{ $akun->password}}</td>
-                                <td>{{ $akun->role }}</td>
+                                <td>
+                                    @foreach ($akun->roles as $role)
+                                        {{ $role->name }}
+                                    @endforeach
+                                </td>
                                 <td>
                                     <a href="{{url('superAdmin/updateAkun/'.$akun->id)}}"><img src="/assets/images/Edit.png" alt="edit"></a>
                                     <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/akun/'.$akun->id)}}" method="POST">

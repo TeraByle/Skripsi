@@ -32,8 +32,9 @@
                 <button class="sidebar-button button-1">Data Barang</button>
                 <button class="sidebar-button button-2"><a href="{{ route('transaksi') }}" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
                 <button class="sidebar-button button-3"><a href="{{route('cetakdata')}}" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
-                <button class="sidebar-button button-4"><a href="{{route('account_manangement')}}" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
+                <button class="sidebar-button button-4"><a href="{{route('account_management')}}" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
             </div>
+
             <div class="content">
                 <h2>List Produk</h2>
                 <p>Kelola List Produk Anda</p>

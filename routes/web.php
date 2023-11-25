@@ -49,7 +49,7 @@ Route::prefix('superAdmin')->group(function(){
     Route::get('/cetak-laporan', [CetakLaporanController::class, 'index'])->name('cetakdata');
 
     // akun manajemen
-    Route::get('/akun', [AdminsController::class, 'index'])->name('account_manangement');
+    Route::get('/akun', [AdminsController::class, 'index'])->name('account_management');
     Route::get('/tambah-akun', [AdminsController::class, 'create'])->name('create_account');
     Route::post('/store-akun', [AdminsController::class, 'store'])->name('store_akun');
 
@@ -59,7 +59,7 @@ Route::prefix('superAdmin')->group(function(){
 });
 
 Route::prefix('admin')->group(function(){
-    // produk
+    Route::get('/homepage', [produkController::class, 'index2'])->name('homepage.admin');
     Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
     Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
     Route::get('/uProdukAdmin/{BarangId}/edit', [produkController::class, 'edit']);
@@ -76,8 +76,4 @@ Route::prefix('admin')->group(function(){
 
 });
 
-Route::get('/homepage', function () {
-    return view('/user/homepage');
-});
 
-Route::get('/listBarang',[SessionController::class,'listBarang']);
