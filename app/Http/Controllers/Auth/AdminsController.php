@@ -50,7 +50,7 @@ class AdminsController extends Controller
         // Menetapkan role ke user yang baru dibuat
         $user = User::create($new_account);
         $user->assignRole($request->role);
-        dd($user);
+        
 
         return redirect()->route('account_management');
 
