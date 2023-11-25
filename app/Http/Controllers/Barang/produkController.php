@@ -94,7 +94,7 @@ class produkController extends Controller
             $data['gambar'] = $file_upload;
         }
         Barang::create($data);
-        // dd($data);
+
         return redirect()->route('home')->with('success', 'Data berhasil ditambah');
     }
 

@@ -85,7 +85,7 @@
                                     @if ($item->gambar)
                                     <img src="{{ asset('assets/fileproduk/' . $item->gambar) }}" height="40" width="46">
                                     @endif
-                                 </td>
+                                </td>
                                 <td>{{$item->KodeBarang}}</td>
                                 <td>{{$item->NamaBarang}}</td>
                                 <td>{{$item->JenisBarang}}</td>
