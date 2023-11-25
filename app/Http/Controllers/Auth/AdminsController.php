@@ -4,23 +4,24 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use App\Models\User;
-
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AdminsController extends Controller
 {
     public function index(){
+        $roles = User::with('roles')->get();
 
+
+        // Tampilkan data user dan roles di halaman
         $new_account = User::all();
-        return view('superAdmin.akun',compact('new_account'));
+        // dd($roles);
+        return view('superAdmin.akun',compact('new_account','roles'));
     }
 
-    public function index2(){
-        return view('user/homepage');
-    }
+
 
     public function create()
     {
@@ -34,23 +35,24 @@ class AdminsController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'username' => 'required', 'username',
+            'username' => 'required',
             'password' => 'required',
             'role' => 'required',
-
         ]);
-        // dd($request);
 
         $new_account = [
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
             'password' => bcrypt($request->password),
-            'role' => $request->role,
         ];
-        // dd($new_account);
-        User::create($new_account);
-        return redirect()->route('account_manangement');
+
+        // Menetapkan role ke user yang baru dibuat
+        $user = User::create($new_account);
+        $user->assignRole($request->role);
+        dd($user);
+
+        return redirect()->route('account_management');
 
     }
 }

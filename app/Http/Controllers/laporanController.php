@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 class laporanController extends Controller
@@ -15,9 +16,7 @@ class laporanController extends Controller
     }
 
     public function view_pdf(){
-        $mpdf = new \Mpdf\Mpdf();
-        $mpdf->WriteHTML('<h1>Hello world!</h1>');
-        $mpdf->Output();
+
     }
 
     /**
@@ -36,35 +35,5 @@ class laporanController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

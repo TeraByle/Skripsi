@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -26,21 +27,33 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
+
         $credentials = $request->validate([
-            'username' => 'required', 'username',
+            'username' => 'required',
             'password' => 'required',
         ]);
 
-        // dd($credentials);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            // Get the authenticated user
+            $user = Auth::user();
+
+            // Check if the user has a specific role
+            if ($user->hasRole('Super Admin')) {
+                return redirect()->route('home');
+            } elseif ($user->hasRole('Admin')) {
+                return redirect()->route('homepage.admin');
+            }
+
+            // Redirect to a default route if no specific role is found
             return redirect()->route('home');
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email','password');
+            'username' => 'The provided credentials do not match our records.',
+        ])->onlyInput('username', 'password');
+
     }
 
 
