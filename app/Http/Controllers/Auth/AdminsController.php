@@ -18,6 +18,10 @@ class AdminsController extends Controller
         return view('superAdmin.akun',compact('new_account'));
     }
 
+    public function index2(){
+        return view('user/homepage');
+    }
+
     public function create()
     {
         $roles=Role::all();
