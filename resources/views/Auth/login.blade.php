@@ -27,7 +27,7 @@
                             <input type="password" name="password" id="password">
                             @error('password')
                                 <div class="alert alert-danger">{{ $message }}</div>
-                             @enderror
+                            @enderror
                         </div>
                         <button class="sign-in-button" type="submit" style="border:none">
                             Sign in
