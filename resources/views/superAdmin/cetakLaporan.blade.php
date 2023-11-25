@@ -39,25 +39,27 @@
             <div class="isi-judul">
                 <h2>Cetak Laporan</h2>
             <div class="container-cetak">
-            <div class="form-container-cetak">
-                    <!-- Section 1: Kode dan Nama Barang -->
-                    <div class="form-section">
-                        <div class="form-field-akun">
-                            <label for="brand">Dari Tanggal</label>
-                            <input type="date" name="" id="">
+                <form action="{{ route('cetakdata') }}" method="GET">
+                    <div class="form-container-cetak">
+                        <!-- Section 1: Kode dan Nama Barang -->
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="tanggal_awal">Dari Tanggal</label>
+                                <input type="date" name="tanggal_awal" id="tanggal_awal">
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="tanggal_akhir">Sampai Tanggal</label>
+                                <input type="date" name="tanggal_akhir" id="tanggal_akhir">
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <button class="save-button" type="submit">Cetak</button>
                         </div>
                     </div>
-                    <div class="form-section">
-                        <div class="form-field-akun">
-                            <label for="brand">Sampai Tanggal</label>
-                            <input type="date" name="" id="">
-                        </div>
-                    </div>
-                    <div class="form-section">
-                        <button class="save-button">Cetak</button>
-                    </div>
-                </div>
-            </div>
+                </form>
+
         </div>
     </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

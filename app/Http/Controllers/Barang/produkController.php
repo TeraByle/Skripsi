@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller; // Fix this line
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Carbon;
 
 class produkController extends Controller
 {
@@ -62,6 +63,7 @@ class produkController extends Controller
             'HargaBeli' => 'required | numeric',
             'HargaJual' => 'required | numeric',
             'gambar' => 'nullable',
+
         ],[
 
             'KodeBarang.required'=>'Kode Barang wajib diisi',
@@ -87,6 +89,7 @@ class produkController extends Controller
             'TanggalBeli'=>$request->TanggalBeli,
             'HargaBeli'=>$request->HargaBeli,
             'HargaJual'=>$request->HargaJual,
+            'tanggal' => Carbon::now()->toDateString(),
         ];
 
         $gambar = $request->file('gambar');

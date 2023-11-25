@@ -21,7 +21,8 @@ class Barang extends Model
         'TanggalBeli',
         'HargaBeli',
         'HargaJual',
-        'gambar'
+        'gambar',
+        'tanggal'
     ];
 
     protected $table = 'barang';

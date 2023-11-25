@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('TanggalBeli');
             $table->string('HargaBeli');
             $table->string('HargaJual');
+            $table->date('tanggal');
             $table->text('gambar');
             $table->timestamps();
 
