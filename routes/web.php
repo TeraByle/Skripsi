@@ -76,4 +76,7 @@ Route::prefix('admin')->group(function(){
 
 });
 
+Route::get('/homepage', function () {
+    return view('/user/homepage');
+});
 
