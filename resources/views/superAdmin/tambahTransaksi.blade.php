@@ -46,7 +46,7 @@
             </div>
             <div class="container-transaksi1">
                 <div class="form-container-transaksi2">
-                    <form action="{{url('superAdmin/transaksi')}}" method="post">
+                    <form action="{{route('store_transaksi')}}" method="post">
                     @csrf
                         <!-- Section 1: Kode dan Nama Barang -->
                         <div class="form-section">

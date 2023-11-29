@@ -49,7 +49,7 @@
                         </form>
                     </div>
                     <button class="button-barang">
-                        <a href="tambahTransaksi/" style="text-decoration: none;color: white;">+ Tambah Transaksi</a>
+                        <a  href="{{ route('create_transaksi') }}" style="text-decoration: none;color: white;">+ Tambah Transaksi</a>
                     </button>
                 </div>
                 @if(Session::has('success'))

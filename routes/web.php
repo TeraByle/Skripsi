@@ -39,14 +39,16 @@ Route::prefix('superAdmin')->group(function(){
 
     // transaksi
     Route::get('/transaksi', [transaksiController::class, 'index'])->name('transaksi');
-    Route::post('/transaksi',[transaksiController::class,'store']);
-    Route::get('/tambahTransaksi', [transaksiController::class, 'create']);
+    Route::get('/tambahTransaksi', [transaksiController::class, 'create'])->name('create_transaksi');
+    Route::post('/transaksi',[transaksiController::class,'store'])->name('store_transaksi');
     Route::get('/updateTransaksi/{TransaksiId}/edit', [transaksiController::class, 'edit']);
     Route::put('/updateTransaksi/{TransaksiId}', [transaksiController::class, 'update']);
     Route::delete('/transaksi/{TransaksiId}',[transaksiController::class,'destroy']);
 
     // cetak laporan
     Route::get('/cetak-laporan', [CetakLaporanController::class, 'index'])->name('cetakdata');
+    Route::post('/cetak-laporans-semua', [CetakLaporanController::class, 'fetch_data'])->name('cetakdatasemua');
+
 
     // akun manajemen
     Route::get('/akun', [AdminsController::class, 'index'])->name('account_management');
