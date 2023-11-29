@@ -13,7 +13,9 @@ class CetakLaporanController extends Controller
 {
     public function index()
     {
-        return view('superAdmin/cetakLaporan');
+        $dataTransaksi  = Transaksi::select('TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual','tanggal')->get();
+        $dataBarang  =  Barang::select('TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual','tanggal')->get();
+        return view('superAdmin/cetakLaporan' ,compact( 'dataTransaksi', 'dataBarang'));
     }
 
     public function fetch_data(Request $request)
@@ -29,6 +31,7 @@ class CetakLaporanController extends Controller
             'tanggal_awal' => 'required|date',
             'tanggal_akhir' => 'required|date',
         ]);
+        // dd($validasiTransaksi);
 
 
         if ($validator->fails()) {
@@ -38,21 +41,23 @@ class CetakLaporanController extends Controller
         }
 
         $validasiTransaksi = $this->validateTransactionDates($tanggalAwal, $tanggalAkhir);
-        dd($validasiTransaksi);
         if (!$validasiTransaksi) {
             return redirect('cetak-laporan')
                 ->withErrors(['tanggal_awal' => 'Tanggal transaksi tidak valid.'])
                 ->withInput();
         }
-        return redirect()->route('cetak-laporan', compact('tanggalAwal', 'tanggalAkhir'));
+        $dataTransaksi  = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
+        $dataBarang  = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
+
+        return redirect()->route('cetakdatasemua', compact('dataBarang', 'dataTransaksi', 'tanggalAwal', 'tanggalAkhir'));
 
     }
 
-    private function validateTransactionDates($tanggalAwal, $tanggalAkhir)
-    {
-        $transaksiCount = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
-        $barangCount = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
-        return $transaksiCount > 0 && $barangCount > 0;
-    }
+    // private function validateTransactionDates($tanggalAwal, $tanggalAkhir)
+    // {
+    //     $transaksiCount = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
+    //     $barangCount = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
+    //     return $transaksiCount > 0 && $barangCount > 0;
+    // }
 }
 
