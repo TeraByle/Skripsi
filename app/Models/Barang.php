@@ -27,7 +27,7 @@ class Barang extends Model
 
     protected $table = 'barang';
     public $timestamps = false;
-    protected $primaryKey = 'KodeBarang';
+    protected $primaryKey = 'BarangId';
 
     public static function getTransactionId()
     {

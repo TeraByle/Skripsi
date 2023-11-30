@@ -33,9 +33,9 @@ Route::prefix('superAdmin')->group(function(){
     // produk
     Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
     Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
-    Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);
-    Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
-    Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
+    Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit'])->name('edit_barang');
+    Route::put('/updateBarang/{BarangId}', [produkController::class, 'update'])->name('update_barang');
+    Route::delete('/produk/{BarangId}',[produkController::class,'destroy'])->name('delete_barang');
 
     // transaksi
     Route::get('/transaksi', [transaksiController::class, 'index'])->name('transaksi');

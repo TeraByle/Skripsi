@@ -97,14 +97,17 @@
                                 <td>{{$item->TanggalBeli}}</td>
                                 <td>{{$item->HargaBeli}}</td>
                                 <td>{{$item->HargaJual}}</td>
-                                <td><a href="{{url('superAdmin/updateBarang/'.$item->BarangId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
-                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->BarangId)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" name="submit">
-                                    <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
-                                    </button>
-                                </form>
+                                <td>
+                                    <a href="{{ route('edit_barang', ['BarangId' => $item->BarangId]) }}">
+                                        <img src="/assets/images/Edit.png" alt="edit">
+                                    </a>
+                                    <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_barang',['BarangId'=>$item->BarangId]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" name="submit">
+                                            <img src="/assets/images/Remove.png" alt="remove">
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php $i++?>

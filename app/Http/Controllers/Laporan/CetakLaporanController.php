@@ -37,8 +37,8 @@ public function fetch_data(Request $request)
     $tanggalPembuatanData = Transaksi::latest('tanggal')->value('tanggal');
     $tanggalPembuatanData = Carbon::parse($tanggalPembuatanData);
 
-    $batasTanggalAwal = now()->subMonths(2)->startOfMonth();
-    $batasTanggalAkhir = now()->addMonths(2)->endOfMonth();
+    $batasTanggalAwal = now()->subMonths()->startOfMonth();
+    $batasTanggalAkhir = now()->addMonths()->endOfMonth();
 
     if ($tanggalAwal < $batasTanggalAwal || $tanggalAkhir > $batasTanggalAkhir) {
         return redirect()->route('cetakdata')
@@ -53,13 +53,13 @@ public function fetch_data(Request $request)
     return view('superAdmin/cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir'));
 }
 
-private function validateTransactionDates($tanggalAwal, $tanggalAkhir)
-{
-    $transaksiCount = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
-    $barangCount = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
+// private function validateTransactionDates($tanggalAwal, $tanggalAkhir)
+// {
+//     $transaksiCount = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
+//     $barangCount = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
 
-    return $transaksiCount > 0 && $barangCount > 0;
-}
+//     return $transaksiCount > 0 && $barangCount > 0;
+// }
 
 
 }

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Barang;
 
-use App\Http\Controllers\Controller; // Fix this line
+use App\Http\Controllers\Controller;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class produkController extends Controller
 {
@@ -159,13 +160,16 @@ class produkController extends Controller
             'HargaJual'=>$request->HargaJual,
         ];
         Barang::where('BarangId', $id)->update($data);
-        return redirect()->to('superAdmin/produk')->with('success', 'Data berhasil di ubah');
+        return redirect()->route('home')->with('success', 'Data berhasil di ubah');
     }
 
-    public function destroy(string $id)
-    //penghapusan data
+    public function destroy($BarangId)
     {
-        Barang::where('BarangId', $id)->delete();
-        return redirect()->route('home')->with('success', 'Data berhasil di hapus');
+        $barang = Barang::find($BarangId);
+        // dd($barang);
+
+         $barang->delete();
+
+    return redirect()->route('home')->with('success', 'Data berhasil dihapus');
     }
 }
