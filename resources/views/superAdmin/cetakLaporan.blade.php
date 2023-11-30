@@ -20,7 +20,7 @@
                         <div class="user-name">Zhofar Putra</div>
                         <div class="user-role">Admin</div>
                     </div>
-                      <form action="{{ route('logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" style="border: none; background: none; padding: 0;">
                             <img src="/assets/images/LogOut.png" alt="logout" style="width: 30px; height: 30px;">
@@ -68,7 +68,7 @@
                 </form>
         </div>
         <div class="data-table">
-            <h3>Data Transaksi</h3>
+            <h4>Data Transaksi</h4>
             <table class="table">
                 <thead>
                     <tr>
