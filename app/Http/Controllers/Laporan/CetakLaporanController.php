@@ -8,19 +8,21 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\transaksi;
 use App\Models\Barang;
 use Illuminate\Support\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
-class CetakLaporanController extends Controller
-{
-    public function index()
+class CetakLaporanController extends Controller{
+
+public function index()
 {
     $dataTransaksi = collect();
     $dataBarang = collect();
     $tanggalAwal = now()->subDays(7);
     $tanggalAkhir = now();
 
-    return view('superAdmin/cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir'));
+    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir'));
 }
+
 
 public function fetch_data(Request $request)
 {
@@ -50,16 +52,30 @@ public function fetch_data(Request $request)
     $dataTransaksi = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
     $dataBarang = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
 
-    return view('superAdmin/cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir'));
-}
+    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir'));
+    }
 
-// private function validateTransactionDates($tanggalAwal, $tanggalAkhir)
-// {
-//     $transaksiCount = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
-//     $barangCount = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->count();
+    public function cetakLaporan(Request $request)
+     {
 
-//     return $transaksiCount > 0 && $barangCount > 0;
-// }
+        $tanggalAwal = $request->input('tanggal_awal');
+        $tanggalAkhir = $request->input('tanggal_akhir');
+        $dataTransaksi = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
+        $dataBarang = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
+
+        if ($request->has('unduh_pdf')) {
+            $pdf = PDF::loadView('superAdmin.cetak-laporan.tableLaporan', compact('dataTransaksi', 'tanggalAwal', 'tanggalAkhir', 'dataBarang'));
+            $pdf->setPaper('a4');
+
+            // Mengatur opsi Dompdf
+            $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isPhpEnabled' => true]);
+
+            // Mengunduh file PDF
+            return $pdf->download('laporan.pdf');
+        }
+
+        return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'tanggalAwal', 'tanggalAkhir', 'dataBarang'));
+    }
 
 
 }
