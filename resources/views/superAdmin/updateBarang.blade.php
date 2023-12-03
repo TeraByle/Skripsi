@@ -35,7 +35,7 @@
             </div>
             <div class="container-up">
                 <div class="form-container-up">
-                <form action="{{url('superAdmin/updateBarang/'.$data->BarangId)}}" method="post">
+                    <form action="{{ route('update_barang', ['BarangId' => $data->BarangId]) }}" method="post">
                         @csrf
                         @method('PUT')
                     <!-- Section 1: Kode dan Nama Barang -->
