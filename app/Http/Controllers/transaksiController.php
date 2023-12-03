@@ -14,13 +14,7 @@ class transaksiController extends Controller
 {
     public function index(Request $request)
     {
-        $barang = Barang::select('TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual','TanggalBeli')->get();
-        // $barang = Barang::where('BarangId',$request->KodeBarang)->first();
-        // dd($barang);
-
-        // $data= Barang::max('BarangId');
-        // DB::table('barang')->select('BarangId')->get();
-        // dd($data);
+        $barang = Barang::select('BarangId','TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual','TanggalBeli')->get();
         $search = $request->search;
         $jumlahbaris = 4;
 
@@ -86,47 +80,116 @@ class transaksiController extends Controller
     }
 
     public function edit(string $id)
-    //menampilkan form untuk proses edit
     {
-        $data = Transaksi::where('TransaksiId',$id)->first();
-        return view('superAdmin/updateTransaksi')->with('data',$data);
+        $data = Transaksi::where('id', $id)->first();
+        return view('superAdmin/updateTransaksi')->with('data', $data);
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            //validasi data yang harus dimasukkan
-                'KodeBarang' => 'required',
-                'NamaBarang' => 'required',
-                'KategoriBarang' => 'required',
-                'SatuanBarang' => 'required',
-                'JumlahBarang' => 'required | numeric',
-                'HargaBarang' => 'required | numeric',
+            'KodeBarang' => 'required',
+            'NamaBarang' => 'required',
+            'KategoriBarang' => 'required',
+            'SatuanBarang' => 'required',
+            'StokBarang' => 'required|numeric',
+            'HargaJual' => 'required|numeric',
+        ], [
+            'KodeBarang.required' => 'Kode Barang wajib diisi',
+            'NamaBarang.required' => 'Nama Barang wajib diisi',
+            'KategoriBarang.required' => 'Kategori Barang wajib diisi',
+            'SatuanBarang.required' => 'Satuan Barang wajib diisi',
+            'StokBarang.required' => 'Jumlah Barang wajib diisi',
+            'HargaJual.required' => 'Harga Barang wajib diisi',
+        ]);
 
-            ],[
-            //notif jika ada kolom yang tidak diisi
-                'KodeBarang.required'=>'Kode Barang wajib diisi',
-                'NamaBarang.required'=>'Nama Barang wajib diisi',
-                'KategoriBarang.required'=>'Kategori Barang wajib diisi',
-                'SatuanBarang.required'=>'Satuan Barang wajib diisi',
-                'JumlahBarang.required'=>'Jumlah Barang wajib diisi',
-                'HargaBarang.required'=>'Harga Barang wajib diisi',
-            ]);
-            $data = [
-                'KodeBarang'=>$request->KodeBarang,
-                'NamaBarang'=>$request->NamaBarang,
-                'KategoriBarang'=>$request->KategoriBarang,
-                'SatuanBarang'=>$request->SatuanBarang,
-                'JumlahBarang'=>$request->JumlahBarang,
-                'HargaBarang'=>$request->HargaBarang,
-            ];
-        Transaksi::where('TransaksiId', $id)->update($data);
-        return redirect()->to('superAdmin/transaksi')->with('success', 'Data berhasil diubah');
+        $data = [
+            'KodeBarang' => $request->KodeBarang,
+            'NamaBarang' => $request->NamaBarang,
+            'KategoriBarang' => $request->KategoriBarang,
+            'SatuanBarang' => $request->SatuanBarang,
+            'StokBarang' => $request->StokBarang,
+            'HargaJual' => $request->HargaJual,
+        ];
+
+
+            $transaksi = Transaksi::findOrFail($id);
+            $transaksi->update($data);
+            // dd($data);
+
+
+        return redirect()->route('transaksi')->with('success', 'Data berhasil diubah');
     }
 
-    public function destroy(string $id)
+        public function destroy(string $id)
+        {
+                    $transaksi = transaksi ::findOrFail($id);
+                    $transaksi->delete();
+
+                return redirect()->route('transaksi')->with('success', 'Data berhasil dihapus');
+        }
+
+
+
+    public function edit2(string $BarangId)
     {
-        Transaksi::where('TransaksiId', $id)->delete();
-        return redirect()->to('superAdmin/transaksi')->with('success', 'Data berhasil dihapus');
+        $data = Barang::where('BarangId', $BarangId)->first();
+        return view('superAdmin.updatetransaksibarang')->with('data', $data);
+    }
+
+    public function update2(Request $request, string $id)
+    //menyimpan update data
+    {
+        $request->validate([
+            'KodeBarang' => 'required',
+            'NamaBarang' => 'required',
+            'JenisBarang' => 'required',
+            'SatuanBarang' => 'required',
+            'KategoriBarang' => 'required',
+            'BrandBarang' => 'required',
+            'StokBarang' => 'required | numeric',
+            // 'TanggalBeli' => 'required',
+            'HargaBeli' => 'required',
+            'HargaJual' => 'required | numeric',
+        ],[
+
+            'KodeBarang.required'=>'Kode Barang wajib diisi',
+            'NamaBarang.required'=>'Nama Barang wajib diisi',
+            'JenisBarang.required'=>'Jenis Barang wajib diisi',
+            'SatuanBarang.required'=>'Satuan Barang wajib diisi',
+            'KategoriBarang.required'=>'Kategori Barang wajib diisi',
+            'BrandBarang.required'=>'Brand Barang wajib diisi',
+            'StokBarang.required'=>'Stok Barang wajib diisi',
+            'TanggalBeli.required'=>'Tanggal Beli wajib diisi',
+            'HargaBeli.required'=>'Harga Beli wajib diisi',
+            'HargaJual.required'=>'Harga Jual wajib diisi',
+        ]);
+
+        $data = [
+            'KodeBarang'=>$request->KodeBarang,
+            'NamaBarang'=>$request->NamaBarang,
+            // 'JenisBarang'=>$request->JenisBarang,
+            'SatuanBarang'=>$request->SatuanBarang,
+            'KategoriBarang'=>$request->KategoriBarang,
+            'BrandBarang'=>$request->BrandBarang,
+            'StokBarang'=>$request->StokBarang,
+            'TanggalBeli'=>$request->TanggalBeli,
+            'HargaBeli'=>$request->HargaBeli,
+            'HargaJual'=>$request->HargaJual,
+        ];
+        // dd($data);
+        Barang::where('BarangId', $id)->update($data);
+
+        return redirect()->route('transaksi')->with('success', 'Data berhasil di ubah');
+    }
+
+
+
+    public function destroy2(string $BarangId)
+    {
+                $transaksi = Barang ::findOrFail($BarangId);
+                $transaksi->delete();
+
+            return redirect()->route('transaksi')->with('success', 'Data berhasil dihapus');
     }
 }

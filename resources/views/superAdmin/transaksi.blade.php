@@ -92,55 +92,55 @@
 
     @foreach ($data as $item)
         <tr>
-            <td>{{ $counter++ }}</td>
-            <td>{{ $item->TransaksiId }}</td>
-            <td>{{ $item->KodeBarang }}</td>
+            <td class="text-center">{{ $counter++ }}</td>
+            <td class="text-center">{{ $item->TransaksiId }}</td>
+            <td class="text-center">{{ $item->KodeBarang }}</td>
             <td class="text-center">{{ $item->NamaBarang }}</td>
             <td class="text-center">{{ $item->SatuanBarang }}</td>
             <td class="text-center">{{ $item->KategoriBarang }}</td>
             <td class="text-center">{{ $item->StokBarang }}</td>
-            <td>Rp {{ $item->HargaJual }}</td>
+            <td class="text-center">Rp {{ $item->HargaJual }}</td>
             <td class="text-center">{{ $item->tanggal }}</td>
             <td>
-                <a href="{{ url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit') }}">
+                <a href="{{ route('edit_transaksi', ['id' => $item->id]) }}">
                     <img src="/assets/images/Edit.png" alt="edit">
                 </a>
-                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ url('superAdmin/transaksi/'.$item->TransaksiId) }}" method="POST">
+                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_transaksi', ['id' => $item->id]) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" name="submit">
-                        <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                        <img src="/assets/images/Remove.png" alt="remove">
                     </button>
                 </form>
             </td>
         </tr>
     @endforeach
-
     @foreach ($barang as $item)
         <tr>
-            <td>{{ $counter++ }}</td>
-            <td>{{ $item->TransaksiId }}</td>
-            <td>{{ $item->KodeBarang }}</td>
-            <td class="text-center">{{ $item->NamaBarang}}</td>
+            <td class="text-center">{{ $counter++ }}</td>
+            <td class="text-center">{{ $item->TransaksiId }}</td>
+            <td class="text-center">{{ $item->KodeBarang }}</td>
+            <td class="text-center">{{ $item->NamaBarang }}</td>
             <td class="text-center">{{ $item->SatuanBarang }}</td>
             <td class="text-center">{{ $item->KategoriBarang }}</td>
             <td class="text-center">{{ $item->StokBarang }}</td>
-            <td>Rp {{ $item->HargaJual }}</td>
+            <td class="text-center">Rp {{ $item->HargaJual }}</td>
             <td class="text-center">{{ $item->TanggalBeli }}</td>
             <td>
-                <a href="{{ url('superAdmin/updateTransaksi/'.$item->TransaksiId.'/edit') }}">
+                <a href="{{ route('edit_barang2', ['BarangId' => $item->BarangId]) }}">
                     <img src="/assets/images/Edit.png" alt="edit">
                 </a>
-                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ url('superAdmin/transaksi/'.$item->TransaksiId) }}" method="POST">
+                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_barang2', ['BarangId' => $item->BarangId]) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" name="submit">
-                        <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                        <img src="/assets/images/Remove.png" alt="remove">
                     </button>
                 </form>
             </td>
-        </tr>
+         </tr>
     @endforeach
+
 </tbody>
                     </table>
 

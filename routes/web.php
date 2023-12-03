@@ -41,9 +41,13 @@ Route::prefix('superAdmin')->group(function(){
     Route::get('/transaksi', [transaksiController::class, 'index'])->name('transaksi');
     Route::get('/tambahTransaksi', [transaksiController::class, 'create'])->name('create_transaksi');
     Route::post('/transaksi',[transaksiController::class,'store'])->name('store_transaksi');
-    Route::get('/updateTransaksi/{TransaksiId}/edit', [transaksiController::class, 'edit']);
-    Route::put('/updateTransaksi/{TransaksiId}', [transaksiController::class, 'update']);
-    Route::delete('/transaksi/{TransaksiId}',[transaksiController::class,'destroy']);
+    Route::get('/updateTransaksi/{id}/edit', [transaksiController::class, 'edit'])->name('edit_transaksi');
+    Route::put('/updateTransaksi/{id}', [transaksiController::class, 'update'])->name('update_transaksi');
+    Route::delete('/transaksi/{id}',[transaksiController::class,'destroy'])->name('delete_transaksi');
+
+    Route::get('/update-transaksi-barang-edit/{BarangId}', [transaksiController::class, 'edit2'])->name('edit_barang2');
+    Route::put('/update-transaksi-barang/{BarangId}', [transaksiController::class, 'update2'])->name('update_barang2');
+    Route::delete('/transaksi-barang-delete/{BarangId}',[transaksiController::class,'destroy2'])->name('delete_barang2');
 
     // cetak laporan
     Route::get('/cetak-laporan', [CetakLaporanController::class, 'index'])->name('cetakdata');

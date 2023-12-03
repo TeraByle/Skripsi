@@ -34,7 +34,7 @@
             </div>
             <div class="container-transaksi1">
                 <div class="form-container-transaksi2">
-                <form action="{{url('superAdmin/updateTransaksi/'.$data->TransaksiId)}}" method="post">
+                    <form action="{{ route('update_transaksi', ['id' => $data->id]) }}" method="post">
                         @csrf
                         @method('PUT')
                         <!-- Section 1: Kode dan Nama Barang -->
@@ -57,7 +57,7 @@
                             </div>
                             <div class="form-field">
                                 <label for="code">Update Satuan Barang</label>
-                                <input type="text" id="satuan" name="SatuanBarang" value="{{Session::get('SatuanBarang')}}">
+                                <input type="text" id="satuan" name="SatuanBarang" value="{{$data->SatuanBarang}}">
                             </div>
                         </div>
 
@@ -65,11 +65,11 @@
                         <div class="form-section">
                             <div class="form-field">
                                 <label for="type">Update Jumlah Barang</label>
-                                <input type="text" id="jumlah" name="JumlahBarang" value="{{$data->JumlahBarang}}">
+                                <input type="text" id="jumlah" name="StokBarang" value="{{$data->StokBarang}}">
                             </div>
                             <div class="form-field">
                                 <label for="unit">Update Harga Barang</label>
-                                <input type="text" id="harga" name="HargaBarang" value="{{$data->HargaBarang}}">
+                                <input type="text" id="harga" name="HargaJual" value="{{$data->HargaJual}}">
                             </div>
                         </div>
 
@@ -77,6 +77,7 @@
                         <div class="form-section">
                             <button type="submit" name="submit" class="save-button">Simpan</button>
                         </div>
+                    </form>
                 </div>
             </div>
         </div>
