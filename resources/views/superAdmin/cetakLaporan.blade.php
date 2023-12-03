@@ -74,7 +74,6 @@
                     <a href="{{ route('unduhPDF', ['unduh_pdf' => 1, 'tanggal_awal' => $tanggalAwal, 'tanggal_akhir' => $tanggalAkhir]) }}" class="save-button">Unduh PDF</a>
                 </div>
                 <table class="table">
-
                     <thead>
                         <tr>
                             <th class="text-center" scope="col">No</th>
@@ -87,25 +86,19 @@
                             <th class="text-center" scope="col">Harga Barang</th>
                             <th class="text-center" scope="col">Tanggal Transaksi</th>
                         </tr>
-
                     </thead>
-                    @php
-                    $totalItems = (isset($dataTransaksi) ? count($dataTransaksi) : 0) + (isset($dataBarang) ? count($dataBarang) : 0);
-                    $counter = 1;
-                @endphp
-
                     <tbody>
-                        @forelse ($dataTransaksi as $transaksi)
+                        @forelse ($gabunganData as $item)
                             <tr>
-                                <td class="text-center">{{ $counter++ }}</td>
-                                <td class="text-center">{{ $transaksi->TransaksiId }}</td>
-                                <td class="text-center">{{ $transaksi->KodeBarang }}</td>
-                                <td class="text-center">{{ $transaksi->NamaBarang }}</td>
-                                <td class="text-center">{{ $transaksi->SatuanBarang }}</td>
-                                <td class="text-center">{{ $transaksi->KategoriBarang }}</td>
-                                <td class="text-center">{{ $transaksi->StokBarang }}</td>
-                                <td class="text-center">Rp {{ $transaksi->HargaJual }}</td>
-                                <td class="text-center">{{ $transaksi->tanggal }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $item->TransaksiId }}</td>
+                                <td class="text-center">{{ $item->KodeBarang }}</td>
+                                <td class="text-center">{{ $item->NamaBarang }}</td>
+                                <td class="text-center">{{ $item->SatuanBarang }}</td>
+                                <td class="text-center">{{ $item->KategoriBarang }}</td>
+                                <td class="text-center">{{ $item->StokBarang }}</td>
+                                <td class="text-center">Rp {{ $item->HargaJual }}</td>
+                                <td class="text-center">{{ $item->tanggal }}</td>
                             </tr>
                         @empty
                             <tr>
@@ -113,27 +106,8 @@
                             </tr>
                         @endforelse
                     </tbody>
-                    <tbody>
-                        @forelse ($dataBarang as $barangtransaksi)
-                            <tr>
-                                <td class="text-center">{{ $counter++ }}</td>
-                                <td class="text-center">{{ $barangtransaksi->TransaksiId }}</td>
-                                <td class="text-center">{{ $barangtransaksi->KodeBarang }}</td>
-                                <td class="text-center">{{ $barangtransaksi->NamaBarang }}</td>
-                                <td class="text-center">{{ $barangtransaksi->SatuanBarang }}</td>
-                                <td class="text-center">{{ $barangtransaksi->KategoriBarang }}</td>
-                                <td class="text-center">{{ $barangtransaksi->StokBarang }}</td>
-                                <td class="text-center">Rp {{ $barangtransaksi->HargaJual }}</td>
-                                <td class="text-center">{{ $barangtransaksi->tanggal }}</td>
-                            </tr>
-                        @empty
-                            <tr>
-                            </tr>
-                        @endforelse
-                    </tbody>
                 </table>
             </div>
-        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

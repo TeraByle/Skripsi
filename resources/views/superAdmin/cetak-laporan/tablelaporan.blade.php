@@ -1,5 +1,3 @@
-<!-- tabelLaporan.blade.php -->
-
 <table class="table">
     <thead>
         <tr>
@@ -15,42 +13,22 @@
         </tr>
     </thead>
     <tbody>
-        @php
-            $counter = 1;
-        @endphp
-
-        @forelse ($dataTransaksi as $transaksi)
+        @forelse ($gabunganData as $item)
             <tr>
-                <td class="text-center">{{ $counter++ }}</td>
-                <td class="text-center">{{ $transaksi->TransaksiId }}</td>
-                <td class="text-center">{{ $transaksi->KodeBarang }}</td>
-                <td class="text-center">{{ $transaksi->NamaBarang }}</td>
-                <td class="text-center">{{ $transaksi->SatuanBarang }}</td>
-                <td class="text-center">{{ $transaksi->KategoriBarang }}</td>
-                <td class="text-center">{{ $transaksi->StokBarang }}</td>
-                <td class="text-center">Rp {{ $transaksi->HargaJual }}</td>
-                <td class="text-center">{{ $transaksi->tanggal }}</td>
+                <td class="text-center">{{ $loop->iteration }}</td>
+                <td class="text-center">{{ $item->TransaksiId }}</td>
+                <td class="text-center">{{ $item->KodeBarang }}</td>
+                <td class="text-center">{{ $item->NamaBarang }}</td>
+                <td class="text-center">{{ $item->SatuanBarang }}</td>
+                <td class="text-center">{{ $item->KategoriBarang }}</td>
+                <td class="text-center">{{ $item->StokBarang }}</td>
+                <td class="text-center">Rp {{ $item->HargaJual }}</td>
+                <td class="text-center">{{ $item->tanggal }}</td>
             </tr>
         @empty
             <tr>
                 <td colspan="9" class="text-center">Tidak ada data transaksi.</td>
             </tr>
-        @endforelse
-
-        @forelse ($dataBarang as $barangtransaksi)
-            <tr>
-                <td class="text-center">{{ $counter++ }}</td>
-                <td class="text-center">{{ $barangtransaksi->TransaksiId }}</td>
-                <td class="text-center">{{ $barangtransaksi->KodeBarang }}</td>
-                <td class="text-center">{{ $barangtransaksi->NamaBarang }}</td>
-                <td class="text-center">{{ $barangtransaksi->SatuanBarang }}</td>
-                <td class="text-center">{{ $barangtransaksi->KategoriBarang }}</td>
-                <td class="text-center">{{ $barangtransaksi->StokBarang }}</td>
-                <td class="text-center">Rp {{ $barangtransaksi->HargaJual }}</td>
-                <td class="text-center">{{ $barangtransaksi->tanggal }}</td>
-            </tr>
-        @empty
-            {{-- Kosong --}}
         @endforelse
     </tbody>
 </table>

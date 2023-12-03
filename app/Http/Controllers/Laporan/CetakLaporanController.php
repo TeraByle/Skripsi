@@ -19,14 +19,18 @@ public function index()
     $dataBarang = collect();
     $tanggalAwal = now()->subDays(7);
     $tanggalAkhir = now();
+    $gabunganData = $dataBarang->concat($dataTransaksi)->sortBy(function ($item) {
+        return Carbon::parse($item['tanggal']);
+    })->values();
 
-    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir'));
+
+    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir','gabunganData'));
 }
 
 
 public function fetch_data(Request $request)
 {
-    // Validasi: Pastikan format tanggal benar dan tanggal awal tidak lebih besar daripada tanggal akhir
+
     $request->validate([
         'tanggal_awal' => 'required|date',
         'tanggal_akhir' => 'required|date|after_or_equal:tanggal_awal',
@@ -35,47 +39,48 @@ public function fetch_data(Request $request)
     $tanggalAwal = $request->input('tanggal_awal');
     $tanggalAkhir = $request->input('tanggal_akhir');
 
-    // Validasi: Pastikan rentang tanggal sesuai dengan kebutuhan
-    $tanggalPembuatanData = Transaksi::latest('tanggal')->value('tanggal');
-    $tanggalPembuatanData = Carbon::parse($tanggalPembuatanData);
+    $dataTransaksi = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])
+        ->orderBy('tanggal', 'asc')
+        ->get();
 
-    $batasTanggalAwal = now()->subMonths()->startOfMonth();
-    $batasTanggalAkhir = now()->addMonths()->endOfMonth();
+    $dataBarang = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])
+        ->orderBy('tanggal', 'asc')
+        ->get();
 
-    if ($tanggalAwal < $batasTanggalAwal || $tanggalAkhir > $batasTanggalAkhir) {
-        return redirect()->route('cetakdata')
-            ->withErrors(['tanggal_awal' => 'Rentang tanggal harus dalam batas yang diinginkan.'])
-            ->withInput();
-    }
+    // Concatenate and sort the data
+    $gabunganData = $dataBarang->concat($dataTransaksi)->sortBy(function ($item) {
+        return Carbon::parse($item->tanggal);
+    })->values();
 
-    // Jika validasi berhasil, lanjutkan dengan memproses data dan menampilkan hasil
+    // dd($gabunganData); // Remove or comment this line
+
+    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir', 'gabunganData'));
+}
+public function cetakLaporan(Request $request)
+{
+    $tanggalAwal = $request->input('tanggal_awal');
+    $tanggalAkhir = $request->input('tanggal_akhir');
     $dataTransaksi = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
     $dataBarang = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
 
-    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir'));
+    $gabunganData = $dataBarang->concat($dataTransaksi)->sortBy(function ($item) {
+        return Carbon::parse($item['tanggal']);
+    })->values();
+
+    if ($request->has('unduh_pdf')) {
+        $pdf = PDF::loadView('superAdmin.cetak-laporan.tableLaporan', compact('gabunganData'));
+        $pdf->setPaper('a4');
+
+        // Mengatur opsi Dompdf
+        $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isPhpEnabled' => true]);
+
+        // Mengunduh file PDF
+        return $pdf->download('laporan.pdf');
     }
 
-    public function cetakLaporan(Request $request)
-     {
+    return view('superAdmin.cetakLaporan', compact('gabunganData'));
+}
 
-        $tanggalAwal = $request->input('tanggal_awal');
-        $tanggalAkhir = $request->input('tanggal_akhir');
-        $dataTransaksi = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
-        $dataBarang = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
-
-        if ($request->has('unduh_pdf')) {
-            $pdf = PDF::loadView('superAdmin.cetak-laporan.tableLaporan', compact('dataTransaksi', 'tanggalAwal', 'tanggalAkhir', 'dataBarang'));
-            $pdf->setPaper('a4');
-
-            // Mengatur opsi Dompdf
-            $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isPhpEnabled' => true]);
-
-            // Mengunduh file PDF
-            return $pdf->download('laporan.pdf');
-        }
-
-        return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'tanggalAwal', 'tanggalAkhir', 'dataBarang'));
-    }
 
 
 }
