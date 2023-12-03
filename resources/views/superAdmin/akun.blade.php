@@ -94,15 +94,18 @@
                                     @endforeach
                                 </td>
                                 <td>
-                                    <a href="{{url('superAdmin/updateAkun/'.$akun->id)}}"><img src="/assets/images/Edit.png" alt="edit"></a>
-                                    <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/akun/'.$akun->id)}}" method="POST">
+                                    <a href="{{ route('edit_account', ['id' => $akun->id]) }}">
+                                        <img src="/assets/images/Edit.png" alt="edit">
+                                    </a>
+                                    <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_account', ['id' => $akun->id]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" name="submit">
-                                            <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
+                                            <img src="/assets/images/Remove.png" alt="remove">
                                         </button>
                                     </form>
                                 </td>
+
                             </tr>
                             <?php $i++; ?>
                             @endforeach

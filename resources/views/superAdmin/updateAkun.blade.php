@@ -25,40 +25,59 @@
             </div>
         </div>
         <div class="isi-deskripsi">
-            <button class="isi-kembali">Kembali</button>
+            <button class="isi-kembali"><a href="{{ route('account_management') }}" style="text-decoration: none;color: white;">Kembali</button></a>
             <div class="isi-judul">
                 <h2>Update Akun</h2>
             </div>
-            <div class="container-up-akun">
-                <div class="form-container-akun">
-                    <!-- Section 1: Kode dan Nama Barang -->
-                    <div class="form-section">
-                        <div class="form-field-akun">
-                            <label for="brand">Update Nama</label>
-                            <input type="nama" id="nama" name="namax">
+            <form action="{{ route('update_account', ['id'=>$admin->id]) }}" method="post">
+                @csrf
+                @method('put')
+                <div class="container-up-akun">
+                    <div class="form-container-akun">
+                        <!-- Section 1: Kode dan Nama Barang -->
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="brand">Update Nama</label>
+                                <input type="nama" id="nama" name="name" value="{{ $admin->name }}">
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Section 2: Jenis dan Satuan Barang -->
-                    <div class="form-section">
-                        <div class="form-field-akun">
-                            <label for="name">Update Kata Sandi</label>
-                            <input type="katasandi" id="katasandi" name="katasandi">
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="brand">Update Username</label>
+                                <input type="username" id="username" name="username" value="{{ $admin->username }}">
+                            </div>
                         </div>
-                    </div>
-                    <!-- Section 3: Kategori dan Brand Barang -->
-                    <div class="form-section">
-                        <div class="form-field-akun">
-                            <label for="type">Update Email</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                    </div>
 
-                    <!-- Section 6: Simpan Button -->
-                    <div class="form-section">
-                        <button class="save-button">Simpan</button>
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="type">Update Email</label>
+                                <input type="email" id="email" name="email" value="{{ $admin->email }}">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="name">Update Kata Sandi</label>
+                                <input type="katasandi" id="katasandi" name="password" value="{{ $admin->password }}">
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <div class="form-field-akun">
+                                <label for="rolesid">Update Roles</label>
+                                <select name="role">
+                                    <option value="option_select" disabled selected> Pilih role untuk akun </option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <button class="save-button">Simpan</button>
+                        </div>
                     </div>
-                </div>
+            </form>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

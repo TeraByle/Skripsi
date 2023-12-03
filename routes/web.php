@@ -44,7 +44,7 @@ Route::prefix('superAdmin')->group(function(){
     Route::get('/updateTransaksi/{id}/edit', [transaksiController::class, 'edit'])->name('edit_transaksi');
     Route::put('/updateTransaksi/{id}', [transaksiController::class, 'update'])->name('update_transaksi');
     Route::delete('/transaksi/{id}',[transaksiController::class,'destroy'])->name('delete_transaksi');
-
+    // tranasksi barang
     Route::get('/update-transaksi-barang-edit/{BarangId}', [transaksiController::class, 'edit2'])->name('edit_barang2');
     Route::put('/update-transaksi-barang/{BarangId}', [transaksiController::class, 'update2'])->name('update_barang2');
     Route::delete('/transaksi-barang-delete/{BarangId}',[transaksiController::class,'destroy2'])->name('delete_barang2');
@@ -61,6 +61,9 @@ Route::prefix('superAdmin')->group(function(){
     Route::get('/akun', [AdminsController::class, 'index'])->name('account_management');
     Route::get('/tambah-akun', [AdminsController::class, 'create'])->name('create_account');
     Route::post('/store-akun', [AdminsController::class, 'store'])->name('store_akun');
+    Route::get('/update-user-edit/{id}', [AdminsController::class, 'edit'])->name('edit_account');
+    Route::put('/update-user/{id}', [AdminsController::class, 'update'])->name('update_account');
+    Route::delete('/account-destroy/{id}',[AdminsController::class,'destroy'])->name('delete_account');
 
     Route::get('/updateakun', function () {
         return view('/superAdmin/updateAkun');
