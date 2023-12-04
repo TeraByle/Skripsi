@@ -32,6 +32,26 @@ class transaksiController extends Controller
         ;
     }
 
+    public function indexAdmin(Request $request)
+    {
+        $barang = Barang::select('BarangId','TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual','TanggalBeli')->get();
+        $search = $request->search;
+        $jumlahbaris = 4;
+
+        if(strlen($search)){
+            $data = Transaksi::where('NamaBarang', 'like', "%$search%")
+                        ->orWhere('KategoriBarang', 'like', "%$search%")
+                        ->paginate($jumlahbaris);
+        }else{
+            $data = Transaksi::orderBy('transaksiId', 'asc')->paginate($jumlahbaris);
+        }
+        return view('admin/transaksiAdmin'
+        ,compact('barang')
+        )
+        ->with('data', $data)
+        ;
+    }
+
     public function create()
     {
 

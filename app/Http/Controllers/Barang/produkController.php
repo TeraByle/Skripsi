@@ -34,6 +34,29 @@ class produkController extends Controller
         return view('superAdmin/produk')->with('data', $data);
     }
 
+    public function indexAdmin(Request $request)
+    //menampilkan semua data
+    {
+        $search = $request->search;
+        $jumlahbaris = 4;
+        if(strlen($search)){
+            $data = Barang::where('NamaBarang', 'like', "%$search%")
+                        ->orWhere('JenisBarang', 'like', "%$search%")
+                        ->orWhere('KategoriBarang', 'like', "%$search%")
+                        ->orWhere('BrandBarang', 'like', "%$search%")
+                        ->paginate($jumlahbaris);
+        }
+        else{
+            $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
+        }
+        // if ($request->has('orderBy')) {
+        //     if ($request->orderBy == 'stockUnder5') {
+        //         $query = $query->where('stokObat', '<', '5');
+        //     }
+        // }
+        return view('admin/barangAdmin')->with('data', $data);
+    }
+
     // public function index2(){
     //     return view('user.homepage');
     // }
