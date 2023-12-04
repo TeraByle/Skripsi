@@ -30,12 +30,8 @@
             </div>
         </div>
         <div class="isi">
-            <div class="sidebar">
-                <button class="sidebar-button button-1"><a href="{{ route('home') }}" style="text-decoration: none;color: black;">Data Barang</button>
-                <button class="sidebar-button button-2"><a href="{{route('transaksi')}}" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
-                <button class="sidebar-button button-3"><a href="{{route('cetakdata')}}" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
-                <button class="sidebar-button button-4"><a href="{{route('account_management')}}" style="text-decoration: none;color: white;">Manajemen Akun</a></button>
-            </div>
+            <!-- sidebar -->
+            @include('superAdmin/sidebarSuperAdmin')
             <div class="content">
                 <h2>Manajemen Akun</h2>
                 <p>Kelola Manajemen Akun Anda</p>
@@ -74,7 +70,7 @@
                                 <th scope="col">Nama</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Username</th>
-                                <th scope="col">Password</th>
+                                <!-- <th scope="col">Password</th> -->
                                 <th scope="col">Role</th>
                                 <th scope="col">Aksi</th>
                             </tr>
@@ -87,7 +83,7 @@
                                 <td>{{ $akun->name }}</td>
                                 <td>{{ $akun->username }}</td>
                                 <td>{{ $akun->email }}</td>
-                                <td>{{ $akun->password}}</td>
+                                <!-- <td>{{ $akun->password}}</td> -->
                                 <td>
                                     @foreach ($akun->roles as $role)
                                         {{ $role->name }}

@@ -123,7 +123,7 @@ class transaksiController extends Controller
 
         public function destroy(string $id)
         {
-                    $transaksi = transaksi ::findOrFail($id);
+                    $transaksi = transaksi::findOrFail($id);
                     $transaksi->delete();
 
                 return redirect()->route('transaksi')->with('success', 'Data berhasil dihapus');

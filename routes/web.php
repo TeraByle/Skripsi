@@ -54,9 +54,6 @@ Route::prefix('superAdmin')->group(function(){
     Route::post('/cetak-laporans-semua', [CetakLaporanController::class, 'fetch_data'])->name('cetakdatasemua');
     Route::get('/unduh-pdf', [CetakLaporanController::class, 'cetakLaporan'])->name('unduhPDF');
 
-
-
-
     // akun manajemen
     Route::get('/akun', [AdminsController::class, 'index'])->name('account_management');
     Route::get('/tambah-akun', [AdminsController::class, 'create'])->name('create_account');

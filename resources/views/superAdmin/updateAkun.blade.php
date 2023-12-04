@@ -10,16 +10,16 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <img src="/assets/images/LogoNew.png" alt="Logo">
             </div>
             <div class="content-header">
                 <div class="user-info">
                     <div class="user-details">
                         <div class="user-name">Zhofar Putra</div>
-                        <div class="user-role">Admin</div>
+                        <div class="user-role">Super Admin</div>
                     </div>
                     <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
+                        <img src="/assets/images/LogOut.png" alt="logout">
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                         <div class="form-section">
                             <div class="form-field-akun">
                                 <label for="name">Update Kata Sandi</label>
-                                <input type="katasandi" id="katasandi" name="password" value="{{ $admin->password }}">
+                                <input type="katasandi" id="katasandi" name="password" >
                             </div>
                         </div>
                         <div class="form-section">

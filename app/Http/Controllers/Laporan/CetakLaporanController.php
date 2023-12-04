@@ -14,6 +14,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class CetakLaporanController extends Controller{
 
 public function index()
+// menampilkan data yang dicari
 {
     $dataTransaksi = collect();
     $dataBarang = collect();
@@ -29,6 +30,7 @@ public function index()
 
 
 public function fetch_data(Request $request)
+// logika untuk mencari tanggalnya
 {
 
     $request->validate([
@@ -57,6 +59,7 @@ public function fetch_data(Request $request)
     return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir', 'gabunganData'));
 }
 public function cetakLaporan(Request $request)
+// isian dari pdf yang sudah di unduh
 {
     $tanggalAwal = $request->input('tanggal_awal');
     $tanggalAkhir = $request->input('tanggal_akhir');

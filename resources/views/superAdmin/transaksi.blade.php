@@ -30,12 +30,8 @@
             </div>
         </div>
         <div class="isi">
-            <div class="sidebar">
-                <button class="sidebar-button button-1"><a href="{{ route('home') }}" style="text-decoration: none;color: black;">Data Barang</a></button>
-                <button class="sidebar-button button-2"><a href="{{ route('transaksi') }}" style="text-decoration: none;color: white;">Transaksi Penjualan</a></button>
-                <button class="sidebar-button button-3"><a href="{{route('cetakdata')}}" style="text-decoration: none;color: black;">Laporan Keuangan</a></button>
-                <button class="sidebar-button button-4"><a href="{{route('account_management')}}" style="text-decoration: none;color: black;">Manajemen Akun</a></button>
-            </div>
+            @include('superAdmin/sidebarSuperAdmin')
+
             <div class="content">
                 <h2>Transaksi Barang</h2>
                 <p>Kelola Transaksi Barang Anda</p>
