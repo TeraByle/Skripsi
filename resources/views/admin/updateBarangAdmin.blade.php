@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Update Barang</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/transaksi.css">
+        <link rel="stylesheet" href="/css/produk.css">
     </head>
     <body>
         <div class="header">
@@ -18,7 +18,7 @@
                         <div class="user-name">Zhofar Putra</div>
                         <div class="user-role">Admin</div>
                     </div>
-                      <form action="{{ route('logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" style="border: none; background: none; padding: 0;">
                             <img src="/assets/images/LogOut.png" alt="logout" style="width: 30px; height: 30px;">
@@ -35,7 +35,7 @@
             </div>
             <div class="container-up">
                 <div class="form-container-up">
-                <form action="{{url('superAdmin/updateBarang/'.$data->BarangId)}}" method="post">
+                    <form action="{{ route('update_barang', ['BarangId' => $data->BarangId]) }}" method="post">
                         @csrf
                         @method('PUT')
                     <!-- Section 1: Kode dan Nama Barang -->

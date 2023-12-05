@@ -22,15 +22,44 @@ class produkController extends Controller
                         ->orWhere('KategoriBarang', 'like', "%$search%")
                         ->orWhere('BrandBarang', 'like', "%$search%")
                         ->paginate($jumlahbaris);
-        }else{
+        }
+        else{
             $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
         }
+        // if ($request->has('orderBy')) {
+        //     if ($request->orderBy == 'stockUnder5') {
+        //         $query = $query->where('stokObat', '<', '5');
+        //     }
+        // }
         return view('superAdmin/produk')->with('data', $data);
     }
 
-    public function index2(){
-        return view('user.homepage');
+    public function indexAdmin(Request $request)
+    //menampilkan semua data
+    {
+        $search = $request->search;
+        $jumlahbaris = 4;
+        if(strlen($search)){
+            $data = Barang::where('NamaBarang', 'like', "%$search%")
+                        ->orWhere('JenisBarang', 'like', "%$search%")
+                        ->orWhere('KategoriBarang', 'like', "%$search%")
+                        ->orWhere('BrandBarang', 'like', "%$search%")
+                        ->paginate($jumlahbaris);
+        }
+        else{
+            $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
+        }
+        // if ($request->has('orderBy')) {
+        //     if ($request->orderBy == 'stockUnder5') {
+        //         $query = $query->where('stokObat', '<', '5');
+        //     }
+        // }
+        return view('admin/barangAdmin')->with('data', $data);
     }
+
+    // public function index2(){
+    //     return view('user.homepage');
+    // }
 
     public function create()
     //menampilkan form data baru
@@ -79,7 +108,7 @@ class produkController extends Controller
             'HargaJual.required'=>'Harga Jual wajib diisi',
         ]);
         $data = [
-            'TransaksiId'=>Barang::getTransactionId(),
+            'TransaksiId'=>Barang::getTransactionId(),// manggil data barang ke transaksi
             'KodeBarang'=>$request->KodeBarang,
             'NamaBarang'=>$request->NamaBarang,
             'JenisBarang'=>$request->JenisBarang,
@@ -187,7 +216,7 @@ class produkController extends Controller
         $barang = Barang::find($BarangId);
         // dd($barang);
 
-         $barang->delete();
+        $barang->delete();
 
     return redirect()->route('home')->with('success', 'Data berhasil dihapus');
     }

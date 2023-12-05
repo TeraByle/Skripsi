@@ -28,15 +28,21 @@
             </div>
         </div>
         <div class="isi">
-            <div class="sidebar">
-                <button class="sidebar-button button-1">Data Barang</button>
-                <button class="sidebar-button button-2"><a href="/admin/transaksiAdmin" style="text-decoration: none;color: black;">Transaksi Penjualan</a></button>
-            </div>
+        @include('admin/sidebarAdmin')
+
             <div class="content">
                 <h2>List Produk</h2>
                 <p>Kelola List Produk Anda</p>
                 <div class="button-table">
-                    <img src="/assets/images/Filter.png" alt="">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary fontBold dropdown-toggle" style="background-color: #4BB556;" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                            Urutkan
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <li><a class="dropdown-item" href="?orderBy=stockUnder5">Stock < 5</a></li>
+                            <li><a class="dropdown-item" href="?orderBy=kadaluarsaUnder1Month">Kadaluarsa < 1 bulan</a></li>
+                        </ul>
+                    </div>
                     <div class="input-group">
                         <form class="d-flex" action="{{route('home')}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
@@ -59,7 +65,7 @@
                     <table class="table table-bordered table-striped table-condensed">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
+                                <th  scope="col">No</th>
                                 <th scope="col">Gambar</th>
                                 <th scope="col">Kode</th>
                                 <th scope="col">Nama</th>
@@ -94,14 +100,17 @@
                                 <td>{{$item->TanggalBeli}}</td>
                                 <td>{{$item->HargaBeli}}</td>
                                 <td>{{$item->HargaJual}}</td>
-                                <td><a href="{{url('superAdmin/updateBarang/'.$item->BarangId.'/edit')}}"><img src="/assets/images/Edit.png" alt="edit"></a>
-                                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{url('superAdmin/transaksi/'.$item->BarangId)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" name="submit">
-                                    <a href=""><img src="/assets/images/Remove.png" alt="remove"></a>
-                                    </button>
-                                </form>
+                                <td>
+                                    <a href="{{ route('edit_barang', ['BarangId' => $item->BarangId]) }}">
+                                        <img src="/assets/images/Edit.png" alt="edit">
+                                    </a>
+                                    <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_barang',['BarangId'=>$item->BarangId]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" name="submit">
+                                            <img src="/assets/images/Remove.png" alt="remove">
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php $i++?>
