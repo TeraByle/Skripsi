@@ -22,13 +22,14 @@ class transaksi extends Model
 
     public static function getTransactionId()
     {
-        $date = date("dmy");
-        $lastBarang = Barang::orderBy('BarangId', 'desc')->first();
-        $transaksiId = ($lastBarang) ? $lastBarang->TransaksiId : '01';
-        $numberPart = str_pad(($lastBarang ? $lastBarang->BarangId : 0) % 10 + 1, 2, '0', STR_PAD_LEFT);
-        $autoNumber = 'TRSCTSN ' . $date . '0' . $numberPart;
-        return $autoNumber;
-        // dd($autoNumber,$datePart,$numberPart);
+
+        $datePart = date("dmY");
+        $lastTransaksi = Transaksi::orderBy('TransaksiId', 'desc')->first();
+        $numberPart = $lastTransaksi ? ($lastDatePart = substr($lastTransaksi->TransaksiId, 5, 8)) == $datePart ? (int)substr($lastTransaksi->TransaksiId, -2) + 1 : 1 : 1;
+        $transaksi = 'TRSCN' . $datePart . str_pad($numberPart, 2, '0', STR_PAD_LEFT);
+
+        return $transaksi;
+
     }
 
     public function barang()

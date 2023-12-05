@@ -56,7 +56,7 @@ class transaksiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'KodeBarang' => 'required|unique:transaksi,KodeBarang',
+            'KodeBarang' => 'required',
             'NamaBarang' => 'required',
             'KategoriBarang' => 'required',
             'SatuanBarang' => 'required',
