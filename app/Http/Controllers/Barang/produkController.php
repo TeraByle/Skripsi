@@ -120,48 +120,67 @@ class produkController extends Controller
     }
 
     public function update(Request $request, string $id)
-    //menyimpan update data
-    {
-        $request->validate([
-            'KodeBarang' => 'required',
-            'NamaBarang' => 'required',
-            'JenisBarang' => 'required',
-            'SatuanBarang' => 'required',
-            'KategoriBarang' => 'required',
-            'BrandBarang' => 'required',
-            'StokBarang' => 'required | numeric',
-            'TanggalBeli' => 'required',
-            'HargaBeli' => 'required | numeric',
-            'HargaJual' => 'required | numeric',
-        ],[
+{
+    $request->validate([
+        'KodeBarang' => 'required',
+        'NamaBarang' => 'required',
+        'JenisBarang' => 'required',
+        'SatuanBarang' => 'required',
+        'KategoriBarang' => 'required',
+        'BrandBarang' => 'required',
+        'StokBarang' => 'required|numeric',
+        'TanggalBeli' => 'required',
+        'HargaBeli' => 'required|numeric',
+        'HargaJual' => 'required|numeric',
+        'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ], [
+        'KodeBarang.required' => 'Kode Barang wajib diisi',
+        'gambar.image' => 'File harus berupa gambar.',
+        'gambar.mimes' => 'Format gambar tidak valid. Pilih format JPEG, PNG, JPG, atau GIF.',
+        'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
+    ]);
 
-            'KodeBarang.required'=>'Kode Barang wajib diisi',
-            'NamaBarang.required'=>'Nama Barang wajib diisi',
-            'JenisBarang.required'=>'Jenis Barang wajib diisi',
-            'SatuanBarang.required'=>'Satuan Barang wajib diisi',
-            'KategoriBarang.required'=>'Kategori Barang wajib diisi',
-            'BrandBarang.required'=>'Brand Barang wajib diisi',
-            'StokBarang.required'=>'Stok Barang wajib diisi',
-            'TanggalBeli.required'=>'Tanggal Beli wajib diisi',
-            'HargaBeli.required'=>'Harga Beli wajib diisi',
-            'HargaJual.required'=>'Harga Jual wajib diisi',
-        ]);
+    $data = [
+        'KodeBarang' => $request->KodeBarang,
+        'NamaBarang' => $request->NamaBarang,
+        'JenisBarang' => $request->JenisBarang,
+        'SatuanBarang' => $request->SatuanBarang,
+        'KategoriBarang' => $request->KategoriBarang,
+        'BrandBarang' => $request->BrandBarang,
+        'StokBarang' => $request->StokBarang,
+        'TanggalBeli' => $request->TanggalBeli,
+        'HargaBeli' => $request->HargaBeli,
+        'HargaJual' => $request->HargaJual,
+        'gambar' => $request->gambar,
+    ];
 
-        $data = [
-            'KodeBarang'=>$request->KodeBarang,
-            'NamaBarang'=>$request->NamaBarang,
-            'JenisBarang'=>$request->JenisBarang,
-            'SatuanBarang'=>$request->SatuanBarang,
-            'KategoriBarang'=>$request->KategoriBarang,
-            'BrandBarang'=>$request->BrandBarang,
-            'StokBarang'=>$request->StokBarang,
-            'TanggalBeli'=>$request->TanggalBeli,
-            'HargaBeli'=>$request->HargaBeli,
-            'HargaJual'=>$request->HargaJual,
-        ];
-        Barang::where('BarangId', $id)->update($data);
-        return redirect()->route('home')->with('success', 'Data berhasil di ubah');
+    $gambar = $request->file('gambar');
+
+    if ($request->hasFile('gambar') && $gambar->isValid()) {
+        // Continue with file processing
+        $destinationPath = 'assets/fileproduk';
+
+        $oldBarang = Barang::find($id);
+        if ($oldBarang && $oldBarang->gambar && file_exists(public_path($destinationPath . '/' . $oldBarang->gambar))) {
+            unlink(public_path($destinationPath . '/' . $oldBarang->gambar));
+        }
+
+        $originalFile = $gambar->getClientOriginalName();
+        $file_upload = time() . '_' . $originalFile;
+
+        try {
+            $gambar->move($destinationPath, $file_upload);
+            $data['gambar'] = $file_upload;
+        } catch (\Exception $e) {
+            // Handle any exception that may occur during file move
+            return redirect()->back()->with('error', 'Gagal mengunggah file. Silakan coba lagi.');
+        }
     }
+
+    Barang::where('BarangId', $id)->update($data);
+    return redirect()->route('home')->with('success', 'Data berhasil diubah');
+}
+
 
     public function destroy($BarangId)
     {
