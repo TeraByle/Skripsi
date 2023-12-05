@@ -35,7 +35,7 @@
             </div>
             <div class="container-up">
                 <div class="form-container-up">
-                    <form action="{{ route('update_barang', ['BarangId' => $data->BarangId]) }}" method="post">
+                    <form action="{{ route('update_barang', ['BarangId' => $data->BarangId]) }}" method="post" enctype="multipart/form-data">>
                         @csrf
                         @method('PUT')
                     <!-- Section 1: Kode dan Nama Barang -->
@@ -103,7 +103,7 @@
                         <div class="upload">
                             <label for="upload-image">Update Gambar</label>
                             <br>
-                            <input type="file" id="upload-image" name="upload-image">
+                            <input type="file" id="upload-image" name="gambar">
                         </div>
                     </div>
 
