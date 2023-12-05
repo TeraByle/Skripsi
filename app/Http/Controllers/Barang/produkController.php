@@ -7,7 +7,7 @@ use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class produkController extends Controller
 {
@@ -26,11 +26,7 @@ class produkController extends Controller
         else{
             $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
         }
-        // if ($request->has('orderBy')) {
-        //     if ($request->orderBy == 'stockUnder5') {
-        //         $query = $query->where('stokObat', '<', '5');
-        //     }
-        // }
+
         return view('superAdmin/produk')->with('data', $data);
     }
 
@@ -49,17 +45,11 @@ class produkController extends Controller
         else{
             $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
         }
-        // if ($request->has('orderBy')) {
-        //     if ($request->orderBy == 'stockUnder5') {
-        //         $query = $query->where('stokObat', '<', '5');
-        //     }
-        // }
+
         return view('admin/barangAdmin')->with('data', $data);
     }
 
-    // public function index2(){
-    //     return view('user.homepage');
-    // }
+
 
     public function create()
     //menampilkan form data baru
@@ -82,7 +72,6 @@ class produkController extends Controller
         Session::flash('HargaJual',$request->HargaJual);
 
         $request->validate([
-            'KodeBarang' => 'required',
             'NamaBarang' => 'required',
             'JenisBarang' => 'required',
             'SatuanBarang' => 'required',
@@ -96,7 +85,7 @@ class produkController extends Controller
 
         ],[
 
-            'KodeBarang.required'=>'Kode Barang wajib diisi',
+            // 'KodeBarang.required'=>'Kode Barang wajib diisi',
             'NamaBarang.required'=>'Nama Barang wajib diisi',
             'JenisBarang.required'=>'Jenis Barang wajib diisi',
             'SatuanBarang.required'=>'Satuan Barang wajib diisi',
@@ -108,17 +97,18 @@ class produkController extends Controller
             'HargaJual.required'=>'Harga Jual wajib diisi',
         ]);
         $data = [
-            'TransaksiId'=>Barang::getTransactionId(),// manggil data barang ke transaksi
-            'KodeBarang'=>$request->KodeBarang,
-            'NamaBarang'=>$request->NamaBarang,
-            'JenisBarang'=>$request->JenisBarang,
-            'SatuanBarang'=>$request->SatuanBarang,
-            'KategoriBarang'=>$request->KategoriBarang,
-            'BrandBarang'=>$request->BrandBarang,
-            'StokBarang'=>$request->StokBarang,
-            'TanggalBeli'=>$request->TanggalBeli,
-            'HargaBeli'=>$request->HargaBeli,
-            'HargaJual'=>$request->HargaJual,
+            // manggil data barang ke transaksi
+
+            'KodeBarang' => Barang::getKodeBarang(),
+            'NamaBarang' => $request->NamaBarang,
+            'JenisBarang' => $request->JenisBarang,
+            'SatuanBarang' => $request->SatuanBarang,
+            'KategoriBarang' => $request->KategoriBarang,
+            'BrandBarang' => $request->BrandBarang,
+            'StokBarang' => $request->StokBarang,
+            'TanggalBeli' => $request->TanggalBeli,
+            'HargaBeli' => $request->HargaBeli,
+            'HargaJual' => $request->HargaJual,
             'tanggal' => Carbon::now()->toDateString(),
         ];
 
@@ -130,16 +120,12 @@ class produkController extends Controller
             $gambar->move($destinationPath, $file_upload);
             $data['gambar'] = $file_upload;
         }
+
         Barang::create($data);
 
         return redirect()->route('home')->with('success', 'Data berhasil ditambah');
     }
 
-    public function show(string $id)
-    //menampilkan detail data
-    {
-        return 'HI' . $id;
-    }
 
     public function edit(string $id)
     //menampilkan form untuk proses edit

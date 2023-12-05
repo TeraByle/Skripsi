@@ -52,7 +52,12 @@
                         <div class="form-section">
                             <div class="form-field">
                                 <label for="brand">Kode Barang</label>
-                                <input type="text" id="kode" name="KodeBarang" value="{{Session::get('KodeBarang')}}">
+                                <select id="kode_barang" name="KodeBarang">
+                                    <option value="">Pilih Kode Barang</option>
+                                    @foreach ($kode as $kodebarang)
+                                    <option value="{{ $kodebarang->KodeBarang }}">{{ $kodebarang->KodeBarang }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-field">
                                 <label for="category">Nama Barang</label>
@@ -90,5 +95,37 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $('#kode_barang').on('change', function () {
+                    let BarangId = $(this).val();
+                    $.ajax({
+                        type: 'GET',
+                        url: '/superAdmin/ajax/barang/' + BarangId,
+                        success: function (data) {
+                            console.log(data);
+
+                            // Mengisi nilai input berdasarkan data yang diterima dari server
+                            $('#nama').val(data.NamaBarang);
+                            $('#kategori').val(data.KategoriBarang);
+                            $('#satuan').val(data.SatuanBarang);
+                          
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(xhr.responseText);
+                        }
+                    });
+                });
+            });
+        </script>
+
     </body>
 </html>

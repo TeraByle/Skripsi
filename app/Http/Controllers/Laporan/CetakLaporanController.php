@@ -20,19 +20,14 @@ public function index()
     $dataBarang = collect();
     $tanggalAwal = now()->subDays(7);
     $tanggalAkhir = now();
-    $gabunganData = $dataBarang->concat($dataTransaksi)->sortBy(function ($item) {
-        return Carbon::parse($item['tanggal']);
-    })->values();
 
 
-    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir','gabunganData'));
+    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir'));
 }
 
 
 public function fetch_data(Request $request)
-// logika untuk mencari tanggalnya
 {
-
     $request->validate([
         'tanggal_awal' => 'required|date',
         'tanggal_akhir' => 'required|date|after_or_equal:tanggal_awal',
@@ -45,33 +40,17 @@ public function fetch_data(Request $request)
         ->orderBy('tanggal', 'asc')
         ->get();
 
-    $dataBarang = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])
-        ->orderBy('tanggal', 'asc')
-        ->get();
-
-    // Concatenate and sort the data
-    $gabunganData = $dataBarang->concat($dataTransaksi)->sortBy(function ($item) {
-        return Carbon::parse($item->tanggal);
-    })->values();
-
-    // dd($gabunganData); // Remove or comment this line
-
-    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'dataBarang', 'tanggalAwal', 'tanggalAkhir', 'gabunganData'));
+    return view('superAdmin.cetakLaporan', compact('dataTransaksi', 'tanggalAwal', 'tanggalAkhir'));
 }
+
 public function cetakLaporan(Request $request)
-// isian dari pdf yang sudah di unduh
 {
     $tanggalAwal = $request->input('tanggal_awal');
     $tanggalAkhir = $request->input('tanggal_akhir');
     $dataTransaksi = Transaksi::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
-    $dataBarang = Barang::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])->get();
-
-    $gabunganData = $dataBarang->concat($dataTransaksi)->sortBy(function ($item) {
-        return Carbon::parse($item['tanggal']);
-    })->values();
 
     if ($request->has('unduh_pdf')) {
-        $pdf = PDF::loadView('superAdmin.cetak-laporan.tableLaporan', compact('gabunganData'));
+        $pdf = PDF::loadView('superAdmin.cetak-laporan.tableLaporan', compact('dataTransaksi'));
         $pdf->setPaper('a4');
 
         // Mengatur opsi Dompdf
@@ -81,8 +60,9 @@ public function cetakLaporan(Request $request)
         return $pdf->download('laporan.pdf');
     }
 
-    return view('superAdmin.cetakLaporan', compact('gabunganData'));
+    return view('superAdmin.cetakLaporan', compact('dataTransaksi'));
 }
+
 
 
 

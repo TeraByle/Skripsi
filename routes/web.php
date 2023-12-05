@@ -37,6 +37,7 @@ Route::prefix('superAdmin')->group(function(){
     Route::put('/updateBarang/{BarangId}', [produkController::class, 'update'])->name('update_barang');
     Route::delete('/produk/{BarangId}',[produkController::class,'destroy'])->name('delete_barang');
 
+
     // transaksi
     Route::get('/transaksi', [transaksiController::class, 'index'])->name('transaksi');
     Route::get('/tambahTransaksi', [transaksiController::class, 'create'])->name('create_transaksi');
@@ -45,9 +46,7 @@ Route::prefix('superAdmin')->group(function(){
     Route::put('/updateTransaksi/{id}', [transaksiController::class, 'update'])->name('update_transaksi');
     Route::delete('/transaksi/{id}',[transaksiController::class,'destroy'])->name('delete_transaksi');
     // tranasksi barang
-    Route::get('/update-transaksi-barang-edit/{BarangId}', [transaksiController::class, 'edit2'])->name('edit_barang2');
-    Route::put('/update-transaksi-barang/{BarangId}', [transaksiController::class, 'update2'])->name('update_barang2');
-    Route::delete('/transaksi-barang-delete/{BarangId}',[transaksiController::class,'destroy2'])->name('delete_barang2');
+    Route::get('/ajax/barang/{BarangId}', [transaksiController::class, 'ajax_dependentdropdown'])->name('ajax_barang');
 
     // cetak laporan
     Route::get('/cetak-laporan', [CetakLaporanController::class, 'index'])->name('cetakdata');

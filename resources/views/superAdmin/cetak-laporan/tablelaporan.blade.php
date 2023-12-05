@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        @forelse ($gabunganData as $item)
+        @forelse ($dataTransaksi as $item)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td class="text-center">{{ $item->TransaksiId }}</td>

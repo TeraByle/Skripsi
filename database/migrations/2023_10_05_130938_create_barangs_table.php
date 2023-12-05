@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create('barang', function (Blueprint $table) {
             $table->id('BarangId');
-            $table->string('TransaksiId');
             $table->string('KodeBarang');
             $table->string('NamaBarang');
             $table->string('JenisBarang');

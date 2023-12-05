@@ -65,19 +65,19 @@
                     <table class="table table-bordered table-striped table-condensed">
                         <thead>
                             <tr>
-                                <th  scope="col">No</th>
-                                <th scope="col">Gambar</th>
-                                <th scope="col">Kode</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Jenis</th>
-                                <th scope="col">Satuan</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Brand</th>
-                                <th scope="col">Stok</th>
-                                <th scope="col">Tanggal Beli</th>
-                                <th scope="col">Harga Beli</th>
-                                <th scope="col">Harga Jual</th>
-                                <th scope="col">Aksi</th>
+                                <th  class="text-center" scope="col">No</th>
+                                <th  class="text-center" scope="col">Gambar</th>
+                                <th  class="text-center" scope="col">Kode</th>
+                                <th  class="text-center" scope="col">Nama</th>
+                                <th  class="text-center" scope="col">Jenis</th>
+                                <th  class="text-center" scope="col">Satuan</th>
+                                <th  class="text-center" scope="col">Kategori</th>
+                                <th  class="text-center" scope="col">Brand</th>
+                                <th  class="text-center" scope="col">Stok</th>
+                                <th  class="text-center" scope="col">Tanggal Beli</th>
+                                <th  class="text-center" scope="col">Harga Beli</th>
+                                <th  class="text-center" scope="col">Harga Jual</th>
+                                <th  class="text-center" scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,16 +90,16 @@
                                     <img src="{{ asset('assets/fileproduk/' . $item->gambar) }}" height="40" width="46">
                                     @endif
                                 </td>
-                                <td>{{$item->KodeBarang}}</td>
-                                <td>{{$item->NamaBarang}}</td>
-                                <td>{{$item->JenisBarang}}</td>
-                                <td>{{$item->SatuanBarang}}</td>
-                                <td>{{$item->KategoriBarang}}</td>
-                                <td>{{$item->BrandBarang}}</td>
-                                <td>{{$item->StokBarang}}</td>
-                                <td>{{$item->TanggalBeli}}</td>
-                                <td>{{$item->HargaBeli}}</td>
-                                <td>{{$item->HargaJual}}</td>
+                                <td  class="text-center">{{$item->KodeBarang}}</td>
+                                <td  class="text-center">{{$item->NamaBarang}}</td>
+                                <td  class="text-center">{{$item->JenisBarang}}</td>
+                                <td  class="text-center">{{$item->SatuanBarang}}</td>
+                                <td  class="text-center">{{$item->KategoriBarang}}</td>
+                                <td  class="text-center">{{$item->BrandBarang}}</td>
+                                <td  class="text-center">{{$item->StokBarang}}</td>
+                                <td  class="text-center">{{$item->TanggalBeli}}</td>
+                                <td  class="text-center">{{$item->HargaBeli}}</td>
+                                <td  class="text-center">{{$item->HargaJual}}</td>
                                 <td>
                                     <a href="{{ route('edit_barang', ['BarangId' => $item->BarangId]) }}">
                                         <img src="/assets/images/Edit.png" alt="edit">

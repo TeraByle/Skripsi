@@ -66,25 +66,24 @@
                     <table class="table table-bordered table-striped table-condensed">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Username</th>
-                                <!-- <th scope="col">Password</th> -->
-                                <th scope="col">Role</th>
-                                <th scope="col">Aksi</th>
+                                <th  class="text-center" scope="col">No</th>
+                                <th  class="text-center" scope="col">Nama</th>
+                                <th  class="text-center" scope="col">Email</th>
+                                <th  class="text-center" scope="col">Username</th>
+                                <th  class="text-center" scope="col">Role</th>
+                                <th  class="text-center" scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i = 1; // Mulai dari angka 1 ?>
                             @foreach ($new_account as $akun) {{-- Pastikan Anda memiliki $accounts dari kontroler --}}
                             <tr>
-                                <th scope="row">{{ $i }}</th>
-                                <td>{{ $akun->name }}</td>
-                                <td>{{ $akun->username }}</td>
-                                <td>{{ $akun->email }}</td>
+                                <th  class="text-center" scope="row">{{ $i }}</th>
+                                <td  class="text-center">{{ $akun->name }}</td>
+                                <td  class="text-center">{{ $akun->username }}</td>
+                                <td  class="text-center">{{ $akun->email }}</td>
                                 <!-- <td>{{ $akun->password}}</td> -->
-                                <td>
+                                <td  class="text-center">
                                     @foreach ($akun->roles as $role)
                                         {{ $role->name }}
                                     @endforeach

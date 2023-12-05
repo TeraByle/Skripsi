@@ -52,10 +52,6 @@
                         <!-- Section 1: Kode dan Nama Barang -->
                         <div class="form-section">
                             <div class="form-field">
-                                <label for="brand">Kode Barang</label>
-                                <input type="text" id="kode" name="KodeBarang" value="{{Session::get('KodeBarang')}}">
-                            </div>
-                            <div class="form-field">
                                 <label for="category">Nama Barang</label>
                                 <input type="text" id="nama" name="NamaBarang" value="{{Session::get('NamaBarang')}}">
                             </div>
