@@ -137,7 +137,7 @@ class produkController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'KodeBarang' => 'required',
+
             'NamaBarang' => 'required',
             'JenisBarang' => 'required',
             'SatuanBarang' => 'required',
@@ -147,12 +147,11 @@ class produkController extends Controller
             'TanggalBeli' => 'required',
             'HargaBeli' => 'required|numeric',
             'HargaJual' => 'required|numeric',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'nullable',
         ], [
-            'KodeBarang.required' => 'Kode Barang wajib diisi',
+
             'gambar.image' => 'File harus berupa gambar.',
-            'gambar.mimes' => 'Format gambar tidak valid. Pilih format JPEG, PNG, JPG, atau GIF.',
-            'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
+           
         ]);
 
         $data = [
@@ -170,19 +169,15 @@ class produkController extends Controller
         ];
 
         $gambar = $request->file('gambar');
-
         if ($request->hasFile('gambar') && $gambar->isValid()) {
             // Continue with file processing
             $destinationPath = 'assets/fileproduk';
-
             $oldBarang = Barang::find($id);
             if ($oldBarang && $oldBarang->gambar && file_exists(public_path($destinationPath . '/' . $oldBarang->gambar))) {
                 unlink(public_path($destinationPath . '/' . $oldBarang->gambar));
             }
-
             $originalFile = $gambar->getClientOriginalName();
             $file_upload = time() . '_' . $originalFile;
-
             try {
                 $gambar->move($destinationPath, $file_upload);
                 $data['gambar'] = $file_upload;
@@ -191,7 +186,6 @@ class produkController extends Controller
                 return redirect()->back()->with('error', 'Gagal mengunggah file. Silakan coba lagi.');
             }
         }
-
         Barang::where('BarangId', $id)->update($data);
         return redirect()->route('home')->with('success', 'Data berhasil diubah');
     }
