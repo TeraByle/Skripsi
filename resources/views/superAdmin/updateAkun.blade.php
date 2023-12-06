@@ -39,6 +39,9 @@
                             <div class="form-field-akun">
                                 <label for="brand">Update Nama</label>
                                 <input type="nama" id="nama" name="name" value="{{ $admin->name }}">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -46,6 +49,9 @@
                             <div class="form-field-akun">
                                 <label for="brand">Update Username</label>
                                 <input type="username" id="username" name="username" value="{{ $admin->username }}">
+                                @error('username')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -53,6 +59,9 @@
                             <div class="form-field-akun">
                                 <label for="type">Update Email</label>
                                 <input type="email" id="email" name="email" value="{{ $admin->email }}">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -60,6 +69,9 @@
                             <div class="form-field-akun">
                                 <label for="name">Update Kata Sandi</label>
                                 <input type="katasandi" id="katasandi" name="password" >
+                                @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -72,6 +84,9 @@
                                         <option value="{{ $role->name }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
+                                @error('role')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-section">

@@ -75,8 +75,7 @@
                                 <th class="text-center" scope="col">Jumlah Barang</th>
                                 <th class="text-center" scope="col">Harga Barang</th>
                                 <th class="text-center" scope="col">Tanggal Transaksi</th>
-
-                                <th scope="col">Aksi</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
 
                         </thead>

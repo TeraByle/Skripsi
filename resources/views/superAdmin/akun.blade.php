@@ -68,8 +68,8 @@
                             <tr>
                                 <th  class="text-center" scope="col">No</th>
                                 <th  class="text-center" scope="col">Nama</th>
-                                <th  class="text-center" scope="col">Email</th>
                                 <th  class="text-center" scope="col">Username</th>
+                                <th  class="text-center" scope="col">Email</th>
                                 <th  class="text-center" scope="col">Role</th>
                                 <th  class="text-center" scope="col">Aksi</th>
                             </tr>

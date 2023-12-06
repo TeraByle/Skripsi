@@ -150,8 +150,17 @@ class produkController extends Controller
             'gambar' => 'nullable',
         ], [
 
+            'NamaBarang.required'=>'Nama Barang wajib diisi',
+            'JenisBarang.required'=>'Jenis Barang wajib diisi',
+            'SatuanBarang.required'=>'Satuan Barang wajib diisi',
+            'KategoriBarang.required'=>'Kategori Barang wajib diisi',
+            'BrandBarang.required'=>'Brand Barang wajib diisi',
+            'StokBarang.required'=>'Stok Barang wajib diisi',
+            'TanggalBeli.required'=>'Tanggal Beli wajib diisi',
+            'HargaBeli.required'=>'Harga Beli wajib diisi',
+            'HargaJual.required'=>'Harga Jual wajib diisi',
             'gambar.image' => 'File harus berupa gambar.',
-           
+
         ]);
 
         $data = [

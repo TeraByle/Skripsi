@@ -18,7 +18,7 @@
                         <div class="user-name">Zhofar Putra</div>
                         <div class="user-role">Admin</div>
                     </div>
-                      <form action="{{ route('logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" style="border: none; background: none; padding: 0;">
                             <img src="/assets/images/LogOut.png" alt="logout" style="width: 30px; height: 30px;">
@@ -42,6 +42,9 @@
                             <div class="form-field-akun">
                                 <label for="brand">Nama</label>
                                 <input type="nama" id="nama" name="name">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -49,23 +52,29 @@
                             <div class="form-field-akun">
                                 <label for="brand">Username</label>
                                 <input type="username" id="username" name="username">
+                                @error('username')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
-
-
 
                         <div class="form-section">
                             <div class="form-field-akun">
                                 <label for="type">Email</label>
                                 <input type="email" id="email" name="email">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
-
 
                         <div class="form-section">
                             <div class="form-field-akun">
                                 <label for="name">Kata Sandi</label>
                                 <input type="password" id="password" name="password">
+                                @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -78,6 +87,9 @@
                                         <option value="{{ $role->name }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
+                                @error('role')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 

@@ -30,17 +30,6 @@
         <div class="isi-deskripsi">
             <button class="isi-kembali">
                 <a href="{{ route('transaksi') }}" style="text-decoration: none;color: white;">Kembali</a></button>
-            @if($errors->any())
-            <div class="validate-message">
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $item)
-                            <li>{{$item}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            @endif
             <div class="isi-judul">
                 <h2>Tambah Transaksi Baru</h2>
             </div>
@@ -62,6 +51,9 @@
                             <div class="form-field">
                                 <label for="category">Nama Barang</label>
                                 <input type="text" id="nama" name="NamaBarang" value="{{Session::get('NamaBarang')}}">
+                                @error('NamaBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <!-- Section 2: Jenis dan Satuan Barang -->
@@ -69,10 +61,16 @@
                             <div class="form-field">
                                 <label for="name">kategori Barang</label>
                                 <input type="text" id="kategori" name="KategoriBarang" value="{{Session::get('KategoriBarang')}}">
+                                @error('KategoriBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-field">
                                 <label for="code">Satuan Barang</label>
                                 <input type="text" id="satuan" name="SatuanBarang" value="{{Session::get('SatuanBarang')}}">
+                                @error('SatuanBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <!-- Section 3: Kategori dan Brand Barang -->
@@ -80,10 +78,16 @@
                             <div class="form-field">
                                 <label for="type">Jumlah Barang</label>
                                 <input type="text" id="jumlah" name="StokBarang" value="{{Session::get('StokBarang')}}">
+                                @error('StokBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-field">
                                 <label for="unit">Harga Barang</label>
                                 <input type="text" id="harga" name="HargaJual" value="{{Session::get('HargaJual')}}">
+                                @error('HargaJual')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <!-- Section 4: Simpan Button -->
@@ -117,7 +121,7 @@
                             $('#nama').val(data.NamaBarang);
                             $('#kategori').val(data.KategoriBarang);
                             $('#satuan').val(data.SatuanBarang);
-                          
+
                         },
                         error: function (xhr, status, error) {
                             console.error(xhr.responseText);

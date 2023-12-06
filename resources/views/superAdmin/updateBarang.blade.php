@@ -35,7 +35,7 @@
             </div>
             <div class="container-up">
                 <div class="form-container-up">
-                    <form action="{{ route('update_barang', ['BarangId' => $data->BarangId]) }}" method="post" enctype="multipart/form-data">>
+                    <form action="{{ route('update_barang', ['BarangId' => $data->BarangId]) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                     <!-- Section 1: Kode dan Nama Barang -->
@@ -43,10 +43,16 @@
                         <div class="form-field">
                             <label for="brand">Update Kode Barang</label>
                             <input type="text" id="code" name="KodeBarang" value="{{$data->KodeBarang}}">
+                            @error('KodeBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                         <div class="form-field">
                             <label for="category">Update Nama Barang</label>
                             <input type="text" id="name" name="NamaBarang" value="{{$data->NamaBarang}}">
+                            @error('NamaBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                     </div>
 
@@ -55,10 +61,16 @@
                         <div class="form-field">
                             <label for="name">Update Jenis Barang</label>
                             <input type="text" id="type" name="JenisBarang" value="{{$data->JenisBarang}}">
+                            @error('JenisBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                         <div class="form-field">
                             <label for="code">Update Satuan Barang</label>
                             <input type="text" id="unit" name="SatuanBarang" value="{{$data->SatuanBarang}}">
+                            @error('SatuanBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                     </div>
 
@@ -67,10 +79,16 @@
                         <div class="form-field">
                             <label for="type">Update Kategori Barang</label>
                             <input type="text" id="category" name="KategoriBarang" value="{{$data->KategoriBarang}}">
+                            @error('KategoriBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                         <div class="form-field">
                             <label for="unit">Update Brand Barang</label>
                             <input type="text" id="brand" name="BrandBarang" value="{{$data->BrandBarang}}">
+                            @error('BrandBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                     </div>
 
@@ -79,10 +97,16 @@
                         <div class="form-field">
                             <label for="stock">Update Stok Barang</label>
                             <input type="text" id="stock" name="StokBarang" value="{{$data->StokBarang}}">
+                            @error('StokBarang')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                         <div class="form-field">
                             <label for="purchase-date">Update Tanggal Beli Barang</label>
                             <input type="date" id="purchase-date" name="TanggalBeli" value="{{$data->TanggalBeli}}">
+                            @error('TanggalBeli')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                     </div>
 
@@ -91,10 +115,16 @@
                         <div class="form-field">
                             <label for="purchase-price">Update Harga Beli Barang</label>
                             <input type="text" id="purchase-price" name="HargaBeli" value="{{$data->HargaBeli}}">
+                            @error('HargaBeli')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                         <div class="form-field">
                             <label for="selling-price">Update Harga Jual Barang</label>
                             <input type="text" id="selling-price" name="HargaJual" value="{{$data->HargaJual}}">
+                            @error('HargaJual')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                     </div>
 
