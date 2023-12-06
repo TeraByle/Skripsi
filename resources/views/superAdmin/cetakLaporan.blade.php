@@ -67,7 +67,7 @@
             <div class="data-table">
                 <h4>Data Transaksi</h4>
                 <div class="unduh-button">
-                    <a href="{{ route('unduhPDF', ['unduh_pdf' => 1, 'tanggal_awal' => $tanggalAwal, 'tanggal_akhir' => $tanggalAkhir]) }}" class="save-button">Unduh PDF</a>
+                    <a href="{{ route('unduhPDF', ['unduh_pdf' => 1, 'tanggal_awal' => $tanggalAwal, 'tanggal_akhir' => $tanggalAkhir]) }}" class="download-button">Unduh PDF</a>
                 </div>
                 <table class="table">
                     <thead>

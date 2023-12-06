@@ -205,6 +205,16 @@
     font-weight: 700;
     margin-top: 68px;
     border: none;
+    text-decoration: none;
+}
+
+.download-button{
+    background: #FF9F43;
+    border-radius: 16px;
+    color: white;
+    font-family: Poppins;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .buttonText{

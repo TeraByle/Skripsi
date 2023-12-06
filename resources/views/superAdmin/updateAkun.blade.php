@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Update Akun</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/akun.css">
     </head>
     <body>
         <div class="header">
@@ -62,10 +62,11 @@
                                 <input type="katasandi" id="katasandi" name="password" >
                             </div>
                         </div>
+
                         <div class="form-section">
                             <div class="form-field-akun">
                                 <label for="rolesid">Update Roles</label>
-                                <select name="role">
+                                <select name="role" >
                                     <option value="option_select" disabled selected> Pilih role untuk akun </option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}">{{ $role->name }}</option>

@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="isi">
-        @include('superAdmin/sidebarSuperAdmin')
+            @include('superAdmin/sidebarSuperAdmin')
 
             <div class="content">
                 <h2>List Produk</h2>
@@ -84,8 +84,8 @@
                             <?php $i = $data->firstItem() ?>
                             @foreach($data as $item)
                             <tr>
-                                <th scope="row">{{$i}}</th>
-                                <td>
+                                <th class="text-center">{{$i}}</th>
+                                <td class="text-center">
                                     @if ($item->gambar)
                                     <img src="{{ asset('assets/fileproduk/' . $item->gambar) }}" height="40" width="46">
                                     @endif

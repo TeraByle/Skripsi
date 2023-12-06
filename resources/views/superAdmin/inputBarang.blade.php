@@ -51,7 +51,7 @@
                         @csrf
                         <!-- Section 1: Kode dan Nama Barang -->
                         <div class="form-section">
-                            <div class="form-field">
+                            <div class="form-field-nama">
                                 <label for="category">Nama Barang</label>
                                 <input type="text" id="nama" name="NamaBarang" value="{{Session::get('NamaBarang')}}">
                             </div>

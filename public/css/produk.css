@@ -142,6 +142,10 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     line-height: 21px;
 }
 
+.dropdown{
+    margin-right: 24px;
+}
+
 .button-table {
     display: flex;
     width: 100%;
@@ -213,6 +217,30 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     position: relative;
 }
 
+.form-field-nama{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field-nama label {
+    color: #212B36;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.form-field-nama input {
+    width: 552px;
+    height: 48px;
+    background: white;
+    border-radius: 14px;
+    border: 1px rgba(196, 196, 196, 0.50) solid;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
 .form-field label {
     color: #212B36;
     font-size: 14px;
@@ -252,7 +280,14 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     margin-bottom: 8px;
 }
 .upload input {
-    height: 100px;
+    width: 552px;
+    height: 55px;
+    background: white;
+    border-radius: 14px;
+    border: 1px rgba(196, 196, 196, 0.50) solid;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
 
 }
 

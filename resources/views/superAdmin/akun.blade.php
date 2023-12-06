@@ -88,7 +88,7 @@
                                         {{ $role->name }}
                                     @endforeach
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <a href="{{ route('edit_account', ['id' => $akun->id]) }}">
                                         <img src="/assets/images/Edit.png" alt="edit">
                                     </a>
