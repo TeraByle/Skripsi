@@ -62,15 +62,12 @@
 
 .isi {
     display: flex;
-    margin-top: 12px;
-    margin-left: 12px;
-    flex-direction: row;
-    align-items: flex-start;
+    margin-top: 24px;
 }
 
 .sidebar {
     width: 230px;
-    margin-left: 12px;
+    margin-left: 24px;
     display: flex;
     flex-direction: column;
 }
@@ -120,7 +117,6 @@
 
 .isi-judul{
     display: flex;
-
     flex-direction: column;
     align-items: center;
 }

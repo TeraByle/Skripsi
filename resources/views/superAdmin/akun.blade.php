@@ -38,12 +38,12 @@
                 <div class="button-table">
                     <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                    <form class="d-flex" action="{{url('superAdmin/akun')}}" method="get">
-                        <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
-                            placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
-                        <button type="submit" class="btn btn-outline-primary">Search</button>
-                    </form>
-                </div>
+                        <form class="d-flex" action="{{ url('superAdmin/akun') }}" method="get">
+                            <input type="search" name="search" value="{{ Request::get('search') }}" class="form-control rounded"
+                                placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="submit" class="btn btn-outline-primary">Search</button>
+                        </form>
+                    </div>
                 <button class="button-barang">
                     <a href="{{ route('create_account') }}" style="text-decoration: none;color: white;">+ Tambah Akun</a>
                 </button>
@@ -76,7 +76,7 @@
                         </thead>
                         <tbody>
                             <?php $i = 1; // Mulai dari angka 1 ?>
-                            @foreach ($new_account as $akun) {{-- Pastikan Anda memiliki $accounts dari kontroler --}}
+                            @foreach ($users as $akun) {{-- Pastikan Anda memiliki $accounts dari kontroler --}}
                             <tr>
                                 <th  class="text-center" scope="row">{{ $i }}</th>
                                 <td  class="text-center">{{ $akun->name }}</td>

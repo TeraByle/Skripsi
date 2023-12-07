@@ -49,7 +49,6 @@
                             <h5 class="card-title">Lakban Bening / Coklat BODHI 2 inch</h5>
                             <p class="card-text">Category : Buku dan Alat Tulis</p>
                             <p class="card-text">Brand : Bodhi Tape</p>
-                            <p class="card-text">Harga : Rp 9.400</p>
                             <p class="card-text">Jumlah Stok : 235 pcs</p>
                         </div>
                     </div>
@@ -59,7 +58,6 @@
                             <h5 class="card-title">Lakban Bening / Coklat BODHI 2 inch</h5>
                             <p class="card-text">Category : Buku dan Alat Tulis</p>
                             <p class="card-text">Brand : Bodhi Tape</p>
-                            <p class="card-text">Harga : Rp 9.400</p>
                             <p class="card-text">Jumlah Stok : 235 pcs</p>
                         </div>
                     </div>
@@ -69,7 +67,6 @@
                             <h5 class="card-title">Kain Kanebo KENMASTER Synthetic cloth(Super Quality)</h5>
                             <p class="card-text">Category : Perlenglapan rumah</p>
                             <p class="card-text">Brand : NASA</p>
-                            <p class="card-text">Harga : Rp 34.650</p>
                             <p class="card-text">Jumlah Stok : 30pcs</p>
                         </div>
                     </div>
@@ -79,7 +76,6 @@
                             <h5 class="card-title">Terpal Tenda Pelastik Biru Serbaguna A2 3x4 Meter Terpal</h5>
                             <p class="card-text">Category : Otomotif</p>
                             <p class="card-text">Brand : Kenmaster High Quality</p>
-                            <p class="card-text">Harga : Rp 20.000</p>
                             <p class="card-text">Jumlah Stok : 189 pcs</p>
                         </div>
                     </div>
@@ -93,7 +89,6 @@
                             <h5 class="card-title">Alat Tembak Lem Botol FREED Tebal Tembakan Sealent Kaca</h5>
                             <p class="card-text">Category : Perlengkapan rumah</p>
                             <p class="card-text">Brand : Freed</p>
-                            <p class="card-text">Harga : Rp 32.670</p>
                             <p class="card-text">Jumlah Stok : 372 pcs</p>
                         </div>
                     </div>
@@ -103,7 +98,6 @@
                             <h5 class="card-title">Refill Cutter KENKO A100 isi Ulang pisau kecil A 100 5 pcs</h5>
                             <p class="card-text">Category : Buku dan Alat Tulis</p>
                             <p class="card-text">Brand : Kenko A-100</p>
-                            <p class="card-text">Harga : Rp 5.500</p>
                             <p class="card-text">Jumlah Stok : 87 pcs</p>
                         </div>
                     </div>
@@ -113,7 +107,6 @@
                             <h5 class="card-title">BODY PELOR RAVELLI</h5>
                             <p class="card-text">Category : Otomotif</p>
                             <p class="card-text">Brand : Ravelli</p>
-                            <p class="card-text">Harga : Rp 49.000</p>
                             <p class="card-text">Jumlah Stok : 96 pcs</p>
                         </div>
                     </div>
@@ -123,7 +116,6 @@
                             <h5 class="card-title">POMPA SEPEDA CAMEL</h5>
                             <p class="card-text">Category : Olahraga dan Outdoor</p>
                             <p class="card-text">Brand : Camel</p>
-                            <p class="card-text">Harga : Rp 76.800</p>
                             <p class="card-text">Jumlah Stok : 99 pcs</p>
                         </div>
                     </div>

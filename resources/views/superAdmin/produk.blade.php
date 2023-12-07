@@ -34,15 +34,7 @@
                 <h2>List Produk</h2>
                 <p>Kelola List Produk Anda</p>
                 <div class="button-table">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary fontBold dropdown-toggle" style="background-color: #4BB556;" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                            Urutkan
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                            <li><a class="dropdown-item" href="?orderBy=stockUnder5">Stock < 5</a></li>
-                            <li><a class="dropdown-item" href="?orderBy=kadaluarsaUnder1Month">Kadaluarsa < 1 bulan</a></li>
-                        </ul>
-                    </div>
+                    <!-- resources/views/products/index.blade.php -->
                     <div class="input-group">
                         <form class="d-flex" action="{{route('home')}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"

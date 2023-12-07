@@ -11,15 +11,26 @@ use Illuminate\Support\Facades\DB;
 
 class AdminsController extends Controller
 {
-    public function index(){
-        $roles = User::with('roles')->get();
+    public function index(Request $request)
+    {
+        $roles = Role::all(); // Ambil semua peran dari model Role, pastikan model Role telah diimpor
 
+        $query = User::query();
 
-        // Tampilkan data user dan roles di halaman
-        $new_account = User::all();
-        // dd($roles);
-        return view('superAdmin.akun',compact('new_account','roles'));
+        if ($request->has('search')) {
+            $searchTerm = $request->search;
+            $query->where(function ($query) use ($searchTerm) {
+                $query->where('name', 'like', "%$searchTerm%")
+                    ->orWhere('username', 'like', "%$searchTerm%")
+                    ->orWhere('email', 'like', "%$searchTerm%");
+            });
+        }
+
+        $users = $query->with('roles')->get();
+
+        return view('superAdmin.akun', compact('users', 'roles'));
     }
+
 
 
 
@@ -28,7 +39,7 @@ class AdminsController extends Controller
         $roles=Role::all();
 
 
-        return view('superAdmin.tambahAkun', compact('roles'));
+        return view('superAdmin/tambahAkun', compact('roles'));
     }
 
     public function store(Request $request){
@@ -60,7 +71,7 @@ class AdminsController extends Controller
     public function edit($id){
         $admin = User::find($id);
         $roles=Role::all();
-        return view('superAdmin.updateAkun', compact('admin','roles'));
+        return view('superAdmin/updateAkun', compact('admin','roles'));
 
     }
 
