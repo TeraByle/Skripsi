@@ -7,6 +7,7 @@ use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class produkController extends Controller
@@ -49,18 +50,21 @@ class produkController extends Controller
         return view('admin/barangAdmin')->with('data', $data);
     }
 
-
-
     public function create()
     //menampilkan form data baru
     {
         return view('superAdmin/inputBarang');
     }
 
+    public function createAdmin()
+    //menampilkan form data baru
+    {
+        return view('admin/tambahBarangAdmin');
+    }
+
     public function store(Request $request)
     //memasukkan data baru ke database
     {
-
         Session::flash('KodeBarang',$request->KodeBarang);
         Session::flash('NamaBarang',$request->NamaBarang);
         Session::flash('JenisBarang',$request->JenisBarang);

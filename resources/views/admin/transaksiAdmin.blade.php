@@ -33,10 +33,9 @@
             @include('admin/sidebarAdmin')
 
             <div class="content">
-                <h2>Transaksi Barang Admin</h2>
+                <h2>Transaksi Barang</h2>
                 <p>Kelola Transaksi Barang Anda</p>
                 <div class="button-table">
-                    <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
                     <form class="d-flex" action="{{route(('transaksi'))}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
@@ -45,7 +44,7 @@
                         </form>
                     </div>
                     <button class="button-barang">
-                        <a  href="{{ route('create_transaksi') }}" style="text-decoration: none;color: white;">+ Tambah Transaksi</a>
+                        <a  href="{{ route('tambah_barang') }}" style="text-decoration: none;color: white;">+ Tambah Transaksi</a>
                     </button>
                 </div>
                 @if(Session::has('success'))
@@ -75,70 +74,44 @@
                                 <th class="text-center" scope="col">Jumlah Barang</th>
                                 <th class="text-center" scope="col">Harga Barang</th>
                                 <th class="text-center" scope="col">Tanggal Transaksi</th>
-
-                                <th scope="col">Aksi</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
 
                         </thead>
 
-    @php
-        $totalItems = count($data) + count($barang);
-        $counter = 1;
-    @endphp
+                        @php
+                            $totalItems = count($data);
+                            $counter = 1;
+                        @endphp
 
-    @foreach ($data as $item)
-        <tr>
-            <td class="text-center">{{ $counter++ }}</td>
-            <td class="text-center">{{ $item->TransaksiId }}</td>
-            <td class="text-center">{{ $item->KodeBarang }}</td>
-            <td class="text-center">{{ $item->NamaBarang }}</td>
-            <td class="text-center">{{ $item->SatuanBarang }}</td>
-            <td class="text-center">{{ $item->KategoriBarang }}</td>
-            <td class="text-center">{{ $item->StokBarang }}</td>
-            <td class="text-center">Rp {{ $item->HargaJual }}</td>
-            <td class="text-center">{{ $item->tanggal }}</td>
-            <td>
-                <a href="{{ route('edit_transaksi', ['id' => $item->id]) }}">
-                    <img src="/assets/images/Edit.png" alt="edit">
-                </a>
-                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_transaksi', ['id' => $item->id]) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" name="submit">
-                        <img src="/assets/images/Remove.png" alt="remove">
-                    </button>
-                </form>
-            </td>
-        </tr>
-    @endforeach
-    @foreach ($barang as $item)
-        <tr>
-            <td class="text-center">{{ $counter++ }}</td>
-            <td class="text-center">{{ $item->TransaksiId }}</td>
-            <td class="text-center">{{ $item->KodeBarang }}</td>
-            <td class="text-center">{{ $item->NamaBarang }}</td>
-            <td class="text-center">{{ $item->SatuanBarang }}</td>
-            <td class="text-center">{{ $item->KategoriBarang }}</td>
-            <td class="text-center">{{ $item->StokBarang }}</td>
-            <td class="text-center">Rp {{ $item->HargaJual }}</td>
-            <td class="text-center">{{ $item->TanggalBeli }}</td>
-            <td>
-                <a href="{{ route('edit_barang2', ['BarangId' => $item->BarangId]) }}">
-                    <img src="/assets/images/Edit.png" alt="edit">
-                </a>
-                <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_barang2', ['BarangId' => $item->BarangId]) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" name="submit">
-                        <img src="/assets/images/Remove.png" alt="remove">
-                    </button>
-                </form>
-            </td>
-        </tr>
-    @endforeach
-
-</tbody>
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td class="text-center">{{ $counter++ }}</td>
+                                    <td class="text-center">{{ $item->TransaksiId }}</td>
+                                    <td class="text-center">{{ $item->KodeBarang }}</td>
+                                    <td class="text-center">{{ $item->NamaBarang }}</td>
+                                    <td class="text-center">{{ $item->SatuanBarang }}</td>
+                                    <td class="text-center">{{ $item->KategoriBarang }}</td>
+                                    <td class="text-center">{{ $item->StokBarang }}</td>
+                                    <td class="text-center">Rp {{ $item->HargaJual }}</td>
+                                    <td class="text-center">{{ $item->tanggal }}</td>
+                                    <td>
+                                        <a href="{{ route('edit_transaksi', ['id' => $item->id]) }}">
+                                            <img src="/assets/images/Edit.png" alt="edit">
+                                        </a>
+                                        <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_transaksi', ['id' => $item->id]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" name="submit">
+                                                <img src="/assets/images/Remove.png" alt="remove">
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
                     </table>
+
                 </div>
             </div>
         </div>

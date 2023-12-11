@@ -26,7 +26,7 @@ Route::post('/loging_in', [LoginController::class, 'store'])->name('login_store'
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // home Admin
-Route::get('/', [produkController::class, 'index'])->name('home');
+// Route::get('/', [produkController::class, 'index'])->name('home');
 
 Route::get('/homepage', function () {
     return view('/user/homepage');
@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/home', [produkController::class, 'index'])->name('home');
         // produk
         Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
-        Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
+        Route::post('/store_produk',[produkController::class, 'store'])->name('store_produk');
         Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit'])->name('edit_barang');
         Route::put('/updateBarang/{BarangId}', [produkController::class, 'update'])->name('update_barang');
         Route::delete('/produk/{BarangId}',[produkController::class,'destroy'])->name('delete_barang');
@@ -69,9 +69,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::prefix('admin')->group(function(){
         Route::get('/barang', [produkController::class, 'indexAdmin']);
-        Route::get('/homepage', [produkController::class, 'indexAdmin'])->name('homepage.admin');
-        Route::get('/inputBarangAdmin', [produkController::class, 'create'])->name('input_barang');
-        Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
+        Route::get('/homepage', [produkController::class, 'indexAdmin'])->name('admin/homepage');
+        Route::get('/tambahBarangAdmin', [produkController::class, 'createAdmin'])->name('tambah_barang');
+        Route::post('/produk_store',[produkController::class,'store'])->name('store_admin');
         Route::get('/updateBarangAdmin/{BarangId}/edit', [produkController::class, 'edit']);
         Route::put('/updateBarangAdmin/{BarangId}', [produkController::class, 'update']);
         Route::delete('/barangAdmin/{BarangId}',[produkController::class,'destroy']);

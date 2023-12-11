@@ -51,7 +51,7 @@
                         </form>
                     </div>
                     <button class="button-barang">
-                        <a href="{{ route('input_barang') }}" style="text-decoration: none;color: white;">+ Tambah Barang</a>
+                        <a href="{{ route('tambah_barang') }}" style="text-decoration: none;color: white;">+ Tambah Barang</a>
                     </button>
                 </div>
                 @if(Session::has('success'))

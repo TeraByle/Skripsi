@@ -30,7 +30,7 @@ class transaksiController extends Controller
 
     public function indexAdmin(Request $request)
     {
-        $barang = Barang::select('BarangId','TransaksiId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual','TanggalBeli')->get();
+        $barang = Barang::select('BarangId','KodeBarang', 'NamaBarang', 'SatuanBarang','KategoriBarang', 'StokBarang', 'HargaJual','TanggalBeli')->get();
         $search = $request->search;
         $jumlahbaris = 4;
 
@@ -53,6 +53,13 @@ class transaksiController extends Controller
         $kode=Barang::all();
         return view('superAdmin/tambahTransaksi', compact('kode'));
     }
+
+    public function createAdmin()
+    {
+        $kode=Barang::all();
+        return view('admin/tambahBarangAdmin', compact('kode'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
