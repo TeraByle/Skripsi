@@ -32,23 +32,33 @@ class LoginController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            // Get the authenticated user
-            $user = Auth::user();
-
-            // Check if the user has a specific role
-            if ($user->hasRole('Super Admin')) {
-                return redirect()->route('home');
-            } elseif ($user->hasRole('Admin')) {
-                return redirect()->route('home');
+        if(Auth::attempt($credentials)){
+            if(Auth::user()->role == 'superAdmin'){
+                return redirect('/superAdmin/home');
+            }else{
+                return redirect('/admin/homepage');
             }
 
-            // Redirect to a default route if no specific role is found
-            return redirect()->route('home');
+        }else{
+            return redirect('/login')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
         }
+        return redirect('/login');
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
+
+        //     // Get the authenticated user
+        //     $user = Auth::user();
+
+        //     // Check if the user has a specific role
+        //     if ($user->hasRole('Super Admin')) {
+        //         return redirect()->route('home');
+        //     } elseif ($user->hasRole('Admin')) {
+        //         return redirect('admin/homepage');
+        //     }
+
+        //     // Redirect to a default route if no specific role is found
+        //     return redirect()->route('home');
+        //}
 
         return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',

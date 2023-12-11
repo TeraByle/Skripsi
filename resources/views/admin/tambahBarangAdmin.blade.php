@@ -29,7 +29,7 @@
         </div>
         <div class="isi-deskripsi">
             <button class="isi-kembali">
-                <a href="{{ route('home') }}" style="text-decoration: none;color: white;">Kembali</a>
+                <a href="{{ route('/admin/homepage') }}" style="text-decoration: none;color: white;">Kembali</a>
             </button>
             @if($errors->any())
             <div class="validate-message">

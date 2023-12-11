@@ -83,11 +83,7 @@
                                 <td  class="text-center">{{ $akun->username }}</td>
                                 <td  class="text-center">{{ $akun->email }}</td>
                                 <!-- <td>{{ $akun->password}}</td> -->
-                                <td  class="text-center">
-                                    @foreach ($akun->roles as $role)
-                                        {{ $role->name }}
-                                    @endforeach
-                                </td>
+                                <td  class="text-center">{{ $akun->role }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('edit_account', ['id' => $akun->id]) }}">
                                         <img src="/assets/images/Edit.png" alt="edit">

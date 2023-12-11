@@ -34,6 +34,7 @@ Route::get('/homepage', function () {
 
 Route::middleware(['auth'])->group(function(){
     Route::prefix('superAdmin')->group(function(){
+        Route::get('/home', [produkController::class, 'index'])->name('home');
         // produk
         Route::get('/inputBarang', [produkController::class, 'create'])->name('input_barang');
         Route::post('/produk_store',[produkController::class,'store'])->name('store_produk');
