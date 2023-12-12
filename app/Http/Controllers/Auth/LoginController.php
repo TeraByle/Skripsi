@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+
+    public function index()
+    {
+        return view('Auth/login');
+    }
+
     public function store(Request $request)
     {
 
@@ -23,7 +29,7 @@ class LoginController extends Controller
             'username' => $request->username,
             'password' => $request->password,
         ];
-
+        // dd($infologin);
         if(Auth::attempt($infologin)){
             if(Auth::user()->role == 'superAdmin'){
                 return redirect('superAdmin/home');
@@ -59,6 +65,7 @@ class LoginController extends Controller
 
     }
 
+
     public function logout(Request $request)
     {
         Auth::logout();
@@ -70,8 +77,10 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
+
     public function destroy(string $id)
     {
+
         return redirect()->to('superAdmin/akun')->with('success', 'Data berhasil di hapus');
     }
 }

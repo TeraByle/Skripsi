@@ -17,14 +17,14 @@
                         @csrf
                         <div class="form-element">
                             <label for="username" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Username</label>
-                            <input type="text" name="username" id="username" required>
+                            <input type="text" name="username" id="username">
                             @error('username')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                         </div>
                         <div class="form-element">
                             <label for="password" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Password</label>
-                            <input type="password" name="password" id="password" required>
+                            <input type="password" name="password" id="password">
                             @error('password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
