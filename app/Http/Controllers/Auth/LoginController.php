@@ -4,45 +4,38 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-
-    public function index()
-    {
-        return view('Auth.login');
-    }
-
-
-
-    public function create()
-    {
-        //
-    }
-
-
     public function store(Request $request)
     {
 
-        $credentials = $request->validate([
+        $request->validate([
             'username' => 'required',
             'password' => 'required',
+        ],[
+            'username.required' => 'username wajib diisi',
+            'password.required' => 'password wajib diisi',
         ]);
-        if(Auth::attempt($credentials)){
+
+        $infologin = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+
+        if(Auth::attempt($infologin)){
             if(Auth::user()->role == 'superAdmin'){
-                return redirect('/superAdmin/home');
+                return redirect('superAdmin/home');
             }else{
-                return redirect('/admin/homepage');
+                return redirect('admin/homepage');
             }
 
         }else{
             return redirect('/login')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
         }
-        return redirect('/login');
+        return redirect()->route('superAdmin/home');
+
         // if (Auth::attempt($credentials)) {
         //     $request->session()->regenerate();
 
@@ -51,21 +44,20 @@ class LoginController extends Controller
 
         //     // Check if the user has a specific role
         //     if ($user->hasRole('Super Admin')) {
-        //         return redirect()->route('home');
+        //         return redirect()->route('superAdmin/home');
         //     } elseif ($user->hasRole('Admin')) {
         //         return redirect('admin/homepage');
         //     }
 
-        //     // Redirect to a default route if no specific role is found
-        //     return redirect()->route('home');
-        //}
+            // Redirect to a default route if no specific role is found
+            // return redirect()->route('superAdmin/home');
+        // }
 
         return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',
         ])->onlyInput('username', 'password');
 
     }
-
 
     public function logout(Request $request)
     {
@@ -78,16 +70,8 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-
     public function destroy(string $id)
     {
-
         return redirect()->to('superAdmin/akun')->with('success', 'Data berhasil di hapus');
     }
 }

@@ -44,7 +44,7 @@
                         </ul>
                     </div>
                     <div class="input-group">
-                        <form class="d-flex" action="{{route('home')}}" method="get">
+                        <form class="d-flex" action="{{route('homepage')}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
                             placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                             <button type="submit" class="btn btn-outline-primary">Search</button>

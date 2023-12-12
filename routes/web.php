@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AdminsController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Barang\produkAdminController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\Barang\produkController;
 use App\Http\Controllers\Laporan\CetakLaporanController;
@@ -20,17 +21,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//  Auth
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/loging_in', [LoginController::class, 'store'])->name('login_store');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// home Admin
-// Route::get('/', [produkController::class, 'index'])->name('home');
 
 Route::get('/homepage', function () {
     return view('/user/homepage');
 });
+
+//  Auth
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/loging_in', [LoginController::class, 'store'])->name('login_store');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function(){
     Route::prefix('superAdmin')->group(function(){
@@ -68,16 +67,15 @@ Route::middleware(['auth'])->group(function(){
     });
 
     Route::prefix('admin')->group(function(){
-        Route::get('/barang', [produkController::class, 'indexAdmin']);
-        Route::get('/homepage', [produkController::class, 'indexAdmin'])->name('admin/homepage');
-        Route::get('/tambahBarangAdmin', [produkController::class, 'createAdmin'])->name('tambah_barang');
-        Route::post('/produk_store',[produkController::class,'store'])->name('store_admin');
-        Route::get('/updateBarangAdmin/{BarangId}/edit', [produkController::class, 'edit']);
-        Route::put('/updateBarangAdmin/{BarangId}', [produkController::class, 'update']);
-        Route::delete('/barangAdmin/{BarangId}',[produkController::class,'destroy']);
+        Route::get('/homepage', [produkAdminController::class, 'index'])->name('homepage');
+        Route::get('/tambahBarangAdmin', [produkAdminController::class, 'create'])->name('tambah_barang');
+        Route::post('/produk_store',[produkAdminController::class,'store'])->name('store_admin');
+        Route::get('/updateBarangAdmin/{BarangId}/edit', [produkAdminController::class, 'edit']);
+        Route::put('/updateBarangAdmin/{BarangId}', [produkAdminController::class, 'update']);
+        Route::delete('/barangAdmin/{BarangId}',[produkAdminController::class,'destroy']);
 
         // transaksi
-        Route::get('/transaksiAdmin', [transaksiController::class, 'indexAdmin'])->name('transaksiAdmin');
+        Route::get('/transaksiAdmin', [transaksiController::class, 'index'])->name('transaksiAdmin');
         Route::post('/transaksiAdmin',[transaksiController::class,'store']);
         Route::get('/tambahTransaksiAdmin', [transaksiController::class, 'create']);
         Route::get('/updateTransaksiAdmin/{TransaksiId}/edit', [transaksiController::class, 'edit']);

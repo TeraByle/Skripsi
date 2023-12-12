@@ -28,7 +28,7 @@ class AdminsController extends Controller
 
         $users = $query->with('roles')->get();
 
-        return view('superAdmin.akun', compact('users', 'roles'));
+        return view('superAdmin/akun', compact('users', 'roles'));
     }
 
 

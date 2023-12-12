@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'username' => 'jopar',
                 'email' => 'superadmin@yes.com',
                 'role' => 'superAdmin',
-                'password'=>Hash::make('masbro')
+                'password'=>Hash::make('admin')
             ],
             [
                 'name' => 'Ilham Huda',
@@ -28,6 +28,13 @@ class UserSeeder extends Seeder
                 'email' => 'admin1@yes.com',
                 'role' => 'admin',
                 'password'=>Hash::make('admin')
+            ],
+            [
+                'name' => 'Leonardo',
+                'username' => 'leomord',
+                'email' => 'admin1@yes.com',
+                'role' => 'superAdmin',
+                'password'=>Hash::make('masalah')
             ]
         ];
 
