@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+ 
     public function run(): void
     {
         $userData = [
@@ -20,26 +18,36 @@ class UserSeeder extends Seeder
                 'username' => 'jopar',
                 'email' => 'superadmin@yes.com',
                 'role' => 'superAdmin',
-                'password'=>Hash::make('admin')
+                'password' => Hash::make('admin')
             ],
             [
                 'name' => 'Ilham Huda',
                 'username' => 'hudai',
                 'email' => 'admin1@yes.com',
                 'role' => 'admin',
-                'password'=>Hash::make('admin')
+                'password' => Hash::make('admin')
             ],
             [
                 'name' => 'Leonardo',
                 'username' => 'leomord',
                 'email' => 'admin1@yes.com',
                 'role' => 'superAdmin',
-                'password'=>Hash::make('masalah')
+                'password' => Hash::make('masalah')
             ]
         ];
 
-        foreach($userData as $key => $val){
-            User::create($val);
+        foreach ($userData as $userData) {
+            $user = User::create($userData);
+
+            // Assign roles to users
+            if ($userData['username'] == 'jopar') {
+                $user->assignRole('Super Admin');
+            } elseif ($userData['username'] == 'hudai') {
+                $user->assignRole('Admin');
+            } elseif ($userData['username'] == 'leomord') {
+                $user->assignRole('Super Admin');
+            }
         }
     }
 }
+
