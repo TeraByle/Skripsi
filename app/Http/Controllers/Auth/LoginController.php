@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -40,9 +41,9 @@ class LoginController extends Controller
         }else{
             return redirect('/login')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
         }
-        return redirect()->route('superAdmin/home');
+        //return redirect()->route('superAdmin/home');
 
-        // if (Auth::attempt($credentials)) {
+        // if (Auth::attempt($infologin)) {
         //     $request->session()->regenerate();
 
         //     // Get the authenticated user
@@ -55,13 +56,13 @@ class LoginController extends Controller
         //         return redirect('admin/homepage');
         //     }
 
-            // Redirect to a default route if no specific role is found
-            // return redirect()->route('superAdmin/home');
+        //     //Redirect to a default route if no specific role is found
+        //     return redirect()->route('superAdmin/home');
         // }
 
-        return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ])->onlyInput('username', 'password');
+        // return back()->withErrors([
+        //     'username' => 'The provided credentials do not match our records.',
+        // ])->onlyInput('username', 'password');
 
     }
 

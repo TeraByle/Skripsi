@@ -16,7 +16,7 @@ class produkController extends Controller
     //menampilkan semua data
     {
         $search = $request->search;
-        $jumlahbaris = 4;
+        $jumlahbaris = 10;
         if(strlen($search)){
             $data = Barang::where('NamaBarang', 'like', "%$search%")
                         ->orWhere('JenisBarang', 'like', "%$search%")

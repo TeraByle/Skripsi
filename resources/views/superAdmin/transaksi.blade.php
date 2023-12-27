@@ -36,7 +36,6 @@
                 <h2>Transaksi Barang</h2>
                 <p>Kelola Transaksi Barang Anda</p>
                 <div class="button-table">
-                    <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
                     <form class="d-flex" action="{{route(('transaksi'))}}" method="get">
                             <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
@@ -77,7 +76,6 @@
                                 <th class="text-center" scope="col">Tanggal Transaksi</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
-
                         </thead>
 
                         @php
@@ -110,9 +108,8 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            </tbody>
                     </table>
-
+                    {{ $data-> withQueryString()->links()}}
                 </div>
             </div>
         </div>

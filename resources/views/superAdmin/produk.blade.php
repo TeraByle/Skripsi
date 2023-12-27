@@ -53,6 +53,13 @@
                         </div>
                     </div>
                 @endif
+                @if(Session::has('failed'))
+                    <div class="pt-3">
+                        <div class="alert alert-danger">
+                            {{Session::get('failed')}}
+                        </div>
+                    </div>
+                    @endif
                 <div class="tabel">
                     <table class="table table-bordered table-striped table-condensed">
                         <thead>
