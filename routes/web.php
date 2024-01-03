@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/homepage', function () {
+Route::get('/', function () {
     return view('/user/homepage');
 });
 
