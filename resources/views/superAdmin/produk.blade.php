@@ -90,11 +90,11 @@
                                     @endif
                                 </td>
                                 <td  class="text-center">{{$item->KodeBarang}}</td>
-                                <td  class="text-center">{{$item->NamaBarang}}</td>
-                                <td  class="text-center">{{$item->JenisBarang}}</td>
+                                <td  class="text-center-nama">{{$item->NamaBarang}}</td>
+                                <td  class="text-center" style="width: 100px;">{{$item->JenisBarang}}</td>
                                 <td  class="text-center">{{$item->SatuanBarang}}</td>
                                 <td  class="text-center">{{$item->KategoriBarang}}</td>
-                                <td  class="text-center">{{$item->BrandBarang}}</td>
+                                <td  class="text-center" style="width: 100px;">{{$item->BrandBarang}}</td>
                                 <td  class="text-center">{{$item->StokBarang}}</td>
                                 <td  class="text-center">{{$item->TanggalBeli}}</td>
                                 <td  class="text-center">{{$item->HargaBeli}}</td>

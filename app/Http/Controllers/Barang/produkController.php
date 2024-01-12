@@ -12,11 +12,30 @@ use Illuminate\Support\Facades\DB;
 
 class produkController extends Controller
 {
+    public function indexHomepage(Request $request) {
+        $data = Barang::all();
+
+        $search = $request->search;
+        $jumlahbaris = 8;
+        if(strlen($search)){
+            $data = Barang::where('NamaBarang', 'like', "%$search%")
+                        ->orWhere('JenisBarang', 'like', "%$search%")
+                        ->orWhere('KategoriBarang', 'like', "%$search%")
+                        ->orWhere('BrandBarang', 'like', "%$search%")
+                        ->paginate($jumlahbaris);
+        }
+        else{
+            $data = Barang::orderBy('BarangId', 'asc')->paginate($jumlahbaris);
+        }
+
+        return view('user/homepage')->with('data', $data);
+    }
+
     public function index(Request $request)
     //menampilkan semua data
     {
         $search = $request->search;
-        $jumlahbaris = 10;
+        $jumlahbaris = 5;
         if(strlen($search)){
             $data = Barang::where('NamaBarang', 'like', "%$search%")
                         ->orWhere('JenisBarang', 'like', "%$search%")

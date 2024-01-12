@@ -22,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('/user/homepage');
-});
+Route::get('/', [produkController::class, 'indexHomepage']);
 
 //  Auth
 Route::get('/login', [LoginController::class, 'index'])->name('login');
