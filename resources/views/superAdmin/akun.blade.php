@@ -18,7 +18,7 @@
                 <div class="user-info">
                     <div class="user-details">
                         <div class="user-name">{{Auth::user()->name}}</div>
-                        <div class="user-role">Admin</div>
+                        <div class="user-role">{{Auth::user()->role}}</div>
                     </div>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
