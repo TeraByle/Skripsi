@@ -89,7 +89,7 @@
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">{{ $item->TransaksiId }}</td>
                                 <td class="text-center">{{ $item->KodeBarang }}</td>
-                                <td class="text-center">{{ $item->NamaBarang }}</td>
+                                <td class="text-center-nama">{{ $item->NamaBarang }}</td>
                                 <td class="text-center">{{ $item->SatuanBarang }}</td>
                                 <td class="text-center">{{ $item->KategoriBarang }}</td>
                                 <td class="text-center">{{ $item->StokBarang }}</td>

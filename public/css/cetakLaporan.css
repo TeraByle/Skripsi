@@ -217,3 +217,12 @@
     text-align: center;
     margin-top: 12px;
 }
+
+.text-center-nama{
+    /* display: -webkit-box; */
+    max-width: 170px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: center;
+}

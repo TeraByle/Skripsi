@@ -171,6 +171,7 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
 
 .text-center-nama{
     /* display: -webkit-box; */
+    text-align: center;
     max-width: 180px;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
@@ -266,6 +267,13 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     padding: 12px;
     font-size: 16px;
     margin-top: 12px;
+}
+
+.input-group .btn{
+    margin-left: 10px;
+    border-radius: 0;
+    color: #FF9F43;
+    border-color: #FF9F43;
 }
 
 /* Upload Section */
