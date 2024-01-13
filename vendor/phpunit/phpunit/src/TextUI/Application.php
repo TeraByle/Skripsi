@@ -638,10 +638,13 @@ final class Application
 
         $first = true;
 
+<<<<<<< HEAD
         if ($t->getPrevious()) {
             $t = $t->getPrevious();
         }
 
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         do {
             printf(
                 '%s%s: %s:%d%s%s%s%s',

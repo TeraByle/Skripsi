@@ -290,6 +290,7 @@ final class MetadataCollection implements Countable, IteratorAggregate
         );
     }
 
+<<<<<<< HEAD
     public function isIgnoreDeprecations(): self
     {
         return new self(
@@ -300,6 +301,8 @@ final class MetadataCollection implements Countable, IteratorAggregate
         );
     }
 
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     /**
      * @deprecated https://github.com/sebastianbergmann/phpunit/issues/5513
      */

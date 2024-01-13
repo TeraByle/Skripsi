@@ -41,14 +41,21 @@ final class PhpDeprecationTriggered implements Event
     private readonly int $line;
     private readonly bool $suppressed;
     private readonly bool $ignoredByBaseline;
+<<<<<<< HEAD
     private readonly bool $ignoredByTest;
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
     /**
      * @psalm-param non-empty-string $message
      * @psalm-param non-empty-string $file
      * @psalm-param positive-int $line
      */
+<<<<<<< HEAD
     public function __construct(Telemetry\Info $telemetryInfo, Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest)
+=======
+    public function __construct(Telemetry\Info $telemetryInfo, Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline)
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     {
         $this->telemetryInfo     = $telemetryInfo;
         $this->test              = $test;
@@ -57,7 +64,10 @@ final class PhpDeprecationTriggered implements Event
         $this->line              = $line;
         $this->suppressed        = $suppressed;
         $this->ignoredByBaseline = $ignoredByBaseline;
+<<<<<<< HEAD
         $this->ignoredByTest     = $ignoredByTest;
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 
     public function telemetryInfo(): Telemetry\Info
@@ -104,11 +114,14 @@ final class PhpDeprecationTriggered implements Event
         return $this->ignoredByBaseline;
     }
 
+<<<<<<< HEAD
     public function ignoredByTest(): bool
     {
         return $this->ignoredByTest;
     }
 
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     public function asString(): string
     {
         $message = $this->message;
@@ -119,9 +132,13 @@ final class PhpDeprecationTriggered implements Event
 
         $status = '';
 
+<<<<<<< HEAD
         if ($this->ignoredByTest) {
             $status = 'Test-Ignored ';
         } elseif ($this->ignoredByBaseline) {
+=======
+        if ($this->ignoredByBaseline) {
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             $status = 'Baseline-Ignored ';
         } elseif ($this->suppressed) {
             $status = 'Suppressed ';

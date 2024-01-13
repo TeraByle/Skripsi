@@ -46,6 +46,7 @@ class PostgresProcessor extends Processor
     }
 
     /**
+<<<<<<< HEAD
      * Process the results of a types query.
      *
      * @param  array  $results
@@ -94,6 +95,8 @@ class PostgresProcessor extends Processor
     }
 
     /**
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      * Process the results of a columns query.
      *
      * @param  array  $results
@@ -107,7 +110,11 @@ class PostgresProcessor extends Processor
             $autoincrement = $result->default !== null && str_starts_with($result->default, 'nextval(');
 
             return [
+<<<<<<< HEAD
                 'name' => $result->name,
+=======
+                'name' => str_starts_with($result->name, '"') ? str_replace('"', '', $result->name) : $result->name,
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
                 'type_name' => $result->type_name,
                 'type' => $result->type,
                 'collation' => $result->collation,
@@ -118,6 +125,7 @@ class PostgresProcessor extends Processor
             ];
         }, $results);
     }
+<<<<<<< HEAD
 
     /**
      * Process the results of an indexes query.
@@ -176,4 +184,6 @@ class PostgresProcessor extends Processor
             ];
         }, $results);
     }
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 }

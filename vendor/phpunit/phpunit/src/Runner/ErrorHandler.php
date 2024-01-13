@@ -50,10 +50,14 @@ final class ErrorHandler
             return false;
         }
 
+<<<<<<< HEAD
         $test = Event\Code\TestMethodBuilder::fromCallStack();
 
         $ignoredByBaseline = $this->ignoredByBaseline($errorFile, $errorLine, $errorString);
         $ignoredByTest     = $test->metadata()->isIgnoreDeprecations()->isNotEmpty();
+=======
+        $ignoredByBaseline = $this->ignoredByBaseline($errorFile, $errorLine, $errorString);
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
         switch ($errorNumber) {
             case E_NOTICE:
@@ -113,7 +117,10 @@ final class ErrorHandler
                     $errorLine,
                     $suppressed,
                     $ignoredByBaseline,
+<<<<<<< HEAD
                     $ignoredByTest,
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
                 );
 
                 break;
@@ -126,7 +133,10 @@ final class ErrorHandler
                     $errorLine,
                     $suppressed,
                     $ignoredByBaseline,
+<<<<<<< HEAD
                     $ignoredByTest,
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
                 );
 
                 break;

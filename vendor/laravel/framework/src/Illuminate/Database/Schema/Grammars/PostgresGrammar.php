@@ -168,11 +168,19 @@ class PostgresGrammar extends Grammar
     public function compileColumns($database, $schema, $table)
     {
         return sprintf(
+<<<<<<< HEAD
             'select a.attname as name, t.typname as type_name, format_type(a.atttypid, a.atttypmod) as type, '
             .'(select tc.collcollate from pg_catalog.pg_collation tc where tc.oid = a.attcollation) as collation, '
             .'not a.attnotnull as nullable, '
             .'(select pg_get_expr(adbin, adrelid) from pg_attrdef where c.oid = pg_attrdef.adrelid and pg_attrdef.adnum = a.attnum) as default, '
             .'col_description(c.oid, a.attnum) as comment '
+=======
+            'select quote_ident(a.attname) as name, t.typname as type_name, format_type(a.atttypid, a.atttypmod) as type, '
+            .'(select tc.collcollate from pg_catalog.pg_collation tc where tc.oid = a.attcollation) as collation, '
+            .'not a.attnotnull as nullable, '
+            .'(select pg_get_expr(adbin, adrelid) from pg_attrdef where c.oid = pg_attrdef.adrelid and pg_attrdef.adnum = a.attnum) as default, '
+            .'(select pg_description.description from pg_description where pg_description.objoid = c.oid and a.attnum = pg_description.objsubid) as comment '
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             .'from pg_attribute a, pg_class c, pg_type t, pg_namespace n '
             .'where c.relname = %s and n.nspname = %s and a.attnum > 0 and a.attrelid = c.oid and a.atttypid = t.oid and n.oid = c.relnamespace '
             .'order by a.attnum',
@@ -182,6 +190,7 @@ class PostgresGrammar extends Grammar
     }
 
     /**
+<<<<<<< HEAD
      * Compile the query to determine the indexes.
      *
      * @param  string  $schema
@@ -238,6 +247,8 @@ class PostgresGrammar extends Grammar
     }
 
     /**
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      * Compile a create table command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint

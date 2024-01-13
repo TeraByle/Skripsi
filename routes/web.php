@@ -1,7 +1,14 @@
 <?php
 
+use App\Http\Controllers\Auth\AdminsController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Barang\produkAdminController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\produkController;
+use App\Http\Controllers\Barang\produkController;
+use App\Http\Controllers\Laporan\CetakLaporanController;
+use App\Http\Controllers\transaksiController;
+use App\Models\transaksi;
+use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,99 +21,50 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/sesi', [SessionController::class, 'index']);
 
-Route::get('/homepage', function () {
-    return view('/user/homepage');
-});
-//Route::resource('barang', produkController::class);
-Route::prefix('superAdmin')->group(function(){
+Route::get('/', [produkController::class, 'indexHomepage']);
 
-    Route::get('/produk', [produkController::class, 'index']);
-    Route::post('/produk',[produkController::class,'store']);
-    Route::get('/inputBarang', [produkController::class, 'create']);
-    Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);
-    Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
-    Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
+//  Auth
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/loging_in', [LoginController::class, 'store'])->name('login_store');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::get('/transaksi', function () {
-        return view('/superAdmin/transaksi');
-    });
+Route::middleware(['auth'])->group(function () {
 
-    Route::get('/tambahTransaksi', function () {
-        return view('tambahTransaksi');
-    });
+    Route::get('/admin/dashboard', [ProdukController::class, 'index'])->name('home');
 
-    Route::get('/cetakLaporan', function () {
-        return view('superAdmin/cetakLaporan');
-    });
+    Route::prefix('superAdmin')->group(function () {
+        // Produk
+        Route::get('/inputBarang', [ProdukController::class, 'create'])->name('input_barang');
+        Route::post('/store_produk', [ProdukController::class, 'store'])->name('store_produk');
+        Route::get('/updateBarang/{BarangId}/edit', [ProdukController::class, 'edit'])->name('edit_barang');
+        Route::put('/updateBarang/{BarangId}', [ProdukController::class, 'update'])->name('update_barang');
+        Route::delete('/produk/{BarangId}', [ProdukController::class, 'destroy'])->name('delete_barang');
 
-    Route::get('/akun', function () {
-        return view('superAdmin/akun');
-    });
+        // Transaksi
+        Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+        Route::get('/tambahTransaksi', [TransaksiController::class, 'create'])->name('create_transaksi');
+        Route::post('/transaksi', [TransaksiController::class, 'store'])->name('store_transaksi');
+        Route::get('/updateTransaksi/{id}/edit', [TransaksiController::class, 'edit'])->name('edit_transaksi');
+        Route::put('/updateTransaksi/{id}', [TransaksiController::class, 'update'])->name('update_transaksi');
+        Route::delete('/transaksi/{id}', [TransaksiController::class, 'destroy'])->name('delete_transaksi');
+        // Transaksi Barang
+        Route::get('/ajax/barang/{BarangId}', [TransaksiController::class, 'ajax_dependentdropdown'])->name('ajax_barang');
 
-    Route::get('/tambahAkun', function () {
-        return view('tambahAkun');
-    });
 
-    Route::get('/updateakun', function () {
-        return view('/superAdmin/updateAkun');
-    });
+        Route::group(['middleware'=>'adminChecker'], function() {
+            // Cetak Laporan
+            Route::get('/cetak-laporan', [CetakLaporanController::class, 'index'])->name('cetakdata');
+            Route::post('/cetak-laporans-semua', [CetakLaporanController::class, 'fetch_data'])->name('cetakdatasemua');
+            Route::get('/unduh-pdf', [CetakLaporanController::class, 'cetakLaporan'])->name('unduhPDF');
 
-    Route::get('/produkAdmin', function () {
-        return view('/admin/produkAdmin');
-    });
-});
-
-Route::prefix('admin')->group(function(){
-    Route::get('/produk', [produkController::class, 'index']);
-    Route::post('/produk',[produkController::class,'store']);
-    Route::get('/inputBarang', [produkController::class, 'create']);
-    Route::get('/updateBarang/{BarangId}/edit', [produkController::class, 'edit']);
-    Route::put('/updateBarang/{BarangId}', [produkController::class, 'update']);
-    Route::delete('/produk/{BarangId}',[produkController::class,'destroy']);
-
-    Route::get('/transaksi', function () {
-        return view('/admin/transaksi');
-    });
-
-    Route::get('/tambahTransaksi', function () {
-        return view('/admin/Transaksi');
-    });
-
-    Route::get('/produkAdmin', function () {
-        return view('/admin/produkAdmin');
+            // Akun Manajemen
+            Route::get('/akun', [AdminsController::class, 'index'])->name('account_management');
+            Route::get('/tambah-akun', [AdminsController::class, 'create'])->name('create_account');
+            Route::post('/store-akun', [AdminsController::class, 'store'])->name('store_akun');
+            Route::get('/update-user-edit/{id}', [AdminsController::class, 'edit'])->name('edit_account');
+            Route::put('/update-user/{id}', [AdminsController::class, 'update'])->name('update_account');
+            Route::delete('/account-destroy/{id}', [AdminsController::class, 'destroy'])->name('delete_account');
+        });
     });
 });
-
-
-
-Route::get('/cetakLaporan', function () {
-    return view('superAdmin/cetakLaporan');
-});
-
-Route::get('/akun', function () {
-    return view('superAdmin/akun');
-});
-
-Route::get('/tambahAkun', function () {
-    return view('tambahAkun');
-});
-
-Route::get('/updateakun', function () {
-    return view('/superAdmin/updateAkun');
-});
-
-Route::get('/produkAdmin', function () {
-    return view('/admin/produkAdmin');
-});
-
-// Backend API
-
-Route::middleware('auth:api')->get('/user', function (Request $request){
-    return $request->user();
-});
-
-Route::post('/login', [SessionController::class, 'login']);
-
-Route::get('/listBarang',[SessionController::class,'listBarang']);

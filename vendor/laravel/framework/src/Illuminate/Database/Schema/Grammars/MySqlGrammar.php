@@ -158,7 +158,11 @@ class MySqlGrammar extends Grammar
         return sprintf(
             'select column_name as `name`, data_type as `type_name`, column_type as `type`, '
             .'collation_name as `collation`, is_nullable as `nullable`, '
+<<<<<<< HEAD
             .'column_default as `default`, column_comment as `comment`, extra as `extra` '
+=======
+            .'column_default as `default`, column_comment AS `comment`, extra as `extra` '
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             .'from information_schema.columns where table_schema = %s and table_name = %s '
             .'order by ordinal_position asc',
             $this->quoteString($database),
@@ -167,6 +171,7 @@ class MySqlGrammar extends Grammar
     }
 
     /**
+<<<<<<< HEAD
      * Compile the query to determine the indexes.
      *
      * @param  string  $database
@@ -212,6 +217,8 @@ class MySqlGrammar extends Grammar
     }
 
     /**
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      * Compile a create table command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint

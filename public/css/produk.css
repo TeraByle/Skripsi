@@ -142,6 +142,10 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     line-height: 21px;
 }
 
+.dropdown{
+    margin-right: 24px;
+}
+
 .button-table {
     display: flex;
     width: 100%;
@@ -163,6 +167,15 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     align-items: center;
     justify-content: center;
     border: none;
+}
+
+.text-center-nama{
+    /* display: -webkit-box; */
+    text-align: center;
+    max-width: 180px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .tabel {
@@ -213,6 +226,30 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     position: relative;
 }
 
+.form-field-nama{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field-nama label {
+    color: #212B36;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.form-field-nama input {
+    width: 552px;
+    height: 48px;
+    background: white;
+    border-radius: 14px;
+    border: 1px rgba(196, 196, 196, 0.50) solid;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
 .form-field label {
     color: #212B36;
     font-size: 14px;
@@ -230,6 +267,13 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     padding: 12px;
     font-size: 16px;
     margin-top: 12px;
+}
+
+.input-group .btn{
+    margin-left: 10px;
+    border-radius: 0;
+    color: #FF9F43;
+    border-color: #FF9F43;
 }
 
 /* Upload Section */
@@ -252,7 +296,14 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     margin-bottom: 8px;
 }
 .upload input {
-    height: 100px;
+    width: 552px;
+    height: 55px;
+    background: white;
+    border-radius: 14px;
+    border: 1px rgba(196, 196, 196, 0.50) solid;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
 
 }
 
@@ -292,4 +343,17 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
     justify-content: center;
     text-align: center;
     margin-bottom: 24px;
+}
+
+.pagination{
+    padding-left: 24px;
+}
+
+.active>.page-link{
+    background-color: #FF9F43;
+    border-color: #FF9F43;
+}
+
+.page-link{
+    color: #FF9F43;
 }

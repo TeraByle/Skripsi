@@ -11,7 +11,10 @@ namespace SebastianBergmann\Complexity;
 
 use function array_filter;
 use function array_merge;
+<<<<<<< HEAD
 use function array_reverse;
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 use function array_values;
 use function count;
 use function usort;
@@ -114,6 +117,7 @@ final class ComplexityCollection implements Countable, IteratorAggregate
             ),
         );
     }
+<<<<<<< HEAD
 
     public function sortByDescendingCyclomaticComplexity(): self
     {
@@ -129,4 +133,6 @@ final class ComplexityCollection implements Countable, IteratorAggregate
 
         return new self(array_reverse($items));
     }
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 }

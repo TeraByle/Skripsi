@@ -259,15 +259,33 @@ class PostgresBuilder extends Builder
     }
 
     /**
+<<<<<<< HEAD
      * Get the schemas for the connection.
+=======
+     * Get the columns for a given table.
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      *
      * @return array
      */
+<<<<<<< HEAD
     protected function getSchemas()
     {
         return $this->parseSearchPath(
             $this->connection->getConfig('search_path') ?: $this->connection->getConfig('schema') ?: 'public'
         );
+=======
+    public function getColumns($table)
+    {
+        [$database, $schema, $table] = $this->parseSchemaAndTable($table);
+
+        $table = $this->connection->getTablePrefix().$table;
+
+        $results = $this->connection->selectFromWriteConnection(
+            $this->grammar->compileColumns($database, $schema, $table)
+        );
+
+        return $this->connection->getPostProcessor()->processColumns($results);
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 
     /**

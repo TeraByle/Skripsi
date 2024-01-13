@@ -422,6 +422,7 @@ class BusFake implements Fake, QueueingDispatcher
                             ! $chain[$index]($chainedBatch->toPendingBatch())) {
                             return false;
                         }
+<<<<<<< HEAD
                     } elseif ($chain[$index] instanceof Closure) {
                         [$expectedType, $callback] = [$this->firstClosureParameterType($chain[$index]), $chain[$index]];
 
@@ -434,6 +435,8 @@ class BusFake implements Fake, QueueingDispatcher
                         if (! $callback($chainedJob)) {
                             return false;
                         }
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
                     } elseif (is_string($chain[$index])) {
                         if ($chain[$index] != get_class(unserialize($serializedChainedJob))) {
                             return false;

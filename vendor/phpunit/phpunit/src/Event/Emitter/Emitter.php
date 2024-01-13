@@ -21,6 +21,7 @@ use PHPUnit\TextUI\Configuration\Configuration;
  */
 interface Emitter
 {
+<<<<<<< HEAD
     /**
      * @deprecated
      */
@@ -29,6 +30,10 @@ interface Emitter
     /**
      * @deprecated
      */
+=======
+    public function exportObjects(): void;
+
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     public function exportsObjects(): bool;
 
     public function applicationStarted(): void;
@@ -185,9 +190,15 @@ interface Emitter
 
     public function testTriggeredPhpunitDeprecation(Code\Test $test, string $message): void;
 
+<<<<<<< HEAD
     public function testTriggeredPhpDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest): void;
 
     public function testTriggeredDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest): void;
+=======
+    public function testTriggeredPhpDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline): void;
+
+    public function testTriggeredDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline): void;
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
     public function testTriggeredError(Code\Test $test, string $message, string $file, int $line, bool $suppressed): void;
 

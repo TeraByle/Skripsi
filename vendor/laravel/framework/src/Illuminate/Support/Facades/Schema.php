@@ -22,8 +22,11 @@ namespace Illuminate\Support\Facades;
  * @method static string getColumnType(string $table, string $column, bool $fullDefinition = false)
  * @method static array getColumnListing(string $table)
  * @method static array getColumns(string $table)
+<<<<<<< HEAD
  * @method static array getIndexes(string $table)
  * @method static array getForeignKeys(string $table)
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
  * @method static void table(string $table, \Closure $callback)
  * @method static void create(string $table, \Closure $callback)
  * @method static void drop(string $table)

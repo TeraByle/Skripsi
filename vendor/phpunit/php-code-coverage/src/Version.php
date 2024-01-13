@@ -19,7 +19,11 @@ final class Version
     public static function id(): string
     {
         if (self::$version === '') {
+<<<<<<< HEAD
             self::$version = (new VersionId('10.1.11', dirname(__DIR__)))->asString();
+=======
+            self::$version = (new VersionId('10.1.9', dirname(__DIR__)))->asString();
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         }
 
         return self::$version;

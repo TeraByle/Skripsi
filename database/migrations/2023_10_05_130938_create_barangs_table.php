@@ -6,13 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('barang', function (Blueprint $table) {
-            $table->bigIncrements('BarangId');
+            $table->id('BarangId');
             $table->string('KodeBarang');
             $table->string('NamaBarang');
             $table->string('JenisBarang');
@@ -21,14 +18,15 @@ return new class extends Migration
             $table->string('BrandBarang');
             $table->integer('StokBarang');
             $table->date('TanggalBeli');
-            $table->integer('HargaBeli');
-            $table->integer('HargaJual');
+            $table->string('HargaBeli');
+            $table->string('HargaJual');
+            $table->date('tanggal');
+            $table->text('gambar');
+            $table->timestamps();
+
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('barang');

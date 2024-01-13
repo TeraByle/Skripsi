@@ -10,78 +10,96 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img src="assets/images/LogoNew.png" alt="Logo">
+                <a href="{{ route('home') }}">
+                    <img src="/assets/images/LogoNew.png" alt="Logo">
+                </a>
             </div>
             <div class="content-header">
                 <div class="user-info">
                     <div class="user-details">
-                        <div class="user-name">Zhofar Putra</div>
+                        <div class="user-name">{{Auth::user()->name}}</div>
                         <div class="user-role">Admin</div>
                     </div>
-                    <div class="arrow-icon">
-                        <img src="assets/images/LogOut.png" alt="logout">
-                    </div>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" style="border: none; background: none; padding: 0;">
+                            <img src="/assets/images/LogOut.png" alt="logout" style="width: 30px; height: 30px;">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="isi">
-            <div class="sidebar">
-                <button class="sidebar-button button-1">Data Barang</button>
-                <button class="sidebar-button button-2">Transaksi Penjualan</button>
-                <button class="sidebar-button button-3">Laporan Keuangan</button>
-                <button class="sidebar-button button-4">Manajemen Akun</button>
-            </div>
+            <!-- sidebar -->
+            @include('superAdmin/sidebarSuperAdmin')
             <div class="content">
                 <h2>Manajemen Akun</h2>
                 <p>Kelola Manajemen Akun Anda</p>
                 <div class="button-table">
-                    <img src="assets/images/Filter.png" alt="">
+                    <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary">Search</button>
+                        <form class="d-flex" action="{{ url('superAdmin/akun') }}" method="get">
+                            <input type="search" name="search" value="{{ Request::get('search') }}" class="form-control rounded"
+                                placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="submit" class="btn btn-outline-primary">Search</button>
+                        </form>
                     </div>
-                    <button class="button-barang">+ Tambah Akun</button>
+                <button class="button-barang">
+                    <a href="{{ route('create_account') }}" style="text-decoration: none;color: white;">+ Tambah Akun</a>
+                </button>
                 </div>
+                @if(Session::has('success'))
+                    <div class="pt-3">
+                        <div class="alert alert-success" style="width: 1230px;">
+                            {{Session::get('success')}}
+                        </div>
+                    </div>
+                @endif
+                @if(Session::has('failed'))
+                    <div class="pt-3">
+                        <div class="alert alert-danger">
+                            {{Session::get('failed')}}
+                        </div>
+                    </div>
+                    @endif
                 <div class="tabel">
-                    <table class="table">
+                    <table class="table table-bordered table-striped table-condensed">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Password</th>
-                                <th scope="col">Role</th>
-                                <th scope="col">Aksi</th>
+                                <th  class="text-center" scope="col">No</th>
+                                <th  class="text-center" scope="col">Nama</th>
+                                <th  class="text-center" scope="col">Username</th>
+                                <th  class="text-center" scope="col">Email</th>
+                                <th  class="text-center" scope="col">Role</th>
+                                <th  class="text-center" scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 1; // Mulai dari angka 1 ?>
+                            @foreach ($users as $akun) {{-- Pastikan Anda memiliki $accounts dari kontroler --}}
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Zhofar Putra</td>
-                                <td>jopar</td>
-                                <td>masbro</td>
-                                <td>Super Admin</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
+                                <th  class="text-center" scope="row">{{ $i }}</th>
+                                <td  class="text-center">{{ $akun->name }}</td>
+                                <td  class="text-center">{{ $akun->username }}</td>
+                                <td  class="text-center">{{ $akun->email }}</td>
+                                <!-- <td>{{ $akun->password}}</td> -->
+                                <td  class="text-center">{{ $akun->role }}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('edit_account', ['id' => $akun->id]) }}">
+                                        <img src="/assets/images/Edit.png" alt="edit">
+                                    </a>
+                                    <form onsubmit="return confirm('Yakin ingin menghapus data?')" class="d-inline" action="{{ route('delete_account', ['id' => $akun->id]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" name="submit">
+                                            <img src="/assets/images/Remove.png" alt="remove">
+                                        </button>
+                                    </form>
+                                </td>
+
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Ilham Huda</td>
-                                <td>hudai</td>
-                                <td>masako</td>
-                                <td>Admin</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Leonardo</td>
-                                <td>leomord</td>
-                                <td>masalah</td>
-                                <td>Admin</td>
-                                <td><img src="assets/images/Edit.png" alt="Edit"></td>
-                                <td><img src="assets/images/Remove.png" alt="Remove"></td>
-                            </tr>
+                            <?php $i++; ?>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

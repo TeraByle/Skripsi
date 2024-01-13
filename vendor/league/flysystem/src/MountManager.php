@@ -31,6 +31,7 @@ class MountManager implements FilesystemOperator
     {
         $this->mountFilesystems($filesystems);
         $this->config = new Config($config);
+<<<<<<< HEAD
     }
 
     /**
@@ -43,6 +44,8 @@ class MountManager implements FilesystemOperator
         $clone->mountFilesystems($filesystems);
 
         return $clone;
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 
     public function fileExists(string $location): bool
@@ -385,8 +388,13 @@ class MountManager implements FilesystemOperator
         array $config,
     ): void {
         $config = $this->config->extend($config);
+<<<<<<< HEAD
         $retainVisibility = (bool) $config->get(Config::OPTION_RETAIN_VISIBILITY, true);
         $visibility = $config->get(Config::OPTION_VISIBILITY);
+=======
+        $retainVisibility = (bool) $config->get('retain_visibility', true);
+        $visibility = $config->get('visibility');
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
         try {
             if ($visibility == null && $retainVisibility) {
@@ -394,7 +402,11 @@ class MountManager implements FilesystemOperator
             }
 
             $stream = $sourceFilesystem->readStream($sourcePath);
+<<<<<<< HEAD
             $destinationFilesystem->writeStream($destinationPath, $stream, $visibility ? compact(Config::OPTION_VISIBILITY) : []);
+=======
+            $destinationFilesystem->writeStream($destinationPath, $stream, $visibility ? compact('visibility') : []);
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         } catch (UnableToRetrieveMetadata | UnableToReadFile | UnableToWriteFile $exception) {
             throw UnableToCopyFile::fromLocationTo($source, $destination, $exception);
         }

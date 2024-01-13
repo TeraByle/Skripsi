@@ -162,13 +162,18 @@ class SqlServerGrammar extends Grammar
             .'join sys.schemas as scm on obj.schema_id = scm.schema_id '
             .'left join sys.default_constraints def on col.default_object_id = def.object_id and col.object_id = def.parent_object_id '
             ."left join sys.extended_properties as prop on obj.object_id = prop.major_id and col.column_id = prop.minor_id and prop.name = 'MS_Description' "
+<<<<<<< HEAD
             ."where obj.type in ('U', 'V') and obj.name = %s and scm.name = SCHEMA_NAME() "
             .'order by col.column_id',
+=======
+            ."where obj.type = 'U' and obj.name = %s and scm.name = SCHEMA_NAME()",
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             $this->quoteString($table),
         );
     }
 
     /**
+<<<<<<< HEAD
      * Compile the query to determine the indexes.
      *
      * @param  string  $table
@@ -220,6 +225,8 @@ class SqlServerGrammar extends Grammar
     }
 
     /**
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      * Compile a create table command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint

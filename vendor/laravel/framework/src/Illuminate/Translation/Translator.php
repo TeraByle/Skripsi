@@ -348,7 +348,11 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
         $key = call_user_func(
             $this->missingTranslationKeyCallback,
             $key, $replace, $locale, $fallback
+<<<<<<< HEAD
         ) ?? $key;
+=======
+        );
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
         $this->handleMissingTranslationKeys = true;
 

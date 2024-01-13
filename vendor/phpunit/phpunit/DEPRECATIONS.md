@@ -60,6 +60,7 @@ This functionality is currently [soft-deprecated](https://phpunit.de/backward-co
 
 ### Extending PHPUnit
 
+<<<<<<< HEAD
 | Issue | Description                                                                                                                  | Since  | Replacement                                                                    |
 |-------|------------------------------------------------------------------------------------------------------------------------------|--------|--------------------------------------------------------------------------------|
 |       | `PHPUnit\TextUI\Configuration\Configuration::coverageExcludeDirectories()`                                                   | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->excludeDirectories()`   |
@@ -77,6 +78,22 @@ This functionality is currently [soft-deprecated](https://phpunit.de/backward-co
 |       | `PHPUnit\TextUI\Configuration\Configuration::registerMockObjectsFromTestArgumentsRecursively()`                              | 10.5.3 |                                                                                |
 |       | `Test\AssertionFailed` and `Test\AssertionSucceeded` events                                                                  | 10.5.3 |                                                                                |
 |       | `PHPUnit\Runner\Extension\Facade::requireExportOfObjects()` and `PHPUnit\Runner\Extension\Facade::requiresExportOfObjects()` | 10.5.3 |                                                                                |
+=======
+| Issue | Description                                                                                            | Since  | Replacement                                                                    |
+|-------|--------------------------------------------------------------------------------------------------------|--------|--------------------------------------------------------------------------------|
+|       | `PHPUnit\TextUI\Configuration\Configuration::excludeDirectories()`                                     | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->excludeDirectories()`   |
+|       | `PHPUnit\TextUI\Configuration\Configuration::excludeFiles()`                                           | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->excludeFiles()`         |
+|       | `PHPUnit\TextUI\Configuration\Configuration::includeDirectories()`                                     | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->includeDirectories()`   |
+|       | `PHPUnit\TextUI\Configuration\Configuration::includeFiles()`                                           | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->includeFiles()`         |
+|       | `PHPUnit\TextUI\Configuration\Configuration::loadPharExtensions()`                                     | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::noExtensions()`                   |
+|       | `PHPUnit\TextUI\Configuration\Configuration::hasNonEmptyListOfFilesToBeIncludedInCodeCoverageReport()` | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->notEmpty()`             |
+|       | `PHPUnit\TextUI\Configuration\Configuration::restrictDeprecations()`                                   | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->restrictDeprecations()` |
+|       | `PHPUnit\TextUI\Configuration\Configuration::restrictNotices()`                                        | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->restrictNotices()`      |
+|       | `PHPUnit\TextUI\Configuration\Configuration::restrictWarnings()`                                       | 10.2.0 | `PHPUnit\TextUI\Configuration\Configuration::source()->restrictWarnings()`     |
+|       | `PHPUnit\TextUI\Configuration\Configuration::cliArgument()`                                            | 10.4.0 | `PHPUnit\TextUI\Configuration\Configuration::cliArguments()[0]`                |
+|       | `PHPUnit\TextUI\Configuration\Configuration::hasCliArgument()`                                         | 10.4.0 | `PHPUnit\TextUI\Configuration\Configuration::hasCliArguments()`                |
+|       | `PHPUnit\Framework\Constraint\Constraint::exporter()`                                                  | 10.4.0 |                                                                                |
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
 ## Hard Deprecations
 

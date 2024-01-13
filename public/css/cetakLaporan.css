@@ -62,15 +62,12 @@
 
 .isi {
     display: flex;
-    margin-top: 12px;
-    margin-left: 12px;
-    flex-direction: row;
-    align-items: flex-start;
+    margin-top: 24px;
 }
 
 .sidebar {
     width: 230px;
-    margin-left: 12px;
+    margin-left: 24px;
     display: flex;
     flex-direction: column;
 }
@@ -120,8 +117,6 @@
 
 .isi-judul{
     display: flex;
-    width: 600px;
-    margin-left: 200px;
     flex-direction: column;
     align-items: center;
 }
@@ -137,6 +132,7 @@
 .container-cetak {
     display: flex;
     justify-content: center;
+    margin-bottom: 24px;
 }
 
 /* Container */
@@ -158,7 +154,6 @@
     display: flex;
     width: 648px;
     height: 400px;
-    position: absolute;
     align-items: center;
     flex-direction: column;
     background: white;
@@ -206,9 +201,28 @@
     font-weight: 700;
     margin-top: 68px;
     border: none;
+    text-decoration: none;
+}
+
+.download-button{
+    background: #FF9F43;
+    border-radius: 16px;
+    color: white;
+    font-family: Poppins;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .buttonText{
     text-align: center;
     margin-top: 12px;
+}
+
+.text-center-nama{
+    /* display: -webkit-box; */
+    max-width: 170px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: center;
 }

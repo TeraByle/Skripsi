@@ -82,10 +82,14 @@ class LocalFilesystemAdapter implements FilesystemAdapter, ChecksumProvider
         $visibility ??= new PortableVisibilityConverter();
         $this->visibility = $visibility;
         $this->rootLocation = $location;
+<<<<<<< HEAD
         $this->mimeTypeDetector = $mimeTypeDetector ?? new FallbackMimeTypeDetector(
             detector: new FinfoMimeTypeDetector(),
             useInconclusiveMimeTypeFallback: $useInconclusiveMimeTypeFallback,
         );
+=======
+        $this->mimeTypeDetector = $mimeTypeDetector ?? new FallbackMimeTypeDetector(new FinfoMimeTypeDetector());
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
         if ( ! $lazyRootCreation) {
             $this->ensureRootDirectoryExists();
@@ -277,7 +281,11 @@ class LocalFilesystemAdapter implements FilesystemAdapter, ChecksumProvider
 
         $visibility = $config->get(
             Config::OPTION_VISIBILITY,
+<<<<<<< HEAD
             $config->get(Config::OPTION_RETAIN_VISIBILITY, true)
+=======
+            $config->get('retain_visibility', true)
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
                 ? $this->visibility($source)->visibility()
                 : null,
         );

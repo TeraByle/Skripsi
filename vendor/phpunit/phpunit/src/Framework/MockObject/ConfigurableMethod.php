@@ -34,10 +34,15 @@ final class ConfigurableMethod
 
     /**
      * @psalm-param non-empty-string $name
+<<<<<<< HEAD
      * @psalm-param array<int, mixed> $defaultParameterValues
      * @psalm-param non-negative-int $numberOfParameters
      */
     public function __construct(string $name, array $defaultParameterValues, int $numberOfParameters, Type $returnType)
+=======
+     */
+    public function __construct(string $name, Type $returnType)
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     {
         $this->name                   = $name;
         $this->defaultParameterValues = $defaultParameterValues;
@@ -58,6 +63,7 @@ final class ConfigurableMethod
      */
     public function defaultParameterValues(): array
     {
+<<<<<<< HEAD
         return $this->defaultParameterValues;
     }
 
@@ -71,6 +77,8 @@ final class ConfigurableMethod
 
     public function mayReturn(mixed $value): bool
     {
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         return $this->returnType->isAssignable(Type::fromValue($value, false));
     }
 

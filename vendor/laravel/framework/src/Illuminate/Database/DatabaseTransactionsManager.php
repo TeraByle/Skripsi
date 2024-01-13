@@ -8,6 +8,7 @@ class DatabaseTransactionsManager
 {
     /**
      * All of the committed transactions.
+<<<<<<< HEAD
      *
      * @var \Illuminate\Support\Collection<int, \Illuminate\Database\DatabaseTransactionRecord>
      */
@@ -26,6 +27,19 @@ class DatabaseTransactionsManager
      * @var array
      */
     protected $currentTransaction = [];
+=======
+     *
+     * @var \Illuminate\Support\Collection<int, \Illuminate\Database\DatabaseTransactionRecord>
+     */
+    protected $committedTransactions;
+
+    /**
+     * All of the pending transactions.
+     *
+     * @var \Illuminate\Support\Collection<int, \Illuminate\Database\DatabaseTransactionRecord>
+     */
+    protected $pendingTransactions;
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
     /**
      * Create a new database transactions manager instance.
@@ -48,11 +62,15 @@ class DatabaseTransactionsManager
     public function begin($connection, $level)
     {
         $this->pendingTransactions->push(
+<<<<<<< HEAD
             $newTransaction = new DatabaseTransactionRecord(
                 $connection,
                 $level,
                 $this->currentTransaction[$connection] ?? null
             )
+=======
+            new DatabaseTransactionRecord($connection, $level)
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         );
 
         $this->currentTransaction[$connection] = $newTransaction;
@@ -68,6 +86,7 @@ class DatabaseTransactionsManager
      */
     public function commit($connection, $levelBeingCommitted, $newTransactionLevel)
     {
+<<<<<<< HEAD
         $this->stageTransactions($connection, $levelBeingCommitted);
 
         if (isset($this->currentTransaction[$connection])) {
@@ -147,6 +166,11 @@ class DatabaseTransactionsManager
                 );
             }
         }
+=======
+        $this->pendingTransactions = $this->pendingTransactions->reject(
+            fn ($transaction) => $transaction->connection == $connection && $transaction->level > $level
+        )->values();
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 
     /**
@@ -157,12 +181,17 @@ class DatabaseTransactionsManager
      */
     protected function removeAllTransactionsForConnection($connection)
     {
+<<<<<<< HEAD
         $this->currentTransaction[$connection] = null;
 
         $this->pendingTransactions = $this->pendingTransactions->reject(
+=======
+        [$forThisConnection, $forOtherConnections] = $this->committedTransactions->partition(
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             fn ($transaction) => $transaction->connection == $connection
         )->values();
 
+<<<<<<< HEAD
         $this->committedTransactions = $this->committedTransactions->reject(
             fn ($transaction) => $transaction->connection == $connection
         )->values();
@@ -187,6 +216,11 @@ class DatabaseTransactionsManager
         $removedTransactions->each(
             fn ($transaction) => $this->removeCommittedTransactionsThatAreChildrenOf($transaction)
         );
+=======
+        $this->committedTransactions = $forOtherConnections->values();
+
+        $forThisConnection->map->executeCallbacks();
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 
     /**
@@ -205,6 +239,7 @@ class DatabaseTransactionsManager
     }
 
     /**
+<<<<<<< HEAD
      * Get the transactions that are applicable to callbacks.
      *
      * @return \Illuminate\Support\Collection<int, \Illuminate\Database\DatabaseTransactionRecord>
@@ -212,6 +247,45 @@ class DatabaseTransactionsManager
     public function callbackApplicableTransactions()
     {
         return $this->pendingTransactions;
+    }
+
+    /**
+     * Determine if after commit callbacks should be executed for the given transaction level.
+     *
+     * @param  int  $level
+     * @return bool
+     */
+    public function afterCommitCallbacksShouldBeExecuted($level)
+    {
+        return $level === 0;
+=======
+     * Move all the pending transactions to a committed state.
+     *
+     * @param  string  $connection
+     * @return void
+     */
+    public function stageTransactions($connection)
+    {
+        $this->committedTransactions = $this->committedTransactions->merge(
+            $this->pendingTransactions->filter(fn ($transaction) => $transaction->connection === $connection)
+        );
+
+        $this->pendingTransactions = $this->pendingTransactions->reject(
+            fn ($transaction) => $transaction->connection === $connection
+        );
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
+    }
+
+    /**
+     * Get all of the pending transactions.
+     *
+     * @return \Illuminate\Support\Collection<int, \Illuminate\Database\DatabaseTransactionRecord>
+     */
+    public function getPendingTransactions()
+    {
+        return $this->pendingTransactions;
+<<<<<<< HEAD
+=======
     }
 
     /**
@@ -233,6 +307,7 @@ class DatabaseTransactionsManager
     public function getPendingTransactions()
     {
         return $this->pendingTransactions;
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 
     /**

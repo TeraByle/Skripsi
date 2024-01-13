@@ -1300,7 +1300,11 @@ trait ValidatesAttributes
      */
     public function validateHexColor($attribute, $value)
     {
+<<<<<<< HEAD
         return preg_match('/^#(?:(?:[0-9a-f]{3}){1,2}|(?:[0-9a-f]{4}){1,2})$/i', $value) === 1;
+=======
+        return preg_match('/^#(?:[0-9a-fA-F]{3}){1,2}(?:[0-9a-fA-F]{2})?$|^#(?:[0-9a-fA-F]{4}){1,2}$/', $value) === 1;
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 
     /**

@@ -36,7 +36,11 @@ class SQLiteProcessor extends Processor
 
             return [
                 'name' => $result->name,
+<<<<<<< HEAD
                 'type_name' => strtok($type, '(') ?: '',
+=======
+                'type_name' => strtok($type, '('),
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
                 'type' => $type,
                 'collation' => null,
                 'nullable' => (bool) $result->nullable,
@@ -46,6 +50,7 @@ class SQLiteProcessor extends Processor
             ];
         }, $results);
     }
+<<<<<<< HEAD
 
     /**
      * Process the results of an indexes query.
@@ -102,4 +107,6 @@ class SQLiteProcessor extends Processor
             ];
         }, $results);
     }
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 }

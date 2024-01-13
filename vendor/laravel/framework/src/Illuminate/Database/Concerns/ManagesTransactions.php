@@ -47,6 +47,7 @@ trait ManagesTransactions
                     $this->getPdo()->commit();
                 }
 
+<<<<<<< HEAD
                 [$levelBeingCommitted, $this->transactions] = [
                     $this->transactions,
                     max(0, $this->transactions - 1),
@@ -57,6 +58,15 @@ trait ManagesTransactions
                     $levelBeingCommitted,
                     $this->transactions
                 );
+=======
+                $this->transactionsManager?->stageTransactions($this->getName());
+
+                $this->transactions = max(0, $this->transactions - 1);
+
+                if ($this->afterCommitCallbacksShouldBeExecuted()) {
+                    $this->transactionsManager?->commit($this->getName());
+                }
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             } catch (Throwable $e) {
                 $this->handleCommitTransactionException(
                     $e, $currentAttempt, $attempts
@@ -199,10 +209,16 @@ trait ManagesTransactions
             $this->getPdo()->commit();
         }
 
+<<<<<<< HEAD
         [$levelBeingCommitted, $this->transactions] = [
             $this->transactions,
             max(0, $this->transactions - 1),
         ];
+=======
+        $this->transactionsManager?->stageTransactions($this->getName());
+
+        $this->transactions = max(0, $this->transactions - 1);
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
         $this->transactionsManager?->commit(
             $this->getName(), $levelBeingCommitted, $this->transactions
@@ -212,6 +228,19 @@ trait ManagesTransactions
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Determine if after commit callbacks should be executed.
+     *
+     * @return bool
+     */
+    protected function afterCommitCallbacksShouldBeExecuted()
+    {
+        return $this->transactionsManager?->afterCommitCallbacksShouldBeExecuted($this->transactions) || $this->transactions == 0;
+    }
+
+    /**
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      * Handle an exception encountered when committing a transaction.
      *
      * @param  \Throwable  $e

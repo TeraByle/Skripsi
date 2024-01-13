@@ -121,13 +121,18 @@ class SQLiteGrammar extends Grammar
     public function compileColumns($table)
     {
         return sprintf(
+<<<<<<< HEAD
             'select name, type, not "notnull" as "nullable", dflt_value as "default", pk as "primary" '
+=======
+            "select name, type, not 'notnull' as 'nullable', dflt_value as 'default', pk as 'primary' "
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             .'from pragma_table_info(%s) order by cid asc',
             $this->wrap(str_replace('.', '__', $table))
         );
     }
 
     /**
+<<<<<<< HEAD
      * Compile the query to determine the indexes.
      *
      * @param  string  $table
@@ -164,6 +169,8 @@ class SQLiteGrammar extends Grammar
     }
 
     /**
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      * Compile a create table command.
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint

@@ -139,12 +139,19 @@ final class MockMethod
     }
 
     /**
+<<<<<<< HEAD
      * @psalm-param class-string $className
      * @psalm-param non-empty-string $methodName
      * @psalm-param array<int, mixed> $defaultParameterValues
      * @psalm-param non-negative-int $numberOfParameters
      */
     private function __construct(string $className, string $methodName, bool $cloneArguments, string $modifier, string $argumentsForDeclaration, string $argumentsForCall, array $defaultParameterValues, int $numberOfParameters, Type $returnType, string $reference, bool $callOriginalMethod, bool $static, ?string $deprecation)
+=======
+     * @param class-string     $className
+     * @param non-empty-string $methodName
+     */
+    private function __construct(string $className, string $methodName, bool $cloneArguments, string $modifier, string $argumentsForDeclaration, string $argumentsForCall, Type $returnType, string $reference, bool $callOriginalMethod, bool $static, ?string $deprecation)
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     {
         $this->className               = $className;
         $this->methodName              = $methodName;
@@ -363,6 +370,7 @@ EOT;
             );
         }
         // @codeCoverageIgnoreEnd
+<<<<<<< HEAD
     }
 
     /**
@@ -381,5 +389,7 @@ EOT;
         }
 
         return $result;
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 }

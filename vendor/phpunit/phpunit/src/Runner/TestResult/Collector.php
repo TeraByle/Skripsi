@@ -348,10 +348,13 @@ final class Collector
 
     public function testTriggeredDeprecation(DeprecationTriggered $event): void
     {
+<<<<<<< HEAD
         if ($event->ignoredByTest()) {
             return;
         }
 
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         if ($event->ignoredByBaseline()) {
             $this->numberOfIssuesIgnoredByBaseline++;
 
@@ -384,10 +387,13 @@ final class Collector
 
     public function testTriggeredPhpDeprecation(PhpDeprecationTriggered $event): void
     {
+<<<<<<< HEAD
         if ($event->ignoredByTest()) {
             return;
         }
 
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         if ($event->ignoredByBaseline()) {
             $this->numberOfIssuesIgnoredByBaseline++;
 

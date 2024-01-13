@@ -1,5 +1,6 @@
 # Release Notes for 10.x
 
+<<<<<<< HEAD
 ## [Unreleased](https://github.com/laravel/framework/compare/v10.38.1...10.x)
 
 ## [v10.38.1](https://github.com/laravel/framework/compare/v10.38.0...v10.38.1) - 2023-12-20
@@ -150,6 +151,9 @@
 - [10.x] Handle missing translation strings using callback by [@DeanWunder](https://github.com/DeanWunder) in https://github.com/laravel/framework/pull/49040
 - [10.x] Add Str::transliterate to Stringable by [@dwightwatson](https://github.com/dwightwatson) in https://github.com/laravel/framework/pull/49065
 - Add Alpha Channel support to Hex validation rule by [@ahinkle](https://github.com/ahinkle) in https://github.com/laravel/framework/pull/49069
+=======
+## [Unreleased](https://github.com/laravel/framework/compare/v10.32.1...10.x)
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 
 ## [v10.32.1](https://github.com/laravel/framework/compare/v10.32.0...v10.32.1) - 2023-11-14
 

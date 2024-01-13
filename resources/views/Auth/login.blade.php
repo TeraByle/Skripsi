@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="/css/login.css">
     </head>
     <body>
         <div class="background-login">
@@ -13,19 +13,23 @@
                 <div class="login-box">
                     <div class="company-name">PT. CENTRAL UTAMA</div>
                     <div class="form-container">
-                        <form action="/sesi/login" method="POST">
+                        <form action="{{ route('login_store') }}" method="POST">
                         @csrf
                         <div class="form-element">
                             <label for="username" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Username</label>
-                            <input type="text" id="username">
+                            <input type="text" name="username" id="username">
+                            @error('username')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
                         <div class="form-element">
                             <label for="password" style="color: #212B36; font-size: 14px; font-family: Poppins; font-weight: 500;">Password</label>
-                            <input type="password" id="password">
+                            <input type="password" name="password" id="password">
+                            @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         </div>
-                        <div class="sign-in-button">
-                            <a href="/produk">Sign in</a>
-                        </div>
+                        <button class="sign-in-button" type="submit" style="border:none">Sign in</button>
                         </form>
                     </div>
                 </div>

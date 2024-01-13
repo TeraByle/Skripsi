@@ -42,6 +42,7 @@ class MySqlProcessor extends Processor
             ];
         }, $results);
     }
+<<<<<<< HEAD
 
     /**
      * Process the results of an indexes query.
@@ -86,4 +87,6 @@ class MySqlProcessor extends Processor
             ];
         }, $results);
     }
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
 }

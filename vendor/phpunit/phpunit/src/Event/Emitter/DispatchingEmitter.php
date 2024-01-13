@@ -45,6 +45,16 @@ final class DispatchingEmitter implements Emitter
         $this->previousSnapshot = $system->snapshot();
     }
 
+    public function exportObjects(): void
+    {
+        $this->exportObjects = true;
+    }
+
+    public function exportsObjects(): bool
+    {
+        return $this->exportObjects;
+    }
+
     /**
      * @deprecated
      */
@@ -779,7 +789,11 @@ final class DispatchingEmitter implements Emitter
      * @throws InvalidArgumentException
      * @throws UnknownEventTypeException
      */
+<<<<<<< HEAD
     public function testTriggeredPhpDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest): void
+=======
+    public function testTriggeredPhpDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline): void
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     {
         $this->dispatcher->dispatch(
             new Test\PhpDeprecationTriggered(
@@ -790,7 +804,10 @@ final class DispatchingEmitter implements Emitter
                 $line,
                 $suppressed,
                 $ignoredByBaseline,
+<<<<<<< HEAD
                 $ignoredByTest,
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             ),
         );
     }
@@ -799,7 +816,11 @@ final class DispatchingEmitter implements Emitter
      * @throws InvalidArgumentException
      * @throws UnknownEventTypeException
      */
+<<<<<<< HEAD
     public function testTriggeredDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest): void
+=======
+    public function testTriggeredDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline): void
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     {
         $this->dispatcher->dispatch(
             new Test\DeprecationTriggered(
@@ -810,7 +831,10 @@ final class DispatchingEmitter implements Emitter
                 $line,
                 $suppressed,
                 $ignoredByBaseline,
+<<<<<<< HEAD
                 $ignoredByTest,
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
             ),
         );
     }

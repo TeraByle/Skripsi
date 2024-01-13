@@ -92,17 +92,23 @@ final class Facade
         return $this->requiresCodeCoverageCollection;
     }
 
+<<<<<<< HEAD
     /**
      * @deprecated
      */
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     public function requireExportOfObjects(): void
     {
         $this->requiresExportOfObjects = true;
     }
 
+<<<<<<< HEAD
     /**
      * @deprecated
      */
+=======
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     public function requiresExportOfObjects(): bool
     {
         return $this->requiresExportOfObjects;

@@ -321,7 +321,11 @@ trait EnumeratesValues
      *
      * @template TEnsureOfType
      *
+<<<<<<< HEAD
      * @param  class-string<TEnsureOfType>|array<array-key, class-string<TEnsureOfType>>  $type
+=======
+     * @param  class-string<TEnsureOfType>  $type
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      * @return static<TKey, TEnsureOfType>
      *
      * @throws \UnexpectedValueException

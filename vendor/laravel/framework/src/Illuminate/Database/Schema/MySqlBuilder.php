@@ -104,11 +104,16 @@ class MySqlBuilder extends Builder
     }
 
     /**
+<<<<<<< HEAD
      * Get the indexes for a given table.
+=======
+     * Get the columns for a given table.
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      *
      * @param  string  $table
      * @return array
      */
+<<<<<<< HEAD
     public function getIndexes($table)
     {
         $table = $this->connection->getTablePrefix().$table;
@@ -117,6 +122,14 @@ class MySqlBuilder extends Builder
             $this->connection->selectFromWriteConnection(
                 $this->grammar->compileIndexes($this->connection->getDatabaseName(), $table)
             )
+=======
+    public function getColumns($table)
+    {
+        $table = $this->connection->getTablePrefix().$table;
+
+        $results = $this->connection->selectFromWriteConnection(
+            $this->grammar->compileColumns($this->connection->getDatabaseName(), $table)
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         );
     }
 
@@ -130,11 +143,15 @@ class MySqlBuilder extends Builder
     {
         $table = $this->connection->getTablePrefix().$table;
 
+<<<<<<< HEAD
         return $this->connection->getPostProcessor()->processForeignKeys(
             $this->connection->selectFromWriteConnection(
                 $this->grammar->compileForeignKeys($this->connection->getDatabaseName(), $table)
             )
         );
+=======
+        return $this->connection->getPostProcessor()->processColumns($results);
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     }
 
     /**

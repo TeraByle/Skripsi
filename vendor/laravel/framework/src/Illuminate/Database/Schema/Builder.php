@@ -311,10 +311,17 @@ class Builder
     {
         if (! $this->connection->usingNativeSchemaOperations()) {
             $table = $this->connection->getTablePrefix().$table;
+<<<<<<< HEAD
 
             return $this->connection->getDoctrineColumn($table, $column)->getType()->getName();
         }
 
+=======
+
+            return $this->connection->getDoctrineColumn($table, $column)->getType()->getName();
+        }
+
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         $columns = $this->getColumns($table);
 
         foreach ($columns as $value) {
@@ -336,6 +343,7 @@ class Builder
     {
         return array_column($this->getColumns($table), 'name');
     }
+<<<<<<< HEAD
 
     /**
      * Get the columns for a given table.
@@ -369,16 +377,30 @@ class Builder
 
     /**
      * Get the foreign keys for a given table.
+=======
+
+    /**
+     * Get the columns for a given table.
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
      *
      * @param  string  $table
      * @return array
      */
+<<<<<<< HEAD
     public function getForeignKeys($table)
     {
         $table = $this->connection->getTablePrefix().$table;
 
         return $this->connection->getPostProcessor()->processForeignKeys(
             $this->connection->selectFromWriteConnection($this->grammar->compileForeignKeys($table))
+=======
+    public function getColumns($table)
+    {
+        $table = $this->connection->getTablePrefix().$table;
+
+        return $this->connection->getPostProcessor()->processColumns(
+            $this->connection->selectFromWriteConnection($this->grammar->compileColumns($table))
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
         );
     }
 

@@ -24,12 +24,21 @@
     "require-dev": {
         "doctrine/dbal": "^2.13.1|^3|^4",
         "predis/predis": "^1.1|^2.0",
+<<<<<<< HEAD
         "symfony/cache": "^6.3|^7.0",
         "symfony/dependency-injection": "^5.4|^6.0|^7.0",
         "symfony/http-kernel": "^5.4.12|^6.0.12|^6.1.4|^7.0",
         "symfony/mime": "^5.4|^6.0|^7.0",
         "symfony/expression-language": "^5.4|^6.0|^7.0",
         "symfony/rate-limiter": "^5.4|^6.0|^7.0"
+=======
+        "symfony/cache": "^6.3",
+        "symfony/dependency-injection": "^5.4|^6.0",
+        "symfony/http-kernel": "^5.4.12|^6.0.12|^6.1.4",
+        "symfony/mime": "^5.4|^6.0",
+        "symfony/expression-language": "^5.4|^6.0",
+        "symfony/rate-limiter": "^5.2|^6.0"
+>>>>>>> c0d994e62d4043d8543b32dffe73d33a585d4cf4
     },
     "conflict": {
         "symfony/cache": "<6.3"
