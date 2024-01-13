@@ -50,7 +50,7 @@
                             </div>
                             <div class="form-field">
                                 <label for="category">Nama Barang</label>
-                                <input type="text" id="nama" name="NamaBarang" value="{{Session::get('NamaBarang')}}" disabled>
+                                <input type="text" id="nama" name="NamaBarang" value="{{Session::get('NamaBarang')}}" style="background: rgba(196, 196, 196, 0.50);" disabled>
                                 @error('NamaBarang')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -60,14 +60,14 @@
                         <div class="form-section">
                             <div class="form-field">
                                 <label for="name">kategori Barang</label>
-                                <input type="text" id="kategori" name="KategoriBarang" value="{{Session::get('KategoriBarang')}}" disabled>
+                                <input type="text" id="kategori" name="KategoriBarang" value="{{Session::get('KategoriBarang')}}" style="background: rgba(196, 196, 196, 0.50);" disabled>
                                 @error('KategoriBarang')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-field">
                                 <label for="code">Satuan Barang</label>
-                                <input type="text" id="satuan" name="SatuanBarang" value="{{Session::get('SatuanBarang')}}" disabled>
+                                <input type="text" id="satuan" name="SatuanBarang" value="{{Session::get('SatuanBarang')}}" style="background: rgba(196, 196, 196, 0.50);" disabled>
                                 @error('SatuanBarang')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

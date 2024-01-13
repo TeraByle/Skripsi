@@ -150,3 +150,23 @@ height: 48px;
 .my-float{
 	margin-top:16px;
 }
+
+.btn{
+    margin-left: 10px;
+    border-radius: 0;
+    color: #FF9F43;
+    border-color: #FF9F43;
+}
+
+.pagination{
+    padding-left: 24px;
+}
+
+.active>.page-link{
+    background-color: #FF9F43;
+    border-color: #FF9F43;
+}
+
+.page-link{
+    color: #FF9F43;
+}
