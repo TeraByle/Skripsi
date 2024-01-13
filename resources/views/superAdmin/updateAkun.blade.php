@@ -18,9 +18,7 @@
                         <div class="user-name">Zhofar Putra</div>
                         <div class="user-role">Super Admin</div>
                     </div>
-                    <div class="arrow-icon">
-                        <img src="/assets/images/LogOut.png" alt="logout">
-                    </div>
+                    <form action="{{ route('logout') }}" method="POST">
                 </div>
             </div>
         </div>
