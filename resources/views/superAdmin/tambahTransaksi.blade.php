@@ -50,7 +50,7 @@
                             </div>
                             <div class="form-field">
                                 <label for="category">Nama Barang</label>
-                                <input type="text" id="nama" name="NamaBarang" value="{{Session::get('NamaBarang')}}">
+                                <input type="text" id="nama" name="NamaBarang" value="{{Session::get('NamaBarang')}}" disabled>
                                 @error('NamaBarang')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -60,14 +60,14 @@
                         <div class="form-section">
                             <div class="form-field">
                                 <label for="name">kategori Barang</label>
-                                <input type="text" id="kategori" name="KategoriBarang" value="{{Session::get('KategoriBarang')}}">
+                                <input type="text" id="kategori" name="KategoriBarang" value="{{Session::get('KategoriBarang')}}" disabled>
                                 @error('KategoriBarang')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-field">
                                 <label for="code">Satuan Barang</label>
-                                <input type="text" id="satuan" name="SatuanBarang" value="{{Session::get('SatuanBarang')}}">
+                                <input type="text" id="satuan" name="SatuanBarang" value="{{Session::get('SatuanBarang')}}" disabled>
                                 @error('SatuanBarang')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

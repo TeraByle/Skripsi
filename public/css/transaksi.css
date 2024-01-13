@@ -289,3 +289,23 @@
     margin-top: 68px;
     border: none;
 }
+
+.search-btn {
+    margin-left: 10px;
+    border-radius: 0;
+    color: #FF9F43;
+    border-color: #FF9F43;
+}
+
+.search-btn:hover {
+    border-color: #FF9F43;
+    background-color: #FF9F43;
+}
+
+.text-center-nama{
+    /* display: -webkit-box; */
+    max-width: 180px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

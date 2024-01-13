@@ -55,6 +55,7 @@ class AdminsController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
+            'role'=> $request->role,
             'password' => bcrypt($request->password),
         ];
 
@@ -90,12 +91,13 @@ class AdminsController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
+            'role'=>$request->role,
             'password' => bcrypt($request->password),
         ];
 
 
         $user->roles()->detach();
-        $user->assignRole($request->role);
+        // $user->assignRole($request->role);
         $user->update($update_account);
 
         // dd($update_account);

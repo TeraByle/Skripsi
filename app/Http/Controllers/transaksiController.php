@@ -62,37 +62,40 @@ class transaksiController extends Controller
 
     public function store(Request $request)
     {
+        $data = Barang::where('KodeBarang', '=', $request->KodeBarang)->first();
+        // dd($request);
         $request->validate([
             'KodeBarang' => 'required',
-            'NamaBarang' => 'required',
-            'KategoriBarang' => 'required',
-            'SatuanBarang' => 'required',
-            'StokBarang' => 'required|numeric',
+            'StokBarang' => 'required|numeric|lt:'.$data->StokBarang,
             'HargaJual' => 'required|numeric',
             // 'tanggal'=>'required'
         ],
         [
             'KodeBarang.required' => 'Kode Barang wajib diisi',
             'KodeBarang.unique' => 'Kode Barang sudah digunakan',
-            'NamaBarang.required' => 'Nama Barang wajib diisi',
-            'KategoriBarang.required' => 'Kategori Barang wajib diisi',
-            'SatuanBarang.required' => 'Satuan Barang wajib diisi',
             'StokBarang.required' => 'Jumlah Barang wajib diisi',
+            'StokBarang.lt' => 'Jumlah Barang lebih banyak dari stock yang tersedia',
             'HargaJual.required' => 'Harga Barang wajib diisi',
         ]);
 
-        $data = [
+        // dd($data->StokBarang); // 189
+        $newData = [
             'TransaksiId' => Transaksi::getTransactionId(),
             'KodeBarang' => $request->KodeBarang,
-            'NamaBarang' => $request->NamaBarang,
-            'KategoriBarang' => $request->KategoriBarang,
-            'SatuanBarang' => $request->SatuanBarang,
+
+            'NamaBarang' => $data->NamaBarang,
+            'KategoriBarang' => $data->KategoriBarang,
+            'SatuanBarang' => $data->SatuanBarang,
+
             'StokBarang' => $request->StokBarang,
             'HargaJual' => $request->HargaJual,
             'tanggal' => Carbon::now()->toDateString(),
         ];
+        $data->StokBarang = $data->StokBarang - $request->StokBarang;
+        $data->save();
 
-        Transaksi::create($data);
+        // dd($data->StokBarang);
+        Transaksi::create($newData);
 
         return redirect()->to('superAdmin/transaksi')->with('success', 'Data berhasil ditambah');
     }

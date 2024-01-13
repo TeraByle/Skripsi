@@ -38,9 +38,9 @@
                 <div class="button-table">
                     <div class="input-group">
                     <form class="d-flex" action="{{route(('transaksi'))}}" method="get">
-                            <input type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
+                            <input  type="search" name="search" value="{{Request::get('search')}}" class="form-control rounded"
                             placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
-                            <button type="submit" class="btn btn-outline-primary">Search</button>
+                            <button  type="submit" class="btn btn-outline-primary search-btn">Search</button>
                         </form>
                     </div>
                     <button class="button-barang">
@@ -88,7 +88,7 @@
                                     <td class="text-center">{{ $counter++ }}</td>
                                     <td class="text-center">{{ $item->TransaksiId }}</td>
                                     <td class="text-center">{{ $item->KodeBarang }}</td>
-                                    <td class="text-center">{{ $item->NamaBarang }}</td>
+                                    <td class="text-center-nama">{{ $item->NamaBarang }}</td>
                                     <td class="text-center">{{ $item->SatuanBarang }}</td>
                                     <td class="text-center">{{ $item->KategoriBarang }}</td>
                                     <td class="text-center">{{ $item->StokBarang }}</td>

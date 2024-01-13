@@ -80,9 +80,10 @@
                                 <label for="rolesid">Update Roles</label>
                                 <select name="role" >
                                     <option value="option_select" disabled selected> Pilih role untuk akun </option>
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
-                                    @endforeach
+
+                                        <option value="superAdmin">Super Admin</option>
+                                        <option value="admin">Admin</option>
+
                                 </select>
                                 @error('role')
                                     <span class="text-danger">{{ $message }}</span>

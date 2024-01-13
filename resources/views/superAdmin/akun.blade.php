@@ -17,7 +17,7 @@
             <div class="content-header">
                 <div class="user-info">
                     <div class="user-details">
-                        <div class="user-name">Zhofar Putra</div>
+                        <div class="user-name">{{Auth::user()->name}}</div>
                         <div class="user-role">Admin</div>
                     </div>
                     <form action="{{ route('logout') }}" method="POST">
