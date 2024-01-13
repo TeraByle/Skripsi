@@ -19,6 +19,11 @@
                         <div class="user-role">Super Admin</div>
                     </div>
                     <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" style="border: none; background: none; padding: 0;">
+                            <img src="/assets/images/LogOut.png" alt="logout" style="width: 30px; height: 30px;">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
