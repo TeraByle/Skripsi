@@ -32,10 +32,6 @@ class LoginController extends Controller
         ];
         if(Auth::attempt($infologin)){
             return redirect('admin/dashboard');
-            // if(Auth::user()->role == 'superAdmin'){
-            // }else{
-            //     return redirect('admin/homepage');
-            // }
 
         }else{
             return redirect('/login')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();

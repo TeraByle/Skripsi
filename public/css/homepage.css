@@ -170,3 +170,7 @@ height: 48px;
 .page-link{
     color: #FF9F43;
 }
+
+a {
+    text-decoration: none;
+}

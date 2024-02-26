@@ -32,15 +32,13 @@ class AdminsController extends Controller
     }
 
 
-
-
     public function create()
     {
         $roles=Role::all();
 
-
         return view('superAdmin/tambahAkun', compact('roles'));
     }
+
 
     public function store(Request $request){
         $request->validate([
@@ -61,8 +59,7 @@ class AdminsController extends Controller
 
         // Menetapkan role ke user yang baru dibuat
         $user = User::create($new_account);
-        $user->assignRole($request->role);
-
+        //$user->assignRole($request->role);
 
         return redirect()->route('account_management');
 
@@ -75,6 +72,7 @@ class AdminsController extends Controller
         return view('superAdmin/updateAkun', compact('admin','roles'));
 
     }
+
 
     public function update(Request $request ,$id){
         $request->validate([
@@ -104,6 +102,7 @@ class AdminsController extends Controller
         return redirect()->route('account_management')->with('success', 'Data berhasil di ubah');
 
     }
+
 
     public function destroy($id){
         $admin = User::findOrFail($id);

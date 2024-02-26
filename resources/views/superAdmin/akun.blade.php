@@ -96,7 +96,6 @@
                                         </button>
                                     </form>
                                 </td>
-
                             </tr>
                             <?php $i++; ?>
                             @endforeach

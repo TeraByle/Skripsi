@@ -357,3 +357,7 @@ background-color:#FE9F43; /* Warna latar belakang tombol saat dihover */
 .page-link{
     color: #FF9F43;
 }
+
+a {
+    text-decoration: none;
+}
