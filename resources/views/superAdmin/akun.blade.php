@@ -36,7 +36,6 @@
                 <h2>Manajemen Akun</h2>
                 <p>Kelola Manajemen Akun Anda</p>
                 <div class="button-table">
-                    <img src="/assets/images/Filter.png" alt="">
                     <div class="input-group">
                         <form class="d-flex" action="{{ url('superAdmin/akun') }}" method="get">
                             <input type="search" name="search" value="{{ Request::get('search') }}" class="form-control rounded"
