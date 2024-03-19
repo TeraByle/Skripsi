@@ -140,9 +140,11 @@ class transaksiController extends Controller
 
 
             $transaksi = Transaksi::findOrFail($id);
+            $dataBarang = Barang::where('KodeBarang', '=', $transaksi->KodeBarang)->first();
+                            $dataBarang->StokBarang = $dataBarang->StokBarang + $transaksi->StokBarang;
             $transaksi->update($data);
-            // dd($data);
-
+                            $dataBarang->StokBarang = $dataBarang->StokBarang - $transaksi->StokBarang;
+            $dataBarang->save();
 
         return redirect()->route('transaksi')->with('success', 'Data berhasil diubah');
     }
@@ -151,7 +153,11 @@ class transaksiController extends Controller
             public function destroy(string $id)
                 {
                             $transaksi = transaksi::findOrFail($id);
+                            $data = Barang::where('KodeBarang', '=', $transaksi->KodeBarang)->first();
+                            $data->StokBarang = $data->StokBarang + $transaksi->StokBarang;
+                            $data->save();
                             $transaksi->delete();
+
 
                         return redirect()->route('transaksi')->with('success', 'Data berhasil dihapus');
                 }
