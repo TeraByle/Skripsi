@@ -74,7 +74,7 @@
                                 <th class="text-center" scope="col">Jumlah Barang</th>
                                 <th class="text-center" scope="col">Harga Barang</th>
                                 <th class="text-center" scope="col">Tanggal Transaksi</th>
-                                <th class="text-center">Aksi</th>
+                                <!--<th class="text-center">Aksi</th>-->
                             </tr>
                         </thead>
 
@@ -94,7 +94,7 @@
                                     <td class="text-center">{{ $item->StokBarang }}</td>
                                     <td class="text-center">Rp {{ $item->HargaJual }}</td>
                                     <td class="text-center">{{ $item->tanggal }}</td>
-                                    <td>
+                                    <!-- <td>
                                         <a href="{{ route('edit_transaksi', ['id' => $item->id]) }}">
                                             <img src="/assets/images/Edit.png" alt="edit">
                                         </a>
@@ -105,7 +105,7 @@
                                                 <img src="/assets/images/Remove.png" alt="remove">
                                             </button>
                                         </form>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             @endforeach
                     </table>
